@@ -5,6 +5,9 @@
  */
 package fi.antiik.hockeygamehandler;
 
+import fi.antiik.hockeygamehandler.*;
+import fi.antiik.hockeygamehandler.logic.*;
+
 import java.util.*;
 
 /**
@@ -16,6 +19,18 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hei maailma!");
+        Standings standing = new Standings("Testi");
+        Player janne = new Player("Janne");
+        Player ville = new Player("ville");
+        Player janne1 = new Player(("Janne"));
+        Player janne2 = new Player("janne");
+        standing.addPlayer(janne);
+        standing.addPlayer(ville);
+        standing.addPlayer(janne1);
+        standing.addPlayer(janne2);
+        ArrayList<Player> test = standing.getStandings();
+        for (Player player : test) {
+            System.out.println(player);
+        }
     }
 }
