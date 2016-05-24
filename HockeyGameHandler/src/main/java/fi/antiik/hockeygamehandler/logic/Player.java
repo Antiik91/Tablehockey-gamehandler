@@ -7,7 +7,7 @@ package fi.antiik.hockeygamehandler.logic;
 
 import java.util.Objects;
 
-public class Player {
+public class Player implements Comparable<Player>{
 
     private String name;
     private int gamesPlayed;
@@ -145,9 +145,6 @@ public class Player {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -155,16 +152,32 @@ public class Player {
             return false;
         }
         final Player other = (Player) obj;
-        if (this.points < other.points ) {
+        if (this.won != other.won) {
             return false;
         }
-        if (this.won < other.won) {
+        if (this.points != other.points) {
             return false;
         }
-        if (this.goalsFor < other.goalsFor) {
+        if (this.goalsFor != other.goalsFor) {
             return false;
         }
         return true;
     }
+
+    @Override
+    public int compareTo(Player o) {
+        if(this.points > o.points) return 1;
+        if( this.points == o.points){
+            if(this.won > o.won) return 1;
+            if(this.won == o.won){
+                if(this.goalsFor > o.goalsFor) return 1;
+                if(this.goalsFor == o.goalsFor) return 0;
+            }
+        }
+        
+        return -1;
+    }
+
+
     
 }

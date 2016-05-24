@@ -26,6 +26,7 @@ public class Standings {
     }
 
     public ArrayList<Player> getStandings() {
+        Collections.sort(standings);
         return this.standings;
     }
 
