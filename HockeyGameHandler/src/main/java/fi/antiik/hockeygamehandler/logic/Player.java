@@ -135,7 +135,6 @@ public class Player implements Comparable<Player>{
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + this.gamesPlayed;
         return hash;
     }
 
@@ -148,10 +147,7 @@ public class Player implements Comparable<Player>{
             return false;
         }
         final Player other = (Player) obj;
-        if (this.name != other.name) {
-            return false;
-        }
-        if (this.gamesPlayed != other.gamesPlayed) {
+        if (!this.name.equals(other.name)) {
             return false;
         }
 
