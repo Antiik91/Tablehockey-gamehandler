@@ -20,7 +20,7 @@ public class Player implements Comparable<Player>{
     private int winPrecentage;
 
     public Player(String name) {
-
+        this.name = name;
 
     }
 //  ******************************* Getters and Setters *****************************

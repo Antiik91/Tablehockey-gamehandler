@@ -43,14 +43,13 @@ public class Standings {
 
     public boolean standingsContainPlayer(String name) {
         boolean found = false;
-        if(!standings.isEmpty()){
         for (Player player : standings) {
             if (name.toLowerCase().equals(player.getName().toLowerCase())) {
                 found = true;
                 break;
             }
         }
-        }
+        
         return found;
     }
 
