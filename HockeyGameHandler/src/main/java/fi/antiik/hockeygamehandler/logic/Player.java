@@ -20,11 +20,7 @@ public class Player implements Comparable<Player>{
     private int winPrecentage;
 
     public Player(String name) {
-        if (!name.isEmpty()) {
-            this.name = name;
-        } else {
-            System.out.println("Name cannot be empty!");
-        }
+
 
     }
 //  ******************************* Getters and Setters *****************************
@@ -104,7 +100,7 @@ public class Player implements Comparable<Player>{
     }
 
     public int getWinPrecentage() {
-        this.winPrecentage = (this.won * this.gamesPlayed) / 100;
+        this.winPrecentage = (this.won * 100)/this.gamesPlayed;
         return winPrecentage;
     }
 
@@ -152,30 +148,28 @@ public class Player implements Comparable<Player>{
             return false;
         }
         final Player other = (Player) obj;
-        if (this.won != other.won) {
+        if (this.name != other.name) {
             return false;
         }
-        if (this.points != other.points) {
+        if (this.gamesPlayed != other.gamesPlayed) {
             return false;
         }
-        if (this.goalsFor != other.goalsFor) {
-            return false;
-        }
+
         return true;
     }
 
     @Override
     public int compareTo(Player o) {
-        if(this.points > o.points) return 1;
+        if(this.points > o.points) return -1;
         if( this.points == o.points){
-            if(this.won > o.won) return 1;
+            if(this.won > o.won) return -1;
             if(this.won == o.won){
-                if(this.goalsFor > o.goalsFor) return 1;
+                if(this.goalsFor > o.goalsFor) return -1;
                 if(this.goalsFor == o.goalsFor) return 0;
             }
         }
         
-        return -1;
+        return 1;
     }
 
 

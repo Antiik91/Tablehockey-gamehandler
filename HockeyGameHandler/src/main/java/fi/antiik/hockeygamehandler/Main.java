@@ -22,12 +22,20 @@ public class Main {
         Standings standing = new Standings("Testi");
         Player janne = new Player("Janne");
         Player ville = new Player("ville");
-        Player janne1 = new Player(("Janne"));
-        Player janne2 = new Player("janne");
+        Player jarkko = new Player("Jarkko");
         standing.addPlayer(janne);
         standing.addPlayer(ville);
-        standing.addPlayer(janne1);
-        standing.addPlayer(janne2);
+        standing.addPlayer(jarkko);
+        janne.addGame(1, 3);
+        ville.addGame(9, 3);
+        janne.addGame(5, 1);
+        janne.addGame(4, 0);
+        janne.addGame(0, 2);
+        janne.addGame(1, 4);
+        System.out.println("Jannen pisteet: " + janne.getPoints());
+        System.out.println("Villen pisteet: " + ville.getPoints());
+        System.out.println("Jarkon pisteet: " + jarkko.getPoints());
+        System.out.println("Jannen voittopros: " + janne.getWinPrecentage());
         ArrayList<Player> test = standing.getStandings();
         for (Player player : test) {
             System.out.println(player);
