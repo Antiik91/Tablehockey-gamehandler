@@ -18,30 +18,45 @@ public class Standings {
 
     public Standings(String name) {
         this.name = name;
-        this.standings = new ArrayList<>();
+        this.standings = new ArrayList<Player>();
     }
 
     public String getName() {
         return name;
     }
 
+    public int getSize() {
+        return standings.size();
+    }
+
     public ArrayList<Player> getStandings() {
-        if(!standings.isEmpty()){
-        Collections.sort(standings);
+        if (!standings.isEmpty()) {
+            Collections.sort(standings);
         }
-        //Collections.reverse(standings);
         return this.standings;
     }
 
-    public void addPlayer(Player player) {
-        if (!standingsContainPlayer(player.getName())) {
-            this.standings.add(player);
+    public void addPlayer(String name) {
+        if (!standingsContainsPlayer(name)) {
+            this.standings.add(new Player(name));
         } else {
             System.out.println("Player is in the standings already!");
         }
     }
 
-    public boolean standingsContainPlayer(String name) {
+    public Player getPlayer(String name) {
+        for (Player player : standings) {
+            if (name.toLowerCase().equals(player.getName().toLowerCase())) {
+                return player;
+            }
+        }
+        return null;
+    }
+
+    public boolean standingsContainsPlayer(String name) {
+        if (this.standings.isEmpty()) {
+            return false;
+        }
         boolean found = false;
         for (Player player : standings) {
             if (name.toLowerCase().equals(player.getName().toLowerCase())) {
@@ -49,7 +64,6 @@ public class Standings {
                 break;
             }
         }
-        
         return found;
     }
 

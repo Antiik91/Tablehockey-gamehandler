@@ -7,12 +7,12 @@ package fi.antiik.hockeygamehandler.logic;
 
 import java.util.Objects;
 
-public class Player implements Comparable<Player>{
+public class Player implements Comparable<Player> {
 
     private String name;
     private int gamesPlayed;
-    private int won;
-    private int losts;
+    private int wins;
+    private int losses;
     private int ties;
     private int points;
     private int goalsFor;
@@ -39,23 +39,23 @@ public class Player implements Comparable<Player>{
         }
     }
 
-    public int getWon() {
-        return won;
+    public int getWins() {
+        return wins;
     }
 
-    public void setWon(int won) {
-        if (won >= 0) {
-            this.won = won;
+    public void setWins(int wins) {
+        if (wins >= 0) {
+            this.wins = wins;
         }
     }
 
-    public int getLosts() {
-        return losts;
+    public int getLosses() {
+        return losses;
     }
 
-    public void setLosts(int losts) {
-        if (losts >= 0) {
-            this.losts = losts;
+    public void setLosses(int losses) {
+        if (losses >= 0) {
+            this.losses = losses;
         }
     }
 
@@ -100,34 +100,34 @@ public class Player implements Comparable<Player>{
     }
 
     public int getWinPrecentage() {
-        this.winPrecentage = (this.won * 100)/this.gamesPlayed;
+        this.winPrecentage = (this.wins * 100) / this.gamesPlayed;
         return winPrecentage;
     }
 
     // *************************************************************************************
-   
     /* addGame adds player stats from a game, and handling the points. if the player
-       scored more goals than his opponent it resulst a win, and it will add 3 points.
-       if scored less then a loss count is increased
-       and if the game is tie, one point is added
-    */
+     scored more goals than his opponent it resulst a win, and it will add 3 points.
+     if scored less then a loss count is increased
+     and if the game is tie, one point is added
+     */
     public void addGame(int goalsFor, int goalsAgainst) {
         this.goalsFor += goalsFor;
         this.goalsAgainst += goalsAgainst;
         this.gamesPlayed++;
         if (goalsFor > goalsAgainst) {
-            this.won++;
+            this.wins++;
             this.points += 3;
         } else if (goalsFor < goalsAgainst) {
-            this.losts++;
+            this.losses++;
         } else {
             this.ties++;
             this.points++;
         }
 
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.name;
     }
 
@@ -156,18 +156,24 @@ public class Player implements Comparable<Player>{
 
     @Override
     public int compareTo(Player o) {
-        if(this.points > o.points) return -1;
-        if( this.points == o.points){
-            if(this.won > o.won) return -1;
-            if(this.won == o.won){
-                if(this.goalsFor > o.goalsFor) return -1;
-                if(this.goalsFor == o.goalsFor) return 0;
+        if (this.points > o.points) {
+            return -1;
+        }
+        if (this.points == o.points) {
+            if (this.wins > o.wins) {
+                return -1;
+            }
+            if (this.wins == o.wins) {
+                if (this.goalsFor > o.goalsFor) {
+                    return -1;
+                }
+                if (this.goalsFor == o.goalsFor) {
+                    return 0;
+                }
             }
         }
-        
+
         return 1;
     }
 
-
-    
 }
