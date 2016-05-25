@@ -38,7 +38,6 @@ public class PlayerTest {
     }
 
     // *******************************Testing for setters. No negative parameters are allowed *************************************
-
     @Test
     public void noNegativeGoalsFor() {
         player.addGame(2, 1);
@@ -151,5 +150,59 @@ public class PlayerTest {
             player.addGame(0, i);
         }
         assertEquals(0, player.getWinPrecentage());
+    }
+
+    @Test
+    public void equalityCheck() {
+        Player p1 = new Player("P1");
+        Player p2 = new Player("P1");
+        boolean isSame = false;
+        if (p1.equals(p2)) {
+            isSame = true;
+        }
+        assertEquals(true, isSame);
+    }
+
+    @Test
+    public void compareCheckP1MorePoints() {
+        Player p1 = new Player("P1");
+        Player p2 = new Player("P2");
+
+        p1.addGame(4, 1);
+        p2.addGame(1, 4);
+        int result = p1.compareTo(p2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareCheckP1EqualPointsEqualWinsMoreGoals() {
+        Player p1 = new Player("P1");
+        Player p2 = new Player("P2");
+        p1.addGame(4, 1);
+        p2.addGame(2, 0);
+        int result = p1.compareTo(p2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareCheckP1WqualPointsMoreWins() {
+        Player p1 = new Player("P1");
+        Player p2 = new Player("P2");
+        p1.addGame(10, 0);
+        for (int i = 0; i < 3; i++) {
+            p2.addGame(1, 1);
+        }
+        int result = p1.compareTo(p2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareCheckEquals() {
+        Player p1 = new Player("P1");
+        Player p2 = new Player("P2");
+        p1.addGame(3, 3);
+        p2.addGame(3, 3);
+        int result = p1.compareTo(p2);
+        assertEquals(0, result);
     }
 }

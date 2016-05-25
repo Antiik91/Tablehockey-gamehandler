@@ -1,4 +1,3 @@
-
 package fi.antiik.hockeygamehandler.logic;
 
 import java.io.Serializable;
@@ -123,8 +122,6 @@ public class Player implements Comparable<Player>, Serializable {
 
     }
 
-
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -170,10 +167,9 @@ public class Player implements Comparable<Player>, Serializable {
         return 1;
     }
 
-    
-        @Override
+    @Override
     public String toString() {
-        return this.name + " " + this.gamesPlayed + " " + this.wins + " " + this.losses + " " + this.ties + " " +
-                this.goalsFor + " " + this.goalsAgainst + " " + this.winPrecentage + " " + this.points;
+        return this.name + " " + this.gamesPlayed + " " + this.wins + " " + this.losses + " " + this.ties + " "
+                + this.goalsFor + " " + this.goalsAgainst + " " + this.winPrecentage + " " + this.points;
     }
 }

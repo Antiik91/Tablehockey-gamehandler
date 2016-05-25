@@ -17,7 +17,7 @@ import java.util.*;
  *
  */
 public class Main {
-    
+
     public static void main(String[] args) {
         Standings standing = new Standings("Testi");
         standing.addPlayer("Janne");
@@ -27,8 +27,8 @@ public class Main {
         standing.printStandings();
         standing.getPlayer("Janne").addGame(4, 1);
         standing.printStandings();
-        standing.getPlayer("Janne").addGame(2,2);
+        standing.getPlayer("Janne").addGame(2, 2);
         standing.printStandings();
-        
+
     }
 }
