@@ -1,10 +1,6 @@
 package fi.antiik.hockeygamehandler.logic;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
  *
  * @author janantik
@@ -35,6 +31,14 @@ public class Standings implements Serializable {
             Collections.sort(standings);
         }
         return this.standings;
+    }
+    
+    public void printStandings(){
+        Collections.sort(standings);
+        System.out.println("Name Games Wins Losses Ties GoalsFor GoalsAgainst Win% Points");
+        for (Player player : standings) {
+            System.out.println(player);
+        }
     }
 
     public void addPlayer(String name) {

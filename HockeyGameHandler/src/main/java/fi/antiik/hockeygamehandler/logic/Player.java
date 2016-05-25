@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fi.antiik.hockeygamehandler.logic;
 
 import java.io.Serializable;
@@ -127,10 +123,7 @@ public class Player implements Comparable<Player>, Serializable {
 
     }
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+
 
     @Override
     public int hashCode() {
@@ -177,4 +170,10 @@ public class Player implements Comparable<Player>, Serializable {
         return 1;
     }
 
+    
+        @Override
+    public String toString() {
+        return this.name + " " + this.gamesPlayed + " " + this.wins + " " + this.losses + " " + this.ties + " " +
+                this.goalsFor + " " + this.goalsAgainst + " " + this.winPrecentage + " " + this.points;
+    }
 }

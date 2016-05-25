@@ -22,9 +22,13 @@ public class Main {
         Standings standing = new Standings("Testi");
         standing.addPlayer("Janne");
         standing.addPlayer("Kalle");
-        ArrayList<Player> test = standing.getStandings();
-        for (Player player : test) {
-            System.out.println(player);
-        }
+        standing.printStandings();
+        standing.getPlayer("Kalle").addGame(3, 2);
+        standing.printStandings();
+        standing.getPlayer("Janne").addGame(4, 1);
+        standing.printStandings();
+        standing.getPlayer("Janne").addGame(2,2);
+        standing.printStandings();
+        
     }
 }
