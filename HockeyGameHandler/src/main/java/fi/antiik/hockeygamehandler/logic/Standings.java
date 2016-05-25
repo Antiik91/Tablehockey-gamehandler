@@ -9,9 +9,10 @@ package fi.antiik.hockeygamehandler.logic;
  *
  * @author janantik
  */
+import java.io.Serializable;
 import java.util.*;
 
-public class Standings {
+public class Standings implements Serializable {
 
     private ArrayList<Player> standings;
     private String name;
