@@ -13,3 +13,7 @@ sarjataulukoihin, joista pelaajien välisiä turnauksia on helppo seurata ja yll
      - sarjataulukoita ylläpidetään tekstitiedoston avulla
   - Uusi Peli: Peliin asetetaan kaksi pelaajaa ja aloitetaan peli
      - Ohjelma ylläpitää itse ajanoton, ja tallentaa automaattisesti pelin päätyttyä tulokset.
+
+
+###Luokkakaavio
+![Määrittelyvaiheenluokkakaavio](http://yuml.me/a4697e20)
