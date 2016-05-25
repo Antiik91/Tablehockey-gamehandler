@@ -1,6 +1,5 @@
 package fi.antiik.hockeygamehandler.logic;
 
-
 /**
  *
  * @author janantik
@@ -32,8 +31,8 @@ public class Standings implements Serializable {
         }
         return this.standings;
     }
-    
-    public void printStandings(){
+
+    public void printStandings() {
         Collections.sort(standings);
         System.out.println("Name Games Wins Losses Ties GoalsFor GoalsAgainst Win% Points");
         for (Player player : standings) {
