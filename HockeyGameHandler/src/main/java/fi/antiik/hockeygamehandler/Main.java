@@ -37,49 +37,49 @@ public class Main {
         data.saveData(standing);
 
         // Testing Deserialization
-        Standings test = null;
-        try {
-            FileInputStream standingIn = new FileInputStream("./src/tmp/" + standing.getName() + ".ser");
-            ObjectInputStream in = new ObjectInputStream(standingIn);
-            test = (Standings) in.readObject();
-            in.close();
-            standingIn.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        } catch (ClassNotFoundException e) {
-            System.out.println("Standings class not found");
-            e.printStackTrace();
-            return;
-        }
-
-        System.out.println("Deserialized Standings..");
-        System.out.println("Name: " + test.getName());
-        System.out.println("Standings: ");
-        test.printStandings();
-        test.getPlayer("Ville").addGame(2, 4);
-        data.saveData(test);
-
-        System.out.println("Testing if changes work ");
-
-        Standings anotherTest = null;
-
-        try {
-            FileInputStream standingIn = new FileInputStream("./src/tmp/" + standing.getName() + ".ser");
-            ObjectInputStream in = new ObjectInputStream(standingIn);
-            anotherTest = (Standings) in.readObject();
-            in.close();
-            standingIn.close();
-        } catch (IOException e) {
-             e.printStackTrace();
-        }catch (ClassNotFoundException e) {
-            System.out.println("Standings class not found");
-            e.printStackTrace();
-            return;
-        }
-        System.out.println("Another deserialization...");
-        System.out.println("Name is: " + anotherTest.getName());
-        System.out.println("Standings now : ");
-        anotherTest.printStandings();
+//        Standings test = null;
+//        try {
+//            FileInputStream standingIn = new FileInputStream("./src/tmp/" + standing.getName() + ".ser");
+//            ObjectInputStream in = new ObjectInputStream(standingIn);
+//            test = (Standings) in.readObject();
+//            in.close();
+//            standingIn.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return;
+//        } catch (ClassNotFoundException e) {
+//            System.out.println("Standings class not found");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        System.out.println("Deserialized Standings..");
+//        System.out.println("Name: " + test.getName());
+//        System.out.println("Standings: ");
+//        test.printStandings();
+//        test.getPlayer("Ville").addGame(2, 4);
+//        data.saveData(test);
+//
+//        System.out.println("Testing if changes work ");
+//
+//        Standings anotherTest = null;
+//
+//        try {
+//            FileInputStream standingIn = new FileInputStream("./src/tmp/" + standing.getName() + ".ser");
+//            ObjectInputStream in = new ObjectInputStream(standingIn);
+//            anotherTest = (Standings) in.readObject();
+//            in.close();
+//            standingIn.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            System.out.println("Standings class not found");
+//            e.printStackTrace();
+//            return;
+//        }
+//        System.out.println("Another deserialization...");
+//        System.out.println("Name is: " + anotherTest.getName());
+//        System.out.println("Standings now : ");
+//        anotherTest.printStandings();
     }
 }
