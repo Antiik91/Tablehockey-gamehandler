@@ -7,6 +7,7 @@ package fi.antiik.hockeygamehandler;
 
 import fi.antiik.hockeygamehandler.*;
 import fi.antiik.hockeygamehandler.logic.*;
+import fi.antiik.hockeygamehandler.testUI.TestUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -22,19 +23,20 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        DataStorage data = new DataStorage();
-        Standings standing = new Standings("Testi");
-        standing.addPlayer("Janne");
-        standing.addPlayer("Kalle");
-        standing.addPlayer("Ville");
-        standing.printStandings();
-        standing.getPlayer("Kalle").addScores(3, 2);
-        standing.printStandings();
-        standing.getPlayer("Janne").addScores(4, 1);
-        //standing.printStandings();
-        standing.getPlayer("Janne").addScores(2, 2);
-
-        data.saveData(standing);
+        Scanner scanner = new Scanner(System.in);
+//        DataStorage data = new DataStorage();
+//        Standings standing = new Standings("Testi");
+//        standing.addPlayer("Janne");
+//        standing.addPlayer("Kalle");
+//        standing.addPlayer("Ville");
+//        standing.printStandings();
+//        standing.getPlayer("Kalle").addScores(3, 2);
+//        standing.printStandings();
+//        standing.getPlayer("Janne").addScores(4, 1);
+//        //standing.printStandings();
+//        standing.getPlayer("Janne").addScores(2, 2);
+//
+//        data.saveData(standing);
 
         // Testing Deserialization
 //        Standings test = null;
@@ -81,7 +83,9 @@ public class Main {
 //        System.out.println("Name is: " + anotherTest.getName());
 //        System.out.println("Standings now : ");
 //        anotherTest.printStandings();
-        Game testGame = new Game(standing.getPlayer("Janne"), standing.getPlayer("Ville"), standing);
-        testGame.startGame();
+//        Game testGame = new Game(standing.getPlayer("Janne"), standing.getPlayer("Ville"), standing);
+//        testGame.startGame();
+        TestUI ui = new TestUI(scanner);
+        ui.menu();
     }
 }

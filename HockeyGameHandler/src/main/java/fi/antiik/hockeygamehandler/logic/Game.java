@@ -16,17 +16,18 @@ public class Game {
     Player two;
     Standings standings;
     Scanner scanner;
+    DataStorage storage;
 
-    public Game(Player one, Player two, Standings standings) {
+    public Game(Player one, Player two, Standings standings, Scanner scanner) {
         this.one = one;
         this.two = two;
         this.standings = standings;
-        scanner = new Scanner(System.in);
+        scanner = scanner;
     }
 
     public void startGame() {
         System.out.println("Press any key to start: ");
-        //String anyKey = scanner.nextLine();
+        scanner.nextLine();
         System.out.println("GET READY!");
         countdown(3);
         playSound("./src/music/Countdown5.waw/");

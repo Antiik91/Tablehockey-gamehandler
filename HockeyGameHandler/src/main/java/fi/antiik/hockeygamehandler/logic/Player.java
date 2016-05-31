@@ -96,7 +96,9 @@ public class Player implements Comparable<Player>, Serializable {
     }
 
     public int getWinPrecentage() {
-        if (this.gamesPlayed == 0) return 0;
+        if (this.gamesPlayed == 0) {
+            return 0;
+        }
         this.winPrecentage = (this.wins * 100) / this.gamesPlayed;
         return winPrecentage;
     }
