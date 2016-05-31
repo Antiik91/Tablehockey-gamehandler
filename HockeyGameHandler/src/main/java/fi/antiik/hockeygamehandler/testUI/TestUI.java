@@ -25,10 +25,12 @@ public class TestUI {
     }
 
     public void menu() {
-        while(true) {
-        printInstructions();
-        int command = getCommand();
-        execute(command);
+        while (true) {
+            printInstructions();
+            System.out.print("Command: ");
+            int command = scanner.nextInt();
+            scanner.nextLine();
+            execute(command);
         }
 
     }
@@ -60,7 +62,7 @@ public class TestUI {
                 printInstructions();
                 break;
         }
-      
+
     }
 
     private void printInstructions() {
@@ -75,6 +77,8 @@ public class TestUI {
     private void selectStandings() {
         System.out.println("Type 1 to create new Standings and 2 to load existing standing");
         int selection = scanner.nextInt();
+        //Workaround to get newline char from nextint....
+        scanner.nextLine();
         switch (selection) {
             case 1:
                 System.out.println("Enter name of the standings: ");
@@ -93,7 +97,7 @@ public class TestUI {
     private void addPlayer() {
         if (standings != null) {
             System.out.println("Name of the player: ");
-            String name = scanner.nextLine();
+            String name = scanner.next();
             standings.addPlayer(name);
         } else {
             System.out.println("No standing selected!");
@@ -163,11 +167,6 @@ public class TestUI {
     private void quit() {
         System.out.println("Program is shutting down...");
         System.exit(0);
-    }
-
-    private int getCommand() {
-        System.out.println("Command: ");
-        return scanner.nextInt();
     }
 
 }
