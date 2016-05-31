@@ -16,6 +16,6 @@ Päivä | Tunnit | Kuvaus
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
 30.05.2016 | 1h | Luokkien Game ja SaveStoragen luonti ja ajanoton ihmettelyä javalla.
-31.05.2016 |3h | Luokkan game noinniinkuin toimintaan saaminen ja testi uin luonti
+31.05.2016 |4h | Luokkan game noinniinkuin toimintaan saaminen ja testi uin luonti.
 ... | ... | ...
 
