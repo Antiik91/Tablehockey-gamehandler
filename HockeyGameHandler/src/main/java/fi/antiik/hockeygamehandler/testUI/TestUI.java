@@ -25,10 +25,11 @@ public class TestUI {
     }
 
     public void menu() {
-
+        while(true) {
         printInstructions();
         int command = getCommand();
         execute(command);
+        }
 
     }
 
@@ -55,11 +56,11 @@ public class TestUI {
                 break;
 
             default:
-                System.out.println("Invalid selection");
+                System.out.println("Invalid command");
                 printInstructions();
                 break;
         }
-        menu();
+      
     }
 
     private void printInstructions() {
@@ -100,8 +101,8 @@ public class TestUI {
     }
 
     private void startGame() {
-        Player one = null;
-        Player two = null;
+        Player one;
+        Player two;
         System.out.println("Player one: ");
         String playerOne = scanner.nextLine();
         if (!standings.standingsContainsPlayer(playerOne)) {
