@@ -28,11 +28,11 @@ public class Main {
         standing.addPlayer("Kalle");
         standing.addPlayer("Ville");
         standing.printStandings();
-        standing.getPlayer("Kalle").addGame(3, 2);
+        standing.getPlayer("Kalle").addScores(3, 2);
         standing.printStandings();
-        standing.getPlayer("Janne").addGame(4, 1);
+        standing.getPlayer("Janne").addScores(4, 1);
         //standing.printStandings();
-        standing.getPlayer("Janne").addGame(2, 2);
+        standing.getPlayer("Janne").addScores(2, 2);
 
         data.saveData(standing);
 
@@ -57,7 +57,7 @@ public class Main {
 //        System.out.println("Name: " + test.getName());
 //        System.out.println("Standings: ");
 //        test.printStandings();
-//        test.getPlayer("Ville").addGame(2, 4);
+//        test.getPlayer("Ville").addScores(2, 4);
 //        data.saveData(test);
 //
 //        System.out.println("Testing if changes work ");
@@ -81,5 +81,7 @@ public class Main {
 //        System.out.println("Name is: " + anotherTest.getName());
 //        System.out.println("Standings now : ");
 //        anotherTest.printStandings();
+        Game testGame = new Game(standing.getPlayer("Janne"), standing.getPlayer("Ville"), standing);
+        testGame.startGame();
     }
 }

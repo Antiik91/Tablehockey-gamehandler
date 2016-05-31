@@ -71,9 +71,9 @@ public class StandingsTest {
         standings.addPlayer("Janne");
         standings.addPlayer("Jarkko");
         standings.addPlayer("Ville");
-        standings.getPlayer("Janne").addGame(3, 0);
-        standings.getPlayer("Ville").addGame(0, 3);
-        standings.getPlayer("Jarkko").addGame(1, 1);
+        standings.getPlayer("Janne").addScores(3, 0);
+        standings.getPlayer("Ville").addScores(0, 3);
+        standings.getPlayer("Jarkko").addScores(1, 1);
         System.out.println("Järjestys kompare");
         assertEquals(compare.getStandings(), standings.getStandings());
     }

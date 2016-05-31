@@ -34,7 +34,8 @@ public class Standings implements Serializable {
 
     public void printStandings() {
         Collections.sort(standings);
-        System.out.println("Name Games Wins Losses Ties GoalsFor GoalsAgainst Win% Points");
+        System.out.println("Name Games Wins Losses Ties "
+                + "GoalsFor GoalsAgainst Win% Points");
         for (Player player : standings) {
             System.out.println(player);
         }

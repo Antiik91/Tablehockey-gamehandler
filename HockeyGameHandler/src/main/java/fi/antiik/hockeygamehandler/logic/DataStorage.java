@@ -18,7 +18,8 @@ public class DataStorage implements Serializable {
             out.writeObject(standings);
             out.close();
             standingsOut.close();
-            System.out.println("The standings is saved in /tmp/" + standingsName + ".ser");
+            System.out.println("The standings is saved in /tmp/"
+                    + standingsName + ".ser");
         } catch (IOException e) {
             e.printStackTrace();
         }

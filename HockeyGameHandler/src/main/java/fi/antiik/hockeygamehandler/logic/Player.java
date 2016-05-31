@@ -102,12 +102,12 @@ public class Player implements Comparable<Player>, Serializable {
     }
 
     // *************************************************************************************
-    /* addGame adds player stats from a game, and handling the points. if the player
+    /* addScores adds player stats from a game, and handling the points. if the player
      scored more goals than his opponent it resulst a win, and it will add 3 points.
      if scored less then a loss count is increased
      and if the game is tie, one point is added
      */
-    public void addGame(int goalsFor, int goalsAgainst) {
+    public void addScores(int goalsFor, int goalsAgainst) {
         this.goalsFor += goalsFor;
         this.goalsAgainst += goalsAgainst;
         this.gamesPlayed++;
