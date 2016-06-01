@@ -8,6 +8,7 @@ package fi.antiik.hockeygamehandler.testUI;
 import fi.antiik.hockeygamehandler.logic.*;
 import java.util.Scanner;
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,12 +18,16 @@ public class TestUI {
 
     private Scanner scanner;
     private Standings standings;
-    DataStorage dataStorage;
+    private DataStorage dataStorage;
+    private StandingsList loadStandings;
+    private ArrayList<Standings> listOfStandings;
 
     public TestUI(Scanner scanner) {
         this.scanner = scanner;
         this.dataStorage = new DataStorage();
-    }
+        this.loadStandings = new StandingsList();
+        listOfStandings = loadStandings.getStandings();
+            }
 
     public void menu() {
         while (true) {
@@ -145,23 +150,19 @@ public class TestUI {
     }
 
     private void loadStandings() {
-        System.out.println("Please write the path to standings.ser");
-        System.out.println("for example: ./src/tmp/WorldCup.ser");
-        String filePath = scanner.nextLine();
-        try {
-            FileInputStream fileIn = new FileInputStream(filePath);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            standings = (Standings) in.readObject();
-            in.close();
-            fileIn.close();
-        } catch (IOException i) {
-            i.printStackTrace();
-            return;
-        } catch (ClassNotFoundException c) {
-            System.out.println("Standings class not found");
-            c.printStackTrace();
-            return;
+        int index = 0;
+        System.out.println("Please select standing from index");
+        for (Standings standing : listOfStandings) {
+            System.out.println(index + " " + standing);
+            index++;
         }
+        int getIndex = scanner.nextInt();
+        if(getIndex > listOfStandings.size()) {
+            System.out.println("Incorrect index.");
+        } else {
+            standings = listOfStandings.get(getIndex);
+        }
+
     }
 
     private void quit() {

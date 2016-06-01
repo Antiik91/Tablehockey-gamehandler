@@ -8,6 +8,7 @@ package fi.antiik.hockeygamehandler;
 import fi.antiik.hockeygamehandler.*;
 import fi.antiik.hockeygamehandler.logic.*;
 import fi.antiik.hockeygamehandler.testUI.TestUI;
+import fi.antiik.hockeygamehandler.logic.Game;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,10 +26,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 //        DataStorage data = new DataStorage();
-//        Standings standing = new Standings("Testi");
-//        standing.addPlayer("Janne");
-//        standing.addPlayer("Kalle");
-//        standing.addPlayer("Ville");
+        Standings standing = new Standings("Testi");
+        standing.addPlayer("Janne");
+        standing.addPlayer("Kalle");
+        standing.addPlayer("Ville");
 //        standing.printStandings();
 //        standing.getPlayer("Kalle").addScores(3, 2);
 //        standing.printStandings();
@@ -83,9 +84,16 @@ public class Main {
 //        System.out.println("Name is: " + anotherTest.getName());
 //        System.out.println("Standings now : ");
 //        anotherTest.printStandings();
-//        Game testGame = new Game(standing.getPlayer("Janne"), standing.getPlayer("Ville"), standing);
+//        Game testGame = new Game(standing.getPlayer("Janne"), standing.getPlayer("Ville"), standing, scanner);
 //        testGame.startGame();
         TestUI ui = new TestUI(scanner);
         ui.menu();
+//    StandingsList test = new StandingsList();
+//    test.addStandings();
+//    ArrayList<Standings> moi = new ArrayList<>();
+//    moi = test.getStandings();
+//        for (Standings stand : moi) {
+//            stand.printStandings();
+//        }
     }
 }

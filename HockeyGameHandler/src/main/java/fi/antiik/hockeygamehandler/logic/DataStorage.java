@@ -10,7 +10,7 @@ public class DataStorage implements Serializable {
     public DataStorage() {
     }
 
-    public void saveData(Standings standings) {
+    public static void saveData(Standings standings) {
         String standingsName = "./src/tmp/" + standings.getName() + ".ser";
         try {
             FileOutputStream standingsOut = new FileOutputStream(standingsName);

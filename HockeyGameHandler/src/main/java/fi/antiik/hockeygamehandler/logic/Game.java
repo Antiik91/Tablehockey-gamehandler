@@ -22,18 +22,18 @@ public class Game {
         this.one = one;
         this.two = two;
         this.standings = standings;
-        scanner = scanner;
+        this.scanner = scanner;
     }
 
     public void startGame() {
         System.out.println("Press any key to start: ");
         scanner.nextLine();
         System.out.println("GET READY!");
-        countdown(3);
-        playSound("./src/music/Countdown5.waw/");
 
+        playSound("src/music/Countdown5.wav");
+        countdown(5);
         System.out.println("GO!");
-        countdown(10);
+        countdown(300);
     }
 
     public void countdown(int timeInSeconds) {
