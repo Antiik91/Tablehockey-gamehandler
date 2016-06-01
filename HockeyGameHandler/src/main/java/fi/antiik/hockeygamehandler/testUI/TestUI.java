@@ -173,7 +173,7 @@ public class TestUI {
             index++;
         }
         int getIndex = scanner.nextInt();
-        if (getIndex > listOfStandings.size()) {
+        if (getIndex > listOfStandings.size() && getIndex < 0) {
             System.out.println("Incorrect index.");
         } else {
             standings = listOfStandings.get(getIndex);
