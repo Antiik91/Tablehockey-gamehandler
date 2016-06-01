@@ -8,14 +8,14 @@ import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class Game {
+public class Referee {
 
     Player one;
     Player two;
     Standings standings;
     DataStorage storage;
 
-    public Game(Player one, Player two, Standings standings) {
+    public Referee(Player one, Player two, Standings standings) {
         this.one = one;
         this.two = two;
         this.standings = standings;
@@ -33,7 +33,7 @@ public class Game {
     public void startGame() {
         playSound("src/music/Countdown5.wav");
         countdown(5);
-        countdown(300);
+        countdown(10);
     }
 
     public void countdown(int timeInSeconds) {
@@ -43,7 +43,7 @@ public class Game {
                 System.out.println(timeLeft);
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Referee.class.getName()).log(Level.SEVERE, null, ex);
             }
             timeLeft--;
         }

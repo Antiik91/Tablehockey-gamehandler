@@ -8,7 +8,7 @@ package fi.antiik.hockeygamehandler;
 import fi.antiik.hockeygamehandler.*;
 import fi.antiik.hockeygamehandler.logic.*;
 import fi.antiik.hockeygamehandler.testUI.TestUI;
-import fi.antiik.hockeygamehandler.logic.Game;
+import fi.antiik.hockeygamehandler.logic.Referee;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;

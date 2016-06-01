@@ -130,18 +130,18 @@ public class TestUI {
             System.out.println(playerTwo + " added to the standings");
         }
         two = standings.getPlayer(playerTwo);
-        Game game = new Game(one, two, standings);
+        Referee game = new Referee(one, two, standings);
         game.startGame();
 
         updateResults(game);
     }
 
-    private void updateResults(Game game) {
+    private void updateResults(Referee game) {
         System.out.println("Scores for " + game.getPlayerOne().getName());
         int scoresFor1 = scanner.nextInt();
         System.out.println("Scores for " + game.getPlayerTwo().getName());
         int scoresFor2 = scanner.nextInt();
-        game.results(scoresFor2, scoresFor2);
+        game.results(scoresFor1, scoresFor2);
     }
 
     private void printStandings() {
