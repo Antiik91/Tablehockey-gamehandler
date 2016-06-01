@@ -5,6 +5,8 @@
  */
 package fi.antiik.hockeygamehandler.testUI;
 
+import fi.antiik.hockeygamehandler.fileHandling.StandingsList;
+import fi.antiik.hockeygamehandler.fileHandling.DataStorage;
 import fi.antiik.hockeygamehandler.logic.*;
 import java.util.Scanner;
 import java.io.*;
@@ -27,7 +29,7 @@ public class TestUI {
         this.dataStorage = new DataStorage();
         this.loadStandings = new StandingsList();
         listOfStandings = loadStandings.getStandings();
-            }
+    }
 
     public void menu() {
         while (true) {
@@ -128,15 +130,29 @@ public class TestUI {
             System.out.println(playerTwo + " added to the standings");
         }
         two = standings.getPlayer(playerTwo);
-        Game game = new Game(one, two, standings, scanner);
+        Game game = new Game(one, two, standings);
         game.startGame();
+
+        updateResults(game);
+    }
+
+    private void updateResults(Game game) {
+        System.out.println("Scores for " + game.getPlayerOne().getName());
+        int scoresFor1 = scanner.nextInt();
+        System.out.println("Scores for " + game.getPlayerTwo().getName());
+        int scoresFor2 = scanner.nextInt();
+        game.results(scoresFor2, scoresFor2);
     }
 
     private void printStandings() {
         if (standings == null) {
             System.out.println("No standing selected");
         } else {
-            standings.printStandings();
+            System.out.println("Name Games Wins Losses Ties "
+                    + "GoalsFor GoalsAgainst Win% Points");
+            for (Player player : standings.getPlayers()) {
+                System.out.println(player);
+            }
         }
     }
 
@@ -157,7 +173,7 @@ public class TestUI {
             index++;
         }
         int getIndex = scanner.nextInt();
-        if(getIndex > listOfStandings.size()) {
+        if (getIndex > listOfStandings.size()) {
             System.out.println("Incorrect index.");
         } else {
             standings = listOfStandings.get(getIndex);

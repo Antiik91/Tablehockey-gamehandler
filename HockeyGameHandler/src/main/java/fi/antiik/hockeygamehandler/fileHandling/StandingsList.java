@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.antiik.hockeygamehandler.logic;
+package fi.antiik.hockeygamehandler.fileHandling;
 
+import fi.antiik.hockeygamehandler.logic.Standings;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

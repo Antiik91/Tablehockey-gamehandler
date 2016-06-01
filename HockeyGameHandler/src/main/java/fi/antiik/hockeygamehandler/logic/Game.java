@@ -1,10 +1,8 @@
 package fi.antiik.hockeygamehandler.logic;
 
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
-import sun.audio.*;
-import java.io.*;
+import fi.antiik.hockeygamehandler.fileHandling.DataStorage;
+import java.io.File;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
@@ -15,24 +13,26 @@ public class Game {
     Player one;
     Player two;
     Standings standings;
-    Scanner scanner;
     DataStorage storage;
 
-    public Game(Player one, Player two, Standings standings, Scanner scanner) {
+    public Game(Player one, Player two, Standings standings) {
         this.one = one;
         this.two = two;
         this.standings = standings;
-        this.scanner = scanner;
+    }   
+
+    public Player getPlayerOne() {
+        return one;
     }
 
+    public Player getPlayerTwo() {
+        return two;
+    }
+    
+    
     public void startGame() {
-        System.out.println("Press any key to start: ");
-        scanner.nextLine();
-        System.out.println("GET READY!");
-
         playSound("src/music/Countdown5.wav");
         countdown(5);
-        System.out.println("GO!");
         countdown(300);
     }
 
@@ -47,24 +47,15 @@ public class Game {
             }
             timeLeft--;
         }
-        if (timeInSeconds > 10) {
-            results();
-        }
-    }
-
-    private void results() {
-        System.out.println("Scores for " + one.getName());
-        int scoresFor1 = scanner.nextInt();
-        System.out.println("Scores for " + two.getName());
-        int scoresFor2 = scanner.nextInt();
-        standings.getPlayer(one.getName()).addScores(scoresFor1, scoresFor2);
-        standings.getPlayer(two.getName()).addScores(scoresFor2, scoresFor1);
-        System.out.println("Standings now: ");
-        standings.printStandings();
 
     }
 
-    // doesn't work yet.
+    public void results(int playerOneScores, int playerTwoScores) {
+        standings.getPlayer(one.getName()).addScores(playerOneScores, playerTwoScores);
+        standings.getPlayer(two.getName()).addScores(playerTwoScores, playerOneScores);
+    }
+
+    
     public static void playSound(String filename) {
         try {
             Clip clip = AudioSystem.getClip();

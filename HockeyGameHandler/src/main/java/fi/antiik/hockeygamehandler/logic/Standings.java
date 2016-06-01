@@ -25,21 +25,14 @@ public class Standings implements Serializable {
         return standings.size();
     }
 
-    public ArrayList<Player> getStandings() {
+    public ArrayList<Player> getPlayers() {
         if (!standings.isEmpty()) {
             Collections.sort(standings);
         }
         return this.standings;
     }
 
-    public void printStandings() {
-        Collections.sort(standings);
-        System.out.println("Name Games Wins Losses Ties "
-                + "GoalsFor GoalsAgainst Win% Points");
-        for (Player player : standings) {
-            System.out.println(player);
-        }
-    }
+
 
     public void addPlayer(String name) {
         if (!standingsContainsPlayer(name)) {

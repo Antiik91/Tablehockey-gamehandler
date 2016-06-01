@@ -1,5 +1,6 @@
-package fi.antiik.hockeygamehandler.logic;
+package fi.antiik.hockeygamehandler.fileHandling;
 
+import fi.antiik.hockeygamehandler.logic.Standings;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
