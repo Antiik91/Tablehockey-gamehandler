@@ -32,8 +32,6 @@ public class Standings implements Serializable {
         return this.standings;
     }
 
-
-
     public void addPlayer(String name) {
         if (!standingsContainsPlayer(name)) {
             this.standings.add(new Player(name));

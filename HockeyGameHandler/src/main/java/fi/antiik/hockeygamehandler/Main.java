@@ -7,7 +7,7 @@ package fi.antiik.hockeygamehandler;
 
 import fi.antiik.hockeygamehandler.*;
 import fi.antiik.hockeygamehandler.logic.*;
-import fi.antiik.hockeygamehandler.testUI.TestUI;
+import fi.antiik.hockeygamehandler.testuserinterface.TestUI;
 import fi.antiik.hockeygamehandler.logic.Referee;
 import java.io.FileInputStream;
 import java.io.IOException;

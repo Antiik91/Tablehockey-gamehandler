@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.antiik.hockeygamehandler.fileHandling;
+package fi.antiik.hockeygamehandler.filehandler;
 
 import fi.antiik.hockeygamehandler.logic.Standings;
 import java.io.File;
@@ -29,39 +29,39 @@ public class StandingsList {
         return this.listOfStandings;
     }
 
-    public ArrayList<File> GetFilesFromFolder() {
+    public ArrayList<File> getFilesFromFolder() {
         File folder = new File("src/tmp");
         File[] filesList = folder.listFiles();
         ArrayList<File> files = new ArrayList<>();
-        
+
         for (int i = 0; i < filesList.length; i++) {
-            if(filesList[i].isFile()) {
+            if (filesList[i].isFile()) {
                 files.add(filesList[i]);
             }
         }
 
         return files;
     }
-    
+
     public void addStandings() {
-        ArrayList<File> files = GetFilesFromFolder();
-        
+        ArrayList<File> files = getFilesFromFolder();
+
         for (File file : files) {
-                    try {
-            FileInputStream fileIn = new FileInputStream(file);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-           Standings standings = (Standings) in.readObject();
-           listOfStandings.add(standings);
-            in.close();
-            fileIn.close();
-        } catch (IOException i) {
-            i.printStackTrace();
-            return;
-        } catch (ClassNotFoundException c) {
-            System.out.println("Standings class not found");
-            c.printStackTrace();
-            return;
-        }
+            try {
+                FileInputStream fileIn = new FileInputStream(file);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                Standings standings = (Standings) in.readObject();
+                listOfStandings.add(standings);
+                in.close();
+                fileIn.close();
+            } catch (IOException i) {
+                i.printStackTrace();
+                return;
+            } catch (ClassNotFoundException c) {
+                System.out.println("Standings class not found");
+                c.printStackTrace();
+                return;
+            }
         }
     }
 }

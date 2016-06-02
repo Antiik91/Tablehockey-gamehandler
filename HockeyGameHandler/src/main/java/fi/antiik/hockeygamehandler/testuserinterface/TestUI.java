@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fi.antiik.hockeygamehandler.testUI;
+package fi.antiik.hockeygamehandler.testuserinterface;
 
-import fi.antiik.hockeygamehandler.fileHandling.StandingsList;
-import fi.antiik.hockeygamehandler.fileHandling.DataStorage;
+import fi.antiik.hockeygamehandler.filehandler.StandingsList;
+import fi.antiik.hockeygamehandler.filehandler.DataStorage;
 import fi.antiik.hockeygamehandler.logic.*;
 import java.util.Scanner;
 import java.io.*;
