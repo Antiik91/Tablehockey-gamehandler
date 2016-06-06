@@ -5,6 +5,7 @@
  */
 package fi.antiik.hockeygamehandler.main;
 
+import fi.antiik.hockeygamehandler.gui.GUI;
 import fi.antiik.hockeygamehandler.gui.GUI_old;
 import fi.antiik.hockeygamehandler.logic.*;
 import fi.antiik.hockeygamehandler.testuserinterface.TestUI;
@@ -28,8 +29,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 //        GUI_old gui = new GUI_old();
 //        SwingUtilities.invokeLater(gui);
-        TestUI ui = new TestUI(scanner);
-        ui.menu();
+          GUI test = new GUI();
+          
+//        TestUI ui = new TestUI(scanner);
+//        ui.menu();
 
 
     }
