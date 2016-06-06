@@ -5,7 +5,7 @@
  */
 package fi.antiik.hockeygamehandler.main;
 
-import fi.antiik.hockeygamehandler.gui.GUI;
+import fi.antiik.hockeygamehandler.gui.GUI_old;
 import fi.antiik.hockeygamehandler.logic.*;
 import fi.antiik.hockeygamehandler.testuserinterface.TestUI;
 import fi.antiik.hockeygamehandler.logic.Referee;
@@ -26,10 +26,10 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        GUI gui = new GUI();
-        SwingUtilities.invokeLater(gui);
-//        TestUI ui = new TestUI(scanner);
-//        ui.menu();
+//        GUI_old gui = new GUI_old();
+//        SwingUtilities.invokeLater(gui);
+        TestUI ui = new TestUI(scanner);
+        ui.menu();
 
 
     }
