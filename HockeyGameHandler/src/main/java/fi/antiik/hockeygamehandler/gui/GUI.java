@@ -6,6 +6,16 @@
 package fi.antiik.hockeygamehandler.gui;
 
 import fi.antiik.hockeygamehandler.logic.Standings;
+import java.awt.CardLayout;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javafx.scene.text.Text;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,7 +23,7 @@ import fi.antiik.hockeygamehandler.logic.Standings;
  */
 public class GUI extends javax.swing.JFrame {
 
-    private Standings selectedStandings;
+    private Standings currentStandings;
     public GUI() {
         initComponents();
     }
@@ -66,7 +76,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("   Current Standing");
 
         currentStandingTextField.setEditable(false);
-        currentStandingTextField.setText(selectedStandings.getName());
+        if(currentStandings != null) {
+            currentStandingTextField.setText(currentStandings.getName());
+        }
 
         shoStandingsButton.setText("Show Standings");
 
@@ -117,10 +129,26 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_newGameButtonActionPerformed
 
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
-        SelectStandings selectStandings = new SelectStandings(selectedStandings);
-        selectStandings.setVisible(true);
+//       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField.getText());
+        JFrame displayStandings = new JFrame("Select standings");
+        displayStandings.setDefaultCloseOperation(HIDE_ON_CLOSE);
         
-    }//GEN-LAST:event_selecStandingsButtonActionPerformed
+        JPanel contentPane = new JPanel();
+        JButton create = new JButton("Create");
+        JTextField tf = new JTextField();
+        
+        contentPane.setBorder(
+            BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(new CardLayout());
+        contentPane.add(tf);
+        contentPane.add(create);
+        displayStandings.setContentPane(contentPane);
+        displayStandings.pack();
+        displayStandings.setLocationByPlatform(true);
+        displayStandings.setVisible(true);
+   
+        
+    };//GEN-LAST:event_selecStandingsButtonActionPerformed
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
                System.exit(0);

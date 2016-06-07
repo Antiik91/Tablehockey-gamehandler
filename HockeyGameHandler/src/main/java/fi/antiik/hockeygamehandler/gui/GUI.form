@@ -106,11 +106,12 @@
     <Component class="javax.swing.JTextField" name="currentStandingTextField">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="selectedStandings.getName()" type="code"/>
+          <Connection code="currentStandings.getName()" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="currentStandingTextField.setEditable(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="}"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="currentStandingTextField.setEditable(false);&#xa;if(currentStandings != null) {"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="shoStandingsButton">
