@@ -172,7 +172,7 @@ public class GUI extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5,5,5,5));
             content.setLayout(new BorderLayout());
             
-            content.add(new JTextField(),TOP_ALIGNMENT);
+            content.add(new JTextField());
            
             JButton playerButton = new JButton("Add Player");
             playerButton.addActionListener(new AddPlayerListener(this.currentStandingTextField, currentStandings));
