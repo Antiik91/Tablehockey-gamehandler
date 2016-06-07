@@ -11,6 +11,7 @@ import java.awt.TextField;
 import java.awt.event.ActionListener;
 import static java.lang.Math.E;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,10 +25,11 @@ public class SelectStandings extends javax.swing.JPanel {
     
     private StandingsList standingsList;
     private Standings standings;
-    private String textField;
-    public SelectStandings(Standings standings, String textField) {
+    private JTextField textField;
+    public SelectStandings(Standings standings, JTextField textField) {
         this.standings = standings;
         standingsList = new StandingsList();
+        this.textField = textField;
         
         initComponents();
         setVisible(true);
@@ -54,6 +56,8 @@ public class SelectStandings extends javax.swing.JPanel {
         selectStandingsButton.setText("Select");
 
         createStandingsButton.setText("Create");
+        CreateStandingListener copier = new CreateStandingListener(this.standings, createNewStandingsField, textField);
+        createStandingsButton.addActionListener(copier);
         createStandingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createStandingsButtonActionPerformed(evt);
@@ -95,8 +99,8 @@ public class SelectStandings extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStandingsButtonActionPerformed
-       this.standings = new Standings(createNewStandingsField.getText());
-       this.textField = this.standings.getName();
+       // this.standings1 = new Standings(createNewStandingsField.getText());
+        
       
     }//GEN-LAST:event_createStandingsButtonActionPerformed
 

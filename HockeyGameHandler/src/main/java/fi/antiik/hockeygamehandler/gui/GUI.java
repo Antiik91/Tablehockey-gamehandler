@@ -5,13 +5,17 @@
  */
 package fi.antiik.hockeygamehandler.gui;
 
+import fi.antiik.hockeygamehandler.logic.Player;
 import fi.antiik.hockeygamehandler.logic.Standings;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,6 +60,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         addPlayerButton.setText("Add Player");
+        addPlayerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPlayerButtonActionPerformed(evt);
+            }
+        });
 
         newGameButton.setText("New Game");
         newGameButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,23 +138,20 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_newGameButtonActionPerformed
 
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
-//       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField.getText());
-        JFrame displayStandings = new JFrame("Select standings");
-        displayStandings.setDefaultCloseOperation(HIDE_ON_CLOSE);
+       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField);
+        JFrame frame = new JFrame("Select standings");
+        frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
         
         JPanel contentPane = new JPanel();
-        JButton create = new JButton("Create");
-        JTextField tf = new JTextField();
-        
+
         contentPane.setBorder(
             BorderFactory.createEmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new CardLayout());
-        contentPane.add(tf);
-        contentPane.add(create);
-        displayStandings.setContentPane(contentPane);
-        displayStandings.pack();
-        displayStandings.setLocationByPlatform(true);
-        displayStandings.setVisible(true);
+
+        frame.setContentPane(ss);
+        frame.pack();
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
    
         
     };//GEN-LAST:event_selecStandingsButtonActionPerformed
@@ -153,6 +159,34 @@ public class GUI extends javax.swing.JFrame {
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
                System.exit(0);
     }//GEN-LAST:event_quitButtonActionPerformed
+
+    private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerButtonActionPerformed
+       // Appears to be null for some reason..
+        if(this.currentStandings == null) {
+            JFrame frame = new JFrame("Add Player to standings");
+            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+            
+            JPanel content = new JPanel();
+            
+            content.setBorder(
+                BorderFactory.createEmptyBorder(5,5,5,5));
+            content.setLayout(new BorderLayout());
+            
+            content.add(new JTextField(),TOP_ALIGNMENT);
+           
+            JButton playerButton = new JButton("Add Player");
+            playerButton.addActionListener(new AddPlayerListener(this.currentStandingTextField, currentStandings));
+            content.add(playerButton);
+            frame.setContentPane(content);
+            frame.pack();
+            frame.setLocationByPlatform(true);
+            frame.setVisible(true);
+//            for (Player col : this.currentStandings.getPlayers()) {
+//                System.out.println("PLEAAJA : " + col);
+//            }
+            
+        }
+    }//GEN-LAST:event_addPlayerButtonActionPerformed
 
     /**
      * @param args the command line arguments
