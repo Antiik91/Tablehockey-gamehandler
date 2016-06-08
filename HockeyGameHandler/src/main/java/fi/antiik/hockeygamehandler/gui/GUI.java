@@ -5,6 +5,8 @@
  */
 package fi.antiik.hockeygamehandler.gui;
 
+import fi.antiik.hockeygamehandler.filehandler.DataStorage;
+import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.Player;
 import fi.antiik.hockeygamehandler.logic.Standings;
 import java.awt.BorderLayout;
@@ -12,6 +14,8 @@ import java.awt.CardLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.util.ArrayList;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javax.swing.BorderFactory;
@@ -28,10 +32,13 @@ import javax.swing.JTextField;
 public class GUI extends javax.swing.JFrame {
 
     private Standings currentStandings;
+
+    public void setCurrentStandings(Standings currentStandings) {
+        this.currentStandings = currentStandings;
+    }
     public GUI() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +81,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         saveStandingsButton.setText("Save Standings");
+        saveStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveStandingsButtonActionPerformed(evt);
+            }
+        });
 
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +150,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_newGameButtonActionPerformed
 
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
-       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField);
+       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField, this);
         JFrame frame = new JFrame("Select standings");
         frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
         
@@ -162,7 +174,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerButtonActionPerformed
        // Appears to be null for some reason..
-        if(this.currentStandings == null) {
+       evt.getSource();
+        if(this.currentStandings != null) {
             JFrame frame = new JFrame("Add Player to standings");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             
@@ -171,22 +184,31 @@ public class GUI extends javax.swing.JFrame {
             content.setBorder(
                 BorderFactory.createEmptyBorder(5,5,5,5));
             content.setLayout(new BorderLayout());
-            
-            content.add(new JTextField(),TOP_ALIGNMENT);
+            JTextField newPlayer = new JTextField();
+            content.add(newPlayer,BorderLayout.NORTH);
            
-            JButton playerButton = new JButton("Add Player");
-            playerButton.addActionListener(new AddPlayerListener(this.currentStandingTextField, currentStandings));
-            content.add(playerButton);
+            JButton newPlayerButton = new JButton("Create Player");
+            newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
+            content.add(newPlayerButton, BorderLayout.SOUTH);
             frame.setContentPane(content);
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
-//            for (Player col : this.currentStandings.getPlayers()) {
-//                System.out.println("PLEAAJA : " + col);
-//            }
+            
+            
+            ArrayList<Player> p123 = this.currentStandings.getPlayers();
+            for (Player col : p123) {
+            
+            }
             
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
+
+    private void saveStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStandingsButtonActionPerformed
+        if(this.currentStandings != null) {
+            DataStorage.saveData(currentStandings);
+        }
+    }//GEN-LAST:event_saveStandingsButtonActionPerformed
 
     /**
      * @param args the command line arguments

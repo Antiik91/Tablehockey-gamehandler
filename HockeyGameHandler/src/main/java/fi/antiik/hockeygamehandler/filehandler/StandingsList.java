@@ -28,6 +28,17 @@ public class StandingsList {
         addStandings();
         return this.listOfStandings;
     }
+    
+    public Standings searchStandingsWithName(String name) {
+        Standings found;
+        for (Standings standings : listOfStandings) {
+            if(standings.getName().toLowerCase().equals(name)) {
+                found = standings;
+                return found;
+            }
+        }
+        return null;
+    }
 
     public ArrayList<File> getFilesFromFolder() {
         File folder = new File("src/tmp");

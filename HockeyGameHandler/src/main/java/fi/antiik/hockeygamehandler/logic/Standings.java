@@ -57,6 +57,7 @@ public class Standings implements Serializable {
         for (Player player : standings) {
             if (name.toLowerCase().equals(player.getName().toLowerCase())) {
                 found = true;
+
                 break;
             }
         }

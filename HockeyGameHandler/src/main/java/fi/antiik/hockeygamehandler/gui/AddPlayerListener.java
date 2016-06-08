@@ -16,17 +16,17 @@ import javax.swing.JTextField;
  */
 public class AddPlayerListener implements ActionListener {
 
-    JTextField getStandings;
+    JTextField playerName;
     Standings currentStandings;
 
     public AddPlayerListener(JTextField getStandings, Standings currentStandings) {
-        this.getStandings = getStandings;
+        this.playerName = getStandings;
         this.currentStandings = currentStandings;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        currentStandings.addPlayer(getStandings.getText());
+        currentStandings.addPlayer(playerName.getText());
     }
 
 }
