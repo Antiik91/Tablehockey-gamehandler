@@ -32,7 +32,7 @@ public class StandingsList {
     public Standings searchStandingsWithName(String name) {
         Standings found;
         for (Standings standings : listOfStandings) {
-            if(standings.getName().toLowerCase().equals(name)) {
+            if(standings.getName().toLowerCase().equals(name.toLowerCase())) {
                 found = standings;
                 return found;
             }

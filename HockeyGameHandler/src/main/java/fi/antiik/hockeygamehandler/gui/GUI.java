@@ -149,6 +149,9 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newGameButtonActionPerformed
 
+    public void updateCurrentStandings() {
+        currentStandingTextField.setText(this.currentStandings.getName());
+    }
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
        SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField, this);
         JFrame frame = new JFrame("Select standings");

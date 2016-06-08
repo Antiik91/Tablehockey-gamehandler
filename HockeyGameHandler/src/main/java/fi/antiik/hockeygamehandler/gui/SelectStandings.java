@@ -22,21 +22,21 @@ public class SelectStandings extends javax.swing.JPanel {
     /**
      * Creates new form SelectStandings
      */
-    
     private StandingsList standingsList;
     private Standings standings;
     private JTextField textField;
     private GUI gui;
+
     public SelectStandings(Standings standings, JTextField textField, GUI gui) {
         this.standings = standings;
         standingsList = new StandingsList();
         this.textField = textField;
         this.gui = gui;
-        
+
         initComponents();
         setVisible(true);
     }
-    
+
     private String[] updateList() {
         int listSize = this.standingsList.getStandings().size();
         String[] listData = new String[listSize];
@@ -46,6 +46,7 @@ public class SelectStandings extends javax.swing.JPanel {
         this.standingsJList.setListData(listData);
         return listData;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,13 +126,17 @@ public class SelectStandings extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStandingsButtonActionPerformed
-       // this.standings1 = new Standings(createNewStandingsField.getText());
-        
-      
+        // this.standings1 = new Standings(createNewStandingsField.getText());
+
+
     }//GEN-LAST:event_createStandingsButtonActionPerformed
 
     public Standings getStandings() {
         return standings;
+    }
+
+    public void updateGUIStandings() {
+        this.gui.updateCurrentStandings();
     }
 
     public void setGUIStandings(Standings standings) {
