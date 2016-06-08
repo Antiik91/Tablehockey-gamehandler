@@ -31,8 +31,6 @@ public class SelecStandingsFromListListener implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(standingsList.searchStandingsWithName(this.jlist.getSelectedValue().toString()));
-        System.out.println(this.jlist.getSelectedValue());
         selectStandings.setGUIStandings(standingsList.searchStandingsWithName(this.jlist.getSelectedValue().toString()));
         this.selectStandings.updateGUIStandings();
     }
