@@ -8,11 +8,17 @@ sarjataulukoihin, joista pelaajien välisiä turnauksia on helppo seurata ja yll
 **Käyttäjä:** "Turnausisäntä"
 
 **Toiminnot:** 
-  - Luo uusi pelaaja: Uusi pelaaja luodaan, ja se tallennetaan haluttuun sarjataulukkoon
-  - Luo uusi sarjataulukko: Luodaan uusi sarjataulukko uutta turnausta varten.
-     - sarjataulukoita ylläpidetään tekstitiedoston avulla
-  - Uusi Peli: Peliin asetetaan kaksi pelaajaa ja aloitetaan peli
-     - Ohjelma ylläpitää itse ajanoton, ja tallentaa automaattisesti pelin päätyttyä tulokset.
+  - Select Standings: Avaa uuden ikkunan, jossa mahdollisuus valita valmiiksiolemassaoleva sarjataulukko tai luoda uuusi
+    - Vasemmalta puolelta valitaan listalta haluttu sarjataulukko ja painetaan select
+    - Vaihtoehtoisesti kirjoitetaan tekstikenttään sarjataulukon nimi ja painetaan create, jolloin siitä tulee uusi sarjataulukko.
+  - Add Player: Mikäli Current Standing on valittuna, lisätään pelaaja sarjataulukkoon uudessa ikkunassa kirjoittamalla pelaajan nimi ja painamalla Create Player Nappia. 
+  - New Game: Luo uuden pelin ( Ei vielä toiminnassa) 
+    - Ohjelma ylläpitää itse ajanoton, ja tallentaa automaattisesti pelin päätyttyä tulokset.
+  -  Show Standings: Mikäli Current Standings on asetettuna, näytetään uudessa ikkunassa tämän hetken sarjataulukon tilanne
+     - sarjataulkoita ylläpidetään Serializablen avulla, mikä tallentaa .ser muodossa sarjataulukot suoraan oliomuodossa.
+  - Save Standings: Tallentaa sarjataulukon kansioon myöhempää käyttöä varten
+  - Quit: Poistuu ohjelmasta
+  
 
 
 ###Luokkakaavio
