@@ -120,7 +120,8 @@ public class Player implements Comparable<Player>, Serializable {
     }
 
     // *************************************************************************************
-    /* addScores adds player stats from a game, and handling the points. if the player
+    /**
+     * addScores adds player stats from a game, and handling the points. if the player
      * scored more goals than his opponent it resulst a win, and it will add 3 points.
      * if scored less then a loss count is increased
      * and if the game is tie, one point is added
