@@ -45,10 +45,34 @@ public class standingsListTest {
     }
 
     @Test
-    public void ListOfFilesWorks() {
+    public void listOfFilesWorks() {
         ArrayList<File> testFiles = getFiles("src/tmp");
         assertEquals(testFiles, list.getFilesFromFolder());
 
+    }
+
+    @Test
+    public void searchStandingsWithNameReturnCorrectStandings() {
+
+        list.addStandings();
+        Standings newStandings = list.searchStandingsWithName("Uusi");
+        boolean isNull = false;
+        if (newStandings == null) {
+            isNull = true;
+        }
+
+        assertFalse(isNull);
+    }
+
+    @Test
+    public void searchStandingWithNameReturnsNullWhenNotFound() {
+        list.addStandings();
+        Standings newStandings = list.searchStandingsWithName("THISXCANTBEEEHEEEREE");
+        boolean isNull = false;
+        if (newStandings == null) {
+            isNull = true;
+        }
+        assertTrue(isNull);
     }
 
     @Test
