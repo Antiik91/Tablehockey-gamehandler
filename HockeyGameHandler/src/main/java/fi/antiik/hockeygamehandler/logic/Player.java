@@ -3,6 +3,16 @@ package fi.antiik.hockeygamehandler.logic;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ *
+ * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.01
+ *
+ * Class contains information about Player and his/ statistics
+ */
 public class Player implements Comparable<Player>, Serializable {
 
     private String name;
@@ -95,6 +105,12 @@ public class Player implements Comparable<Player>, Serializable {
         }
     }
 
+    /**
+     * Method counts win precentage of a player by dividing played games with
+     * wins
+     *
+     * @return counted winprecentage
+     */
     public int getWinPrecentage() {
         if (this.gamesPlayed == 0) {
             return 0;

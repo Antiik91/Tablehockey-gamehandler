@@ -8,6 +8,17 @@ import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ *
+ * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.01
+ *
+ * Class handles the Countdown of gametime and playing sound effects needed in
+ * the game
+ */
 public class Referee {
 
     Player one;
@@ -20,6 +31,7 @@ public class Referee {
             throw new IllegalArgumentException("You can't play against yourself!");
 
         }
+
         this.one = one;
         this.two = two;
         this.standings = standings;
@@ -33,12 +45,21 @@ public class Referee {
         return two;
     }
 
+    /**
+     * Starts the game by playing countdown5.waw sound and then counting down
+     * first 5 seconds to begin the game and then 300 secs gametime
+     */
     public void startGame() {
         playSound("src/music/Countdown5.wav");
         countdown(5);
-        countdown(10);
+        countdown(300);
     }
 
+    /**
+     * Method counts down time in second using Thread.sleep()
+     *
+     * @param timeInSeconds starting time in seconds.
+     */
     public void countdown(int timeInSeconds) {
         if (timeInSeconds <= 0) {
             throw new IllegalArgumentException("Time in seconds must be positive!");
@@ -57,6 +78,14 @@ public class Referee {
 
     }
 
+    /**
+     * After the countdown is complete results are to be handled. Method checks
+     * the scores of player one and two and gives them to Player addScores()
+     * method.
+     *
+     * @param playerOneScores scores for player one
+     * @param playerTwoScores scores for player two
+     */
     public void results(int playerOneScores, int playerTwoScores) {
         if (playerOneScores < 0) {
             playerOneScores *= -1;
@@ -68,6 +97,11 @@ public class Referee {
         standings.getPlayer(two.getName()).addScores(playerTwoScores, playerOneScores);
     }
 
+    /**
+     * Plays soundeffects given in param filename
+     *
+     * @param filename source where the filename is found
+     */
     public static void playSound(String filename) {
         try {
             Clip clip = AudioSystem.getClip();

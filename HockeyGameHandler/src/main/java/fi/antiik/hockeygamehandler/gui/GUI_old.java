@@ -53,8 +53,6 @@ public class GUI_old implements Runnable {
 
     }
 
-
-
     public JFrame getFrame() {
         return frame;
     }

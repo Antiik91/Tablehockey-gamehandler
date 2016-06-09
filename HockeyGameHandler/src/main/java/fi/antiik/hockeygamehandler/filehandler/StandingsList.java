@@ -29,6 +29,17 @@ public class StandingsList {
         return this.listOfStandings;
     }
 
+    public Standings searchStandingsWithName(String name) {
+        Standings found;
+        for (Standings standings : listOfStandings) {
+            if (standings.getName().toLowerCase().equals(name.toLowerCase())) {
+                found = standings;
+                return found;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<File> getFilesFromFolder() {
         File folder = new File("src/tmp");
         File[] filesList = folder.listFiles();

@@ -15,24 +15,41 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author User
+ * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.5 class creates JPanel wich contains list of standings in
+ * standingsList and possibility to create new standings.
  */
 public class SelectStandings extends javax.swing.JPanel {
 
     /**
      * Creates new form SelectStandings
      */
-    
     private StandingsList standingsList;
     private Standings standings;
     private JTextField textField;
-    public SelectStandings(Standings standings, JTextField textField) {
+    private GUI gui;
+
+    public SelectStandings(Standings standings, JTextField textField, GUI gui) {
         this.standings = standings;
         standingsList = new StandingsList();
         this.textField = textField;
-        
+        this.gui = gui;
+
         initComponents();
         setVisible(true);
+    }
+
+    private String[] updateList() {
+        int listSize = this.standingsList.getStandings().size();
+        String[] listData = new String[listSize];
+        for (int i = 0; i < listSize; i++) {
+            listData[i] = this.standingsList.getStandings().get(i).getName();
+        }
+        this.standingsJList.setListData(listData);
+        return listData;
     }
 
     /**
@@ -48,21 +65,33 @@ public class SelectStandings extends javax.swing.JPanel {
         createNewStandingsField = new javax.swing.JTextField();
         selectStandingsButton = new javax.swing.JButton();
         createStandingsButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        standingsJList = new javax.swing.JList<>();
 
         jLabel1.setText("Select a standing from a list or create a new one");
 
         createNewStandingsField.setText("");
 
+        selectStandingsButton.addActionListener(new SelecStandingsFromListListener(this.standingsJList, standingsList, this));
         selectStandingsButton.setText("Select");
 
         createStandingsButton.setText("Create");
-        CreateStandingListener copier = new CreateStandingListener(this.standings, createNewStandingsField, textField);
+        CreateStandingListener copier = new CreateStandingListener(this.standings, createNewStandingsField, textField, this.gui);
         createStandingsButton.addActionListener(copier);
         createStandingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createStandingsButtonActionPerformed(evt);
             }
         });
+
+        standingsJList.setModel(new javax.swing.AbstractListModel<String>() {
+
+            String[] strings = updateList();
+
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(standingsJList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,44 +100,69 @@ public class SelectStandings extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(createNewStandingsField)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(createStandingsButton))))
+                            .addComponent(createNewStandingsField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(createStandingsButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(70, 70, 70))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(selectStandingsButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(createNewStandingsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(createStandingsButton)
-                .addGap(106, 106, 106)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(createNewStandingsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(createStandingsButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(selectStandingsButton)
-                .addGap(0, 92, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void createStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStandingsButtonActionPerformed
-       // this.standings1 = new Standings(createNewStandingsField.getText());
-        
-      
+        // this.standings1 = new Standings(createNewStandingsField.getText());
+
+
     }//GEN-LAST:event_createStandingsButtonActionPerformed
+
+    public Standings getStandings() {
+        return standings;
+    }
+
+    /**
+     * updates currentStandings found in GUI
+     */
+    public void updateGUIStandings() {
+        this.gui.updateCurrentStandings();
+    }
+
+    /**
+     * Sets currentStandings found in GUI
+     *
+     * @param standings GUI's standings
+     */
+    public void setGUIStandings(Standings standings) {
+        this.gui.setCurrentStandings(standings);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField createNewStandingsField;
     private javax.swing.JButton createStandingsButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton selectStandingsButton;
+    private javax.swing.JList<String> standingsJList;
     // End of variables declaration//GEN-END:variables
 }

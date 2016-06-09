@@ -5,29 +5,48 @@
  */
 package fi.antiik.hockeygamehandler.gui;
 
+import fi.antiik.hockeygamehandler.filehandler.DataStorage;
+import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.Player;
 import fi.antiik.hockeygamehandler.logic.Standings;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.util.ArrayList;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
  *
  * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.4
+ *
+ * Class is first presented when user starts the program. it shows graphical
+ * user interface
  */
 public class GUI extends javax.swing.JFrame {
 
     private Standings currentStandings;
+
+    public void setCurrentStandings(Standings currentStandings) {
+        this.currentStandings = currentStandings;
+    }
+
     public GUI() {
         initComponents();
     }
@@ -74,6 +93,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         saveStandingsButton.setText("Save Standings");
+        saveStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveStandingsButtonActionPerformed(evt);
+            }
+        });
 
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +114,11 @@ public class GUI extends javax.swing.JFrame {
         }
 
         shoStandingsButton.setText("Show Standings");
+        shoStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shoStandingsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,57 +165,118 @@ public class GUI extends javax.swing.JFrame {
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newGameButtonActionPerformed
-
+    /**
+     * Updates the current standings textfield to show current standings name
+     */
+    public void updateCurrentStandings() {
+        currentStandingTextField.setText(this.currentStandings.getName());
+    }
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
-       SelectStandings ss = new SelectStandings(currentStandings,currentStandingTextField);
+        SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this);
         JFrame frame = new JFrame("Select standings");
         frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-        
+
         JPanel contentPane = new JPanel();
 
         contentPane.setBorder(
-            BorderFactory.createEmptyBorder(5, 5, 5, 5));
+                BorderFactory.createEmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new CardLayout());
 
         frame.setContentPane(ss);
         frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
-   
-        
+
+
     };//GEN-LAST:event_selecStandingsButtonActionPerformed
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
-               System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerButtonActionPerformed
-       // Appears to be null for some reason..
-        if(this.currentStandings == null) {
+        // Appears to be null for some reason..
+        evt.getSource();
+        if (this.currentStandings != null) {
             JFrame frame = new JFrame("Add Player to standings");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-            
+
             JPanel content = new JPanel();
-            
+
             content.setBorder(
-                BorderFactory.createEmptyBorder(5,5,5,5));
+                    BorderFactory.createEmptyBorder(5, 5, 5, 5));
             content.setLayout(new BorderLayout());
-            
+
             content.add(new JTextField());
-           
+
             JButton playerButton = new JButton("Add Player");
             playerButton.addActionListener(new AddPlayerListener(this.currentStandingTextField, currentStandings));
             content.add(playerButton);
+
+            JTextField newPlayer = new JTextField();
+            content.add(newPlayer, BorderLayout.NORTH);
+
+            JButton newPlayerButton = new JButton("Create Player");
+            newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
+            content.add(newPlayerButton, BorderLayout.SOUTH);
+
             frame.setContentPane(content);
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
-//            for (Player col : this.currentStandings.getPlayers()) {
-//                System.out.println("PLEAAJA : " + col);
-//            }
-            
+
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
+
+    private void saveStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStandingsButtonActionPerformed
+        if (this.currentStandings != null) {
+            DataStorage.saveData(currentStandings);
+        }
+    }//GEN-LAST:event_saveStandingsButtonActionPerformed
+    private int getStandingsSize() {
+        return this.currentStandings.getPlayers().size();
+    }
+    private void shoStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shoStandingsButtonActionPerformed
+        if (this.currentStandings != null) {
+            JFrame frame = new JFrame("Standings ");
+            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+            frame.setPreferredSize(new Dimension(800, 400));
+
+            JPanel panel = new JPanel();
+
+            panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            panel.setLayout(new GridLayout(getStandingsSize() + 1, 10));
+            panel.add(new JLabel(" Place "));
+            panel.add(new JLabel(" Name "));
+            panel.add(new JLabel(" Games Played "));
+            panel.add(new JLabel(" Wins "));
+            panel.add(new JLabel(" Loss "));
+            panel.add(new JLabel(" Ties "));
+            panel.add(new JLabel(" Goals For"));
+            panel.add(new JLabel(" Goals Against "));
+            panel.add(new JLabel(" Win% "));
+            panel.add(new JLabel(" Points "));
+            int index = 1;
+            for (Player player : currentStandings.getPlayers()) {
+                panel.add(new JLabel(" " + index));
+                panel.add(new JLabel(" " + player.getName()));
+                panel.add(new JLabel(" " + player.getGamesPlayed()));
+                panel.add(new JLabel(" " + player.getWins()));
+                panel.add(new JLabel(" " + player.getLosses()));
+                panel.add(new JLabel(" " + player.getTies()));
+                panel.add(new JLabel(" " + player.getGoalsFor()));
+                panel.add(new JLabel(" " + player.getGoalsAgainst()));
+                panel.add(new JLabel(" " + player.getWinPrecentage()));
+                panel.add(new JLabel(" " + player.getPoints()));
+                index++;
+            }
+            frame.setContentPane(panel);
+            frame.pack();
+            frame.setLocationByPlatform(true);
+            frame.setVisible(true);
+
+        }
+    }//GEN-LAST:event_shoStandingsButtonActionPerformed
 
     /**
      * @param args the command line arguments

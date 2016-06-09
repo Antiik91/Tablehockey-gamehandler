@@ -12,24 +12,34 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author User
+ * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.5
+ *
+ * Class listens create standings button and sets gui's current standings this
+ * new standing that is created when typed in JTextField source
  */
-public class CreateStandingListener implements ActionListener{
+public class CreateStandingListener implements ActionListener {
+
     private JTextField source;
     private JTextField target;
-    private Standings emptyStanding;
+    private GUI gui;
+    private Standings standings;
 
-    public CreateStandingListener(Standings standing, JTextField source, JTextField target) {
+    public CreateStandingListener(Standings standing, JTextField source, JTextField target, GUI gui) {
         this.source = source;
         this.target = target;
-        this.emptyStanding = standing;
+        this.standings = standing;
+        this.gui = gui;
     }
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
         this.target.setText(this.source.getText());
-        this.emptyStanding = new Standings(this.source.getText());
+        this.standings = new Standings(this.source.getText());
+        this.gui.setCurrentStandings(this.standings);
     }
-    
+
 }

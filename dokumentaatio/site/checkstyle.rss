@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 13,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,21 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Referee.java">fi/antiik/hockeygamehandler/logic/Referee.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.SelectStandings.java">fi/antiik/hockeygamehandler/gui/SelectStandings.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.CreateStandingListener.java">fi/antiik/hockeygamehandler/gui/CreateStandingListener.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Standings.java">fi/antiik/hockeygamehandler/logic/Standings.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.main.Main.java">fi/antiik/hockeygamehandler/main/Main.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +116,77 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.Main.java">fi/antiik/hockeygamehandler/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.GUI.java">fi/antiik/hockeygamehandler/gui/GUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.filehandler.StandingsList.java">fi/antiik/hockeygamehandler/filehandler/StandingsList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Referee.java">fi/antiik/hockeygamehandler/logic/Referee.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Standings.java">fi/antiik/hockeygamehandler/logic/Standings.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.GUI_old.java">fi/antiik/hockeygamehandler/gui/GUI_old.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.SelecStandingsFromListListener.java">fi/antiik/hockeygamehandler/gui/SelecStandingsFromListListener.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +214,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.filehandler.StandingsList.java">fi/antiik/hockeygamehandler/filehandler/StandingsList.java</a>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.AddPlayerListener.java">fi/antiik/hockeygamehandler/gui/AddPlayerListener.java</a>
                 </td>
                 <td>
                   0

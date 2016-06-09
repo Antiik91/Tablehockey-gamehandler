@@ -12,21 +12,29 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author User
+ * @author janantik
+ *
+ * @version 0.5
+ *
+ * @since 0.5
+ *
+ * class listens Addplayer button and adds player name in JTextField playerName
+ * to standings given in parameter
+ *
  */
 public class AddPlayerListener implements ActionListener {
 
-    JTextField getStandings;
+    JTextField playerName;
     Standings currentStandings;
 
     public AddPlayerListener(JTextField getStandings, Standings currentStandings) {
-        this.getStandings = getStandings;
+        this.playerName = getStandings;
         this.currentStandings = currentStandings;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        currentStandings.addPlayer(getStandings.getText());
+        currentStandings.addPlayer(playerName.getText());
     }
 
 }

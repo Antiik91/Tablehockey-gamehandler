@@ -60,6 +60,30 @@ public class StandingsTest {
         Player test = new Player("jannE");
         assertEquals(true, standings.standingsContainsPlayer(test.getName()));
     }
+    
+    @Test
+    public void noPlayerIsFoundReturnsNull() {
+        standings = new Standings("Test");
+        standings.addPlayer("Janne");
+        standings.addPlayer("Ville");
+        assertEquals(false, standings.standingsContainsPlayer("Jussi"));
+    }
+    
+    @Test
+    public void getPlayerReturnsCorrectPlayer(){
+        
+        standings = new Standings("Test");
+        standings.addPlayer("Tester");
+        Player test = new Player("Tester");
+        assertEquals(test, standings.getPlayer("Tester"));
+    }
+    
+    @Test
+    public void getPlayerNotFoundReturnsNull() {
+        standings = new Standings("TestStandings");
+        standings.addPlayer("VilleKalle");
+        assertEquals(null, standings.getPlayer("Tapani"));
+    }
 
     @Test
     public void correctOrdering() {

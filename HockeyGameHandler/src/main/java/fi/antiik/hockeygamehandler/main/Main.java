@@ -29,11 +29,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 //        GUI_old gui = new GUI_old();
 //        SwingUtilities.invokeLater(gui);
-          GUI test = new GUI();
-          
+        GUI test = new GUI();
+
 //        TestUI ui = new TestUI(scanner);
 //        ui.menu();
-
-
     }
 }

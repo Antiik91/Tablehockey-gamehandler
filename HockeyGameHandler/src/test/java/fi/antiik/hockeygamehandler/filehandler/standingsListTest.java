@@ -20,22 +20,22 @@ import org.junit.Before;
  * @author User
  */
 public class standingsListTest {
-    
+
     StandingsList list;
-    
+
     public standingsListTest() {
     }
-    
+
     @Before
     public void setUp() {
         list = new StandingsList();
     }
-    
+
     public ArrayList<File> getFiles(String path) {
         File folder = new File(path);
         File[] filesList = folder.listFiles();
         ArrayList<File> testFiles = new ArrayList<>();
-        
+
         for (int i = 0; i < filesList.length; i++) {
             if (filesList[i].isFile()) {
                 testFiles.add(filesList[i]);
@@ -43,14 +43,14 @@ public class standingsListTest {
         }
         return testFiles;
     }
-    
+
     @Test
     public void ListOfFilesWorks() {
         ArrayList<File> testFiles = getFiles("src/tmp");
         assertEquals(testFiles, list.getFilesFromFolder());
-        
+
     }
-    
+
     @Test
     public void standingsAreCorrect() {
         ArrayList<File> files = getFiles("src/tmp");
@@ -74,5 +74,5 @@ public class standingsListTest {
         }
         assertEquals(compareList.contains("TestStanding"), list.getStandings().contains("TestStanding"));
     }
-    
+
 }
