@@ -9,6 +9,6 @@ Documentation in Finnish.
 
 [tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
 
-[Pit-raportti](https://htmlpreview.github.io/?https://github.com/Antiik91/Tablehockey-gamehandler/blob/master/dokumentaatio/201606021328/index.html)
+[Pit-raportti](https://htmlpreview.github.io/?https://github.com/Antiik91/Tablehockey-gamehandler/blob/master/dokumentaatio/201606091136/index.html)
 
 [CheckStyle-raportti](https://htmlpreview.github.io/?https://github.com/Antiik91/Tablehockey-gamehandler/blob/master/dokumentaatio/site/checkstyle.html)
