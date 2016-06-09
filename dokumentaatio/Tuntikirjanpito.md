@@ -26,6 +26,7 @@ Päivä | Tunnit | Kuvaus
 05.06.2016 | 2h | Koodikatselmointia
 06.06.2016 | 2h | Graafisen käyttöliittymän luonti.
 07.06.2016 | 4,5h | Graafisen käyttöliittymän kanssa tappelu.
-08.06.2016 | 4 h | Graafisen käyttöliittymän teon jatkaminen.
+08.06.2016 | 4 h | Graafisen käyttöliittymän teon jatkaminen
+09.06.2016 | 1.5 h | Javadocia, testejä, virheidenkorjausta
 ... | ... | ...
 
