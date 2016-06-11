@@ -25,6 +25,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -40,13 +41,13 @@ import javax.swing.JTextField;
  * user interface
  */
 public class GUI extends javax.swing.JFrame {
-
+    
     private Standings currentStandings;
-
+    
     public void setCurrentStandings(Standings currentStandings) {
         this.currentStandings = currentStandings;
     }
-
+    
     public GUI() {
         initComponents();
     }
@@ -163,7 +164,8 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
-        // TODO add your handling code here:
+        String player1 = (String) JOptionPane.showInputDialog("Player 1:");
+
     }//GEN-LAST:event_newGameButtonActionPerformed
     /**
      * Updates the current standings textfield to show current standings name
@@ -175,18 +177,18 @@ public class GUI extends javax.swing.JFrame {
         SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this);
         JFrame frame = new JFrame("Select standings");
         frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-
+        
         JPanel contentPane = new JPanel();
-
+        
         contentPane.setBorder(
                 BorderFactory.createEmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new CardLayout());
-
+        
         frame.setContentPane(ss);
         frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
-
+        
 
     };//GEN-LAST:event_selecStandingsButtonActionPerformed
 
@@ -200,25 +202,25 @@ public class GUI extends javax.swing.JFrame {
         if (this.currentStandings != null) {
             JFrame frame = new JFrame("Add Player to standings");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-
+            
             JPanel content = new JPanel();
-
+            
             content.setBorder(
                     BorderFactory.createEmptyBorder(5, 5, 5, 5));
             content.setLayout(new BorderLayout());
-
+            
             JTextField newPlayer = new JTextField();
             content.add(newPlayer, BorderLayout.NORTH);
-
+            
             JButton newPlayerButton = new JButton("Create Player");
             newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
             content.add(newPlayerButton, BorderLayout.SOUTH);
-
+            
             frame.setContentPane(content);
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
-
+            
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
 
@@ -235,9 +237,9 @@ public class GUI extends javax.swing.JFrame {
             JFrame frame = new JFrame("Standings ");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             frame.setPreferredSize(new Dimension(800, 400));
-
+            
             JPanel panel = new JPanel();
-
+            
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new GridLayout(getStandingsSize() + 1, 10));
             panel.add(new JLabel(" Place "));
@@ -268,7 +270,7 @@ public class GUI extends javax.swing.JFrame {
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
-
+            
         }
     }//GEN-LAST:event_shoStandingsButtonActionPerformed
 
