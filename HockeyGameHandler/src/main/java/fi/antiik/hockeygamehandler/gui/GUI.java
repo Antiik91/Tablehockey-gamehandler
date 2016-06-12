@@ -165,6 +165,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         String player1 = (String) JOptionPane.showInputDialog("Player 1:");
+        String Player2 = (String) JOptionPane.showInputDialog("Player 2: ");
 
     }//GEN-LAST:event_newGameButtonActionPerformed
     /**
