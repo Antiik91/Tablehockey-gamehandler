@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @version 0.5
  *
- * @since 0.5 class creates JPanel wich contains list of standings in
+ * @since 0.5 class creates JPanel which contains list of standings in
  * standingsList and possibility to create new standings.
  */
 public class SelectStandings extends javax.swing.JPanel {

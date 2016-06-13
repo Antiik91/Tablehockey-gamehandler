@@ -71,7 +71,8 @@ public class Standings implements Serializable {
                 return player;
             }
         }
-        return null;
+        addPlayer(name);
+        return getPlayer(name);
     }
 
     /**
