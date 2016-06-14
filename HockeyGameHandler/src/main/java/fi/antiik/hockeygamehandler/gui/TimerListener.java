@@ -22,9 +22,9 @@ public class TimerListener implements ActionListener {
     public TimerListener(Logic logic) {
         this.logic = logic;
         this.timer = logic.getTime();
-//        this.timer.setDelay(1000);
+
         timer.setInitialDelay(0);
-        timer.start();;
+        timer.start();
     }
 
     @Override

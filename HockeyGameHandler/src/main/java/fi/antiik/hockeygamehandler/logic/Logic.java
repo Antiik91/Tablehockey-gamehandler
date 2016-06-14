@@ -28,7 +28,7 @@ public class Logic {
     }
     public Logic(String player1, String player2, Standings standings, GUI gui) {
         this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings);
-        this.timer = new Timer(0, new TimerListener(this));
+        this.timer = new Timer(1000, new TimerListener(this));
         this.gui = gui;
     }
     public Referee getReferee() {
