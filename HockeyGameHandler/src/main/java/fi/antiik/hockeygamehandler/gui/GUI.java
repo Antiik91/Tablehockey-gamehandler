@@ -9,6 +9,7 @@ import fi.antiik.hockeygamehandler.filehandler.DataStorage;
 import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.MainLogic;
 import fi.antiik.hockeygamehandler.logic.Player;
+import fi.antiik.hockeygamehandler.logic.Referee;
 import fi.antiik.hockeygamehandler.logic.Standings;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -29,6 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 
 /**
  *
@@ -167,8 +169,9 @@ public class GUI extends javax.swing.JFrame {
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         if (this.currentStandings != null) {
             String player1 = (String) JOptionPane.showInputDialog("Player 1:");
-            String Player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            MainLogic logic = new MainLogic(this.currentStandings.getPlayer(player1), this.currentStandings.getPlayer(Player2), this.currentStandings);
+            String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
+            MainLogic logic = new MainLogic(this.currentStandings.getPlayer(player1), this.currentStandings.getPlayer(player2), this.currentStandings);
+            //MainLogic logic = new MainLogic(3,new Timer(0, new TimerListener()), new Referee(currentStandings.getPlayer(player1), currentStandings.getPlayer(player2), currentStandings));
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             frame.setPreferredSize(new Dimension(800, 400));

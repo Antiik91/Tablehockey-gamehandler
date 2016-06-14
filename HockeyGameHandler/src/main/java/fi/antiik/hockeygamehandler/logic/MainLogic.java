@@ -5,6 +5,8 @@
  */
 package fi.antiik.hockeygamehandler.logic;
 
+import fi.antiik.hockeygamehandler.gui.TimerListener;
+import java.util.Date;
 import javax.swing.Timer;
 
 /**
@@ -14,14 +16,17 @@ import javax.swing.Timer;
 public class MainLogic {
     private Referee referee;
     private Timer timer;
-
+    private long startTime;
+    private long elapsedTime;
+    
     public MainLogic(Referee referee, Timer timer) {
         this.referee = referee;
         this.timer = timer;
+        this.elapsedTime = 0L;
     }
     public MainLogic(Player player1, Player player2, Standings standings) {
         this.referee = new Referee(player1, player2, standings);
-        this.timer = new Timer(0, null);
+        this.timer = new Timer(0, new TimerListener(this));
     }
     public Referee getReferee() {
         return this.referee;
@@ -32,7 +37,7 @@ public class MainLogic {
     
     public void startGame() {
         this.referee.startGame();
-        this.timer.start();
+        this.startTime = System.currentTimeMillis();
     }
     
     public void addScore(Player player) {
@@ -48,6 +53,10 @@ public class MainLogic {
     }
     
     public boolean timeNotZero() {
-    return true;
+        if(elapsedTime < 1 * 60*1000) {
+            elapsedTime = (new Date()).getTime()- startTime;
+            return  true;
+        }
+    return false;
 }
 }
