@@ -46,6 +46,7 @@ import javax.swing.Timer;
 public class GUI extends javax.swing.JFrame {
 
     private Standings currentStandings;
+    private JTextField timeField;
 
     public void setCurrentStandings(Standings currentStandings) {
         this.currentStandings = currentStandings;
@@ -170,7 +171,7 @@ public class GUI extends javax.swing.JFrame {
         if (this.currentStandings != null) {
             String player1 = (String) JOptionPane.showInputDialog("Player 1:");
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            Logic logic = new Logic(player1, player2, this.currentStandings);
+            Logic logic = new Logic(player1, player2, this.currentStandings, this);
             //MainLogic logic = new MainLogic(3,new Timer(0, new TimerListener()), new Referee(currentStandings.getPlayer(player1), currentStandings.getPlayer(player2), currentStandings));
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -178,22 +179,29 @@ public class GUI extends javax.swing.JFrame {
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new BorderLayout());
-            JTextField time = new JTextField();
-            panel.add(time);
-
+            this.timeField  = new JTextField();
+            panel.add(timeField);
+            JLabel playerOne = new JLabel(player1);
+            JLabel playerTwo = new JLabel(player2);
             JButton startButton = new JButton("Start");
             startButton.addActionListener(new StartTimerListener(logic));
             frame.setContentPane(panel);
             frame.add(startButton, BorderLayout.SOUTH);
+            frame.add(playerOne, BorderLayout.WEST);
+            frame.add(playerTwo, BorderLayout.EAST);
             frame.pack();
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
 
-            time.setText(logic.getTime().toString());
+            timeField.setText(logic.getTime().toString());
 
         }
 
     }//GEN-LAST:event_newGameButtonActionPerformed
+        public JTextField getTimeField() {
+            return this.timeField;
+        }
+    
     /**
      * Updates the current standings textfield to show current standings name
      */

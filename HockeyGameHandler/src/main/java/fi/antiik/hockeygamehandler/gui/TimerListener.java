@@ -27,7 +27,7 @@ public class TimerListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         while (logic.timeNotZero()) {
-                      
+                   logic.setTime();
         }
     }
     
