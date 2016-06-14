@@ -8,27 +8,32 @@ package fi.antiik.hockeygamehandler.gui;
 import fi.antiik.hockeygamehandler.logic.Logic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
  * @author User
  */
-public class TimerListener implements ActionListener{
-    private boolean continues;
+public class TimerListener implements ActionListener {
+
     private Logic logic;
+    private Timer timer;
 
     public TimerListener(Logic logic) {
-        this.continues = continues;
         this.logic = logic;
+        this.timer = logic.getTime();
+//        this.timer.setDelay(1000);
+        timer.setInitialDelay(0);
+        timer.start();;
     }
 
-    
-    
     @Override
     public void actionPerformed(ActionEvent e) {
-        while (logic.timeNotZero()) {
-                   logic.setTime();
+        if (!logic.timeNotZero()) {
+            this.timer.stop();
+        } else {
+            logic.setTime();
         }
     }
-    
+
 }
