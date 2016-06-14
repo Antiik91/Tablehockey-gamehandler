@@ -27,7 +27,7 @@ public class Referee {
     DataStorage storage;
 
     public Referee(Player one, Player two, Standings standings) {
-        if (one == two) {
+        if (one.equals(two)) {
             throw new IllegalArgumentException("You can't play against yourself! " + one.getName() + " " + two.getName());
 
         }
@@ -50,7 +50,8 @@ public class Referee {
      * first 5 seconds to begin the game and then 300 secs gametime
      */
     public void startGame() {
-        Speak("src/music/Countdown5.wav");
+        speak("src/music/Countdown5.wav");
+//        speak("src/music/endGame.wav");
         countdown(5);
     }
 
@@ -101,7 +102,7 @@ public class Referee {
      *
      * @param filename source where the filename is found
      */
-   public void Speak(String filename) {
+   public void speak(String filename) {
        SoundPlayer.playSound(filename);
    }
 }

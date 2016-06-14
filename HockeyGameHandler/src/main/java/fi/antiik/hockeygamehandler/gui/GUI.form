@@ -33,7 +33,7 @@
                   <Component id="quitButton" alignment="1" max="32767" attributes="0"/>
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Component id="currentStandingTextField" max="32767" attributes="0"/>
-                  <Component id="shoStandingsButton" max="32767" attributes="0"/>
+                  <Component id="showStandingsButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="164" max="32767" attributes="0"/>
           </Group>
@@ -53,7 +53,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="newGameButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="shoStandingsButton" min="-2" max="-2" attributes="0"/>
+              <Component id="showStandingsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="saveStandingsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -120,12 +120,12 @@
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="currentStandingTextField.setEditable(false);&#xa;if(currentStandings != null) {"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="shoStandingsButton">
+    <Component class="javax.swing.JButton" name="showStandingsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Show Standings"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shoStandingsButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showStandingsButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

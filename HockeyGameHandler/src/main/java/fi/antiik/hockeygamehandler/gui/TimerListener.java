@@ -5,7 +5,7 @@
  */
 package fi.antiik.hockeygamehandler.gui;
 
-import fi.antiik.hockeygamehandler.logic.MainLogic;
+import fi.antiik.hockeygamehandler.logic.Logic;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,9 +15,9 @@ import java.awt.event.ActionListener;
  */
 public class TimerListener implements ActionListener{
     private boolean continues;
-    private MainLogic logic;
+    private Logic logic;
 
-    public TimerListener(MainLogic logic) {
+    public TimerListener(Logic logic) {
         this.continues = continues;
         this.logic = logic;
     }

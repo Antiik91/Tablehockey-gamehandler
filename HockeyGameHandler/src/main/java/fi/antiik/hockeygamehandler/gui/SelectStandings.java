@@ -7,6 +7,7 @@ package fi.antiik.hockeygamehandler.gui;
 
 import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.Standings;
+import java.awt.Frame;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
 import static java.lang.Math.E;
@@ -31,17 +32,18 @@ public class SelectStandings extends javax.swing.JPanel {
     private Standings standings;
     private JTextField textField;
     private GUI gui;
-
-    public SelectStandings(Standings standings, JTextField textField, GUI gui) {
+    private Frame frame;
+    
+    public SelectStandings(Standings standings, JTextField textField, GUI gui, Frame frame) {
         this.standings = standings;
         standingsList = new StandingsList();
         this.textField = textField;
         this.gui = gui;
-
+        this.frame = frame;
         initComponents();
         setVisible(true);
     }
-
+    
     private String[] updateList() {
         int listSize = this.standingsList.getStandings().size();
         String[] listData = new String[listSize];
@@ -66,7 +68,7 @@ public class SelectStandings extends javax.swing.JPanel {
         selectStandingsButton = new javax.swing.JButton();
         createStandingsButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        standingsJList = new javax.swing.JList<>();
+        standingsJList = new javax.swing.JList<String>();
 
         jLabel1.setText("Select a standing from a list or create a new one");
 
@@ -74,6 +76,11 @@ public class SelectStandings extends javax.swing.JPanel {
 
         selectStandingsButton.addActionListener(new SelecStandingsFromListListener(this.standingsJList, standingsList, this));
         selectStandingsButton.setText("Select");
+        selectStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectStandingsButtonActionPerformed(evt);
+            }
+        });
 
         createStandingsButton.setText("Create");
         CreateStandingListener copier = new CreateStandingListener(this.standings, createNewStandingsField, textField, this.gui);
@@ -131,11 +138,15 @@ public class SelectStandings extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStandingsButtonActionPerformed
-        // this.standings1 = new Standings(createNewStandingsField.getText());
-
+        this.frame.setVisible(false);
+        
 
     }//GEN-LAST:event_createStandingsButtonActionPerformed
 
+    private void selectStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStandingsButtonActionPerformed
+        this.frame.setVisible(false);
+    }//GEN-LAST:event_selectStandingsButtonActionPerformed
+    
     public Standings getStandings() {
         return standings;
     }

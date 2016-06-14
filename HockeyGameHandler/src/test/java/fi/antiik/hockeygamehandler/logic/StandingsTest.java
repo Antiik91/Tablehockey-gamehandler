@@ -79,10 +79,11 @@ public class StandingsTest {
     }
     
     @Test
-    public void getPlayerNotFoundReturnsNull() {
+    public void getPlayerNotFoundCreatesPlayer() {
         standings = new Standings("TestStandings");
         standings.addPlayer("VilleKalle");
-        assertEquals(null, standings.getPlayer("Tapani"));
+        Player testPlayer = new Player("Tapani");
+        assertEquals(testPlayer, standings.getPlayer("Tapani"));
     }
 
     @Test

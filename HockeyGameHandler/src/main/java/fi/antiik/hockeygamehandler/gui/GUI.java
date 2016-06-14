@@ -7,7 +7,7 @@ package fi.antiik.hockeygamehandler.gui;
 
 import fi.antiik.hockeygamehandler.filehandler.DataStorage;
 import fi.antiik.hockeygamehandler.filehandler.StandingsList;
-import fi.antiik.hockeygamehandler.logic.MainLogic;
+import fi.antiik.hockeygamehandler.logic.Logic;
 import fi.antiik.hockeygamehandler.logic.Player;
 import fi.antiik.hockeygamehandler.logic.Referee;
 import fi.antiik.hockeygamehandler.logic.Standings;
@@ -71,7 +71,7 @@ public class GUI extends javax.swing.JFrame {
         quitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         currentStandingTextField = new javax.swing.JTextField();
-        shoStandingsButton = new javax.swing.JButton();
+        showStandingsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,10 +117,10 @@ public class GUI extends javax.swing.JFrame {
             currentStandingTextField.setText(currentStandings.getName());
         }
 
-        shoStandingsButton.setText("Show Standings");
-        shoStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+        showStandingsButton.setText("Show Standings");
+        showStandingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shoStandingsButtonActionPerformed(evt);
+                showStandingsButtonActionPerformed(evt);
             }
         });
 
@@ -138,7 +138,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(currentStandingTextField)
-                    .addComponent(shoStandingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(showStandingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,7 +155,7 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newGameButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(shoStandingsButton)
+                .addComponent(showStandingsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saveStandingsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,7 +170,7 @@ public class GUI extends javax.swing.JFrame {
         if (this.currentStandings != null) {
             String player1 = (String) JOptionPane.showInputDialog("Player 1:");
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            MainLogic logic = new MainLogic(this.currentStandings.getPlayer(player1), this.currentStandings.getPlayer(player2), this.currentStandings);
+            Logic logic = new Logic(player1, player2, this.currentStandings);
             //MainLogic logic = new MainLogic(3,new Timer(0, new TimerListener()), new Referee(currentStandings.getPlayer(player1), currentStandings.getPlayer(player2), currentStandings));
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -201,8 +201,9 @@ public class GUI extends javax.swing.JFrame {
         currentStandingTextField.setText(this.currentStandings.getName());
     }
     private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
-        SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this);
+
         JFrame frame = new JFrame("Select standings");
+
         frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
 
         JPanel contentPane = new JPanel();
@@ -210,7 +211,7 @@ public class GUI extends javax.swing.JFrame {
         contentPane.setBorder(
                 BorderFactory.createEmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new CardLayout());
-
+        SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this, frame);
         frame.setContentPane(ss);
         frame.pack();
         frame.setLocationByPlatform(true);
@@ -224,29 +225,30 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_quitButtonActionPerformed
 
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerButtonActionPerformed
-        // Appears to be null for some reason..
-        evt.getSource();
+
         if (this.currentStandings != null) {
-            JFrame frame = new JFrame("Add Player to standings");
-            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-
-            JPanel content = new JPanel();
-
-            content.setBorder(
-                    BorderFactory.createEmptyBorder(5, 5, 5, 5));
-            content.setLayout(new BorderLayout());
-
-            JTextField newPlayer = new JTextField();
-            content.add(newPlayer, BorderLayout.NORTH);
-
-            JButton newPlayerButton = new JButton("Create Player");
-            newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
-            content.add(newPlayerButton, BorderLayout.SOUTH);
-
-            frame.setContentPane(content);
-            frame.pack();
-            frame.setLocationByPlatform(true);
-            frame.setVisible(true);
+//            JFrame frame = new JFrame("Add Player to standings");
+//            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+//
+//            JPanel content = new JPanel();
+//
+//            content.setBorder(
+//                    BorderFactory.createEmptyBorder(5, 5, 5, 5));
+//            content.setLayout(new BorderLayout());
+//
+//            JTextField newPlayer = new JTextField();
+//            content.add(newPlayer, BorderLayout.NORTH);
+//
+//            JButton newPlayerButton = new JButton("Create Player");
+//            newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
+//            content.add(newPlayerButton, BorderLayout.SOUTH);
+//
+//            frame.setContentPane(content);
+//            frame.pack();
+//            frame.setLocationByPlatform(true);
+//            frame.setVisible(true);
+            String newPlayer = (String) JOptionPane.showInputDialog("Add a new player to standings: \n ");
+            this.currentStandings.addPlayer(newPlayer);
 
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
@@ -259,7 +261,7 @@ public class GUI extends javax.swing.JFrame {
     private int getStandingsSize() {
         return this.currentStandings.getPlayers().size();
     }
-    private void shoStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shoStandingsButtonActionPerformed
+    private void showStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStandingsButtonActionPerformed
         if (this.currentStandings != null) {
             JFrame frame = new JFrame("Standings ");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -299,7 +301,7 @@ public class GUI extends javax.swing.JFrame {
             frame.setVisible(true);
 
         }
-    }//GEN-LAST:event_shoStandingsButtonActionPerformed
+    }//GEN-LAST:event_showStandingsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,6 +346,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton quitButton;
     private javax.swing.JButton saveStandingsButton;
     private javax.swing.JButton selecStandingsButton;
-    private javax.swing.JButton shoStandingsButton;
+    private javax.swing.JButton showStandingsButton;
     // End of variables declaration//GEN-END:variables
 }

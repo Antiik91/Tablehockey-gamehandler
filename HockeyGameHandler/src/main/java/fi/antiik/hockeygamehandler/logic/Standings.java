@@ -38,9 +38,9 @@ public class Standings implements Serializable {
      * @return Arraylist of standings
      */
     public ArrayList<Player> getPlayers() {
-        if (!standings.isEmpty()) {
+ 
             Collections.sort(standings);
-        }
+        
         return this.standings;
     }
 
@@ -50,10 +50,12 @@ public class Standings implements Serializable {
      * @param name name of the player to be added (user input)
      */
     public void addPlayer(String name) {
-        if (!standingsContainsPlayer(name)) {
-            this.standings.add(new Player(name));
-        } else {
-            System.out.println("Player is in the standings already!");
+        if (name != null) {
+            if (!standingsContainsPlayer(name)) {
+                this.standings.add(new Player(name));
+            } else {
+                System.out.println("Player is in the standings already!");
+            }
         }
     }
 

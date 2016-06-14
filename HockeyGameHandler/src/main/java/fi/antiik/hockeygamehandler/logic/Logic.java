@@ -13,19 +13,19 @@ import javax.swing.Timer;
  *
  * @author janantik
  */
-public class MainLogic {
+public class Logic {
     private Referee referee;
     private Timer timer;
     private long startTime;
     private long elapsedTime;
     
-    public MainLogic(Referee referee, Timer timer) {
+    public Logic(Referee referee, Timer timer) {
         this.referee = referee;
         this.timer = timer;
         this.elapsedTime = 0L;
     }
-    public MainLogic(Player player1, Player player2, Standings standings) {
-        this.referee = new Referee(player1, player2, standings);
+    public Logic(String player1, String player2, Standings standings) {
+        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings);
         this.timer = new Timer(0, new TimerListener(this));
     }
     public Referee getReferee() {
