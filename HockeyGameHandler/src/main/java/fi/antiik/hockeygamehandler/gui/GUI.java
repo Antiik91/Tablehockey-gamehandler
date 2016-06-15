@@ -181,7 +181,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             if (player2 == null) {
                 player2 = "Player " + this.currentStandings.getSize() + 2;
             }
-            if(player1.equals(player2)) {
+            if(player1.toLowerCase().trim().equals(player2.toLowerCase().trim())) {
                 JOptionPane.showMessageDialog(null, "Player can't play against itself!");
                 return;
             }
