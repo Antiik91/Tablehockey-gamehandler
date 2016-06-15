@@ -181,6 +181,10 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             if (player2 == null) {
                 player2 = "Player " + this.currentStandings.getSize() + 2;
             }
+            if(player1.equals(player2)) {
+                JOptionPane.showMessageDialog(null, "Player can't play against itself!");
+                return;
+            }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
