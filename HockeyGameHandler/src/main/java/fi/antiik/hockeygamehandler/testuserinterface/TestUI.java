@@ -130,10 +130,10 @@ public class TestUI {
             System.out.println(playerTwo + " added to the standings");
         }
         two = standings.getPlayer(playerTwo);
-        Referee game = new Referee(one, two, standings);
-        game.startGame();
+//        Referee game = new Referee(one, two, standings);
+     //   game.startGame();
 
-        updateResults(game);
+     //   updateResults(game);
     }
 
     private void updateResults(Referee game) {

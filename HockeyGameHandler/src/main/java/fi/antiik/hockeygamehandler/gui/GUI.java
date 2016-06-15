@@ -11,9 +11,12 @@ import fi.antiik.hockeygamehandler.logic.Logic;
 import fi.antiik.hockeygamehandler.logic.Player;
 import fi.antiik.hockeygamehandler.logic.Referee;
 import fi.antiik.hockeygamehandler.logic.Standings;
+import fi.antiik.hockeygamehandler.logic.Updatable;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -43,10 +46,11 @@ import javax.swing.Timer;
  * Class is first presented when user starts the program. it shows graphical
  * user interface
  */
-public class GUI extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame implements Updatable {
 
     private Standings currentStandings;
-    private JTextField timeField;
+    private JLabel timeField;
+    private Logic logic;
 
     public void setCurrentStandings(Standings currentStandings) {
         this.currentStandings = currentStandings;
@@ -169,23 +173,35 @@ public class GUI extends javax.swing.JFrame {
 
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         if (this.currentStandings != null) {
-            String player1 = (String) JOptionPane.showInputDialog("Player 1:");
+            String player1 = (String) JOptionPane.showInputDialog("Player 1: ");
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            Logic logic = new Logic(player1, player2, this.currentStandings, this);
-            //MainLogic logic = new MainLogic(3,new Timer(0, new TimerListener()), new Referee(currentStandings.getPlayer(player1), currentStandings.getPlayer(player2), currentStandings));
+            this.logic = new Logic(player1, player2, this.currentStandings, this);
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             frame.setPreferredSize(new Dimension(800, 400));
+            
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new BorderLayout());
-            this.timeField  = new JTextField();
-            panel.add(timeField);
+            
+            
+            this.timeField = new JLabel("                             GET READY");
+            this.timeField.setMinimumSize(new Dimension(100,100));
+            this.timeField.setPreferredSize(new Dimension(100,100));
+            this.timeField.setForeground(Color.RED);
+            this.timeField.setFont(new Font("Arial", 1, 35));
+            
+        //   panel.add(timeField);
+            
+            
             JLabel playerOne = new JLabel(player1);
             JLabel playerTwo = new JLabel(player2);
+            
             JButton startButton = new JButton("Start");
+           
             startButton.addActionListener(new StartTimerListener(logic));
-            frame.setContentPane(panel);
+          // frame.setContentPane(panel);
+            frame.add(this.timeField, BorderLayout.NORTH);
             frame.add(startButton, BorderLayout.SOUTH);
             frame.add(playerOne, BorderLayout.WEST);
             frame.add(playerTwo, BorderLayout.EAST);
@@ -193,15 +209,22 @@ public class GUI extends javax.swing.JFrame {
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
 
-            timeField.setText(logic.getTime().toString());
-
         }
-
     }//GEN-LAST:event_newGameButtonActionPerformed
-        public JTextField getTimeField() {
-            return this.timeField;
-        }
-    
+
+    public void setResults() {
+        String playerOneScoresQuery = (String) JOptionPane.showInputDialog("Scores for Player 1:");
+        int player1Scores = Integer.parseInt(playerOneScoresQuery);
+        String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for Player 2:");
+        int player2Scores = Integer.parseInt(playerTwoScoresQuery);
+
+        this.logic.setScores(player1Scores, player2Scores);
+    }
+
+    public JLabel getTimeField() {
+        return this.timeField;
+    }
+
     /**
      * Updates the current standings textfield to show current standings name
      */
@@ -356,4 +379,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton selecStandingsButton;
     private javax.swing.JButton showStandingsButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update() {
+        this.timeField.setText("                                    "+this.logic.getTimeinSeconds());
+    }
 }

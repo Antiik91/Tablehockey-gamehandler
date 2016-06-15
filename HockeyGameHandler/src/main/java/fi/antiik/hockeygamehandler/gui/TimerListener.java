@@ -6,8 +6,10 @@
 package fi.antiik.hockeygamehandler.gui;
 
 import fi.antiik.hockeygamehandler.logic.Logic;
+import fi.antiik.hockeygamehandler.logic.Updatable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
@@ -16,24 +18,25 @@ import javax.swing.Timer;
  */
 public class TimerListener implements ActionListener {
 
-    private Logic logic;
-    private Timer timer;
+    private ArrayList<Updatable> updatables;
 
-    public TimerListener(Logic logic) {
-        this.logic = logic;
-        this.timer = logic.getTime();
+    public TimerListener(ArrayList<Updatable> updatables) {
 
-        timer.setInitialDelay(0);
-        timer.start();
+        this.updatables = updatables;
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!logic.timeNotZero()) {
-            this.timer.stop();
-        } else {
-            logic.setTime();
+        if (!this.updatables.isEmpty()) {
+            for (Updatable updatableClass : this.updatables) {
+                updatableClass.update();
+            }
+        }else {
+            System.out.println("NOWORKLOL");
         }
+        
+
     }
 
 }

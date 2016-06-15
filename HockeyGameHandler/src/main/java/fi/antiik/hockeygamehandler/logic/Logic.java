@@ -14,53 +14,58 @@ import javax.swing.Timer;
  *
  * @author janantik
  */
-public class Logic {
+public class Logic implements Updatable {
+
     private Referee referee;
-    private Timer timer;
-    private long startTime;
-    private long elapsedTime;
     private GUI gui;
-    
-    public Logic(Referee referee, Timer timer) {
+    private int timeInSeconds;
+
+    public Logic(Referee referee) {
         this.referee = referee;
-        this.timer = timer;
-        this.elapsedTime = 0L;
     }
+
     public Logic(String player1, String player2, Standings standings, GUI gui) {
-        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings);
-        this.timer = new Timer(1000, new TimerListener(this));
         this.gui = gui;
+        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, this.gui, this);
+
     }
+
     public Referee getReferee() {
         return this.referee;
     }
+
     public void setReferee(Referee referee) {
         this.referee = referee;
     }
-    
-    public void startGame() {
+
+    public void startGame(int TimeInSeconds) {
+        this.timeInSeconds = TimeInSeconds;
         this.referee.startGame();
-        this.startTime = System.currentTimeMillis();
-        this.timer.start();
+
     }
-    
+
+    public int getTimeinSeconds() {
+        return this.timeInSeconds;
+    }
+
     public void addScore(Player player) {
-        
+
     }
-    
-    public Timer getTime() {
-        return this.timer;
+
+    public void setScores(int player1Scores, int player2Scores) {
+        this.referee.results(player1Scores, player2Scores);
     }
-    
-    public void setTime() {
-        this.gui.getTimeField().setText(this.timer.getActionCommand() + " Sets ");
-    }
-    
-    public boolean timeNotZero() {
-        if(elapsedTime < 1 * 10*1000) {
-            elapsedTime = (new Date()).getTime()- startTime;
-            return  true;
+
+    @Override
+    public void update() {
+        this.timeInSeconds--;
+        if (this.timeInSeconds == 0) {
+            this.referee.speak("src/music/endGame.wav");
+            this.gui.setResults();
+            this.referee.stopTimer();
         }
-    return false;
-}
+        if (this.timeInSeconds == 60) {
+            this.referee.speak("src/music/Toy_Train_Whistle.wav");
+        }
+    }
 }

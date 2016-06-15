@@ -1,12 +1,15 @@
 package fi.antiik.hockeygamehandler.logic;
 
 import fi.antiik.hockeygamehandler.filehandler.DataStorage;
+import fi.antiik.hockeygamehandler.gui.GUI;
+import fi.antiik.hockeygamehandler.gui.TimerListener;
 import java.io.File;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.Timer;
 
 /**
  *
@@ -21,12 +24,15 @@ import javax.sound.sampled.Clip;
  */
 public class Referee {
 
-    Player one;
-    Player two;
-    Standings standings;
-    DataStorage storage;
+    private Player one;
+    private Player two;
+    private Standings standings;
+    private DataStorage storage;
+    private GUI gui;
+    private Logic logic;
+    private Timer timer;
 
-    public Referee(Player one, Player two, Standings standings) {
+    public Referee(Player one, Player two, Standings standings,GUI gui, Logic logic) {
         if (one.equals(two)) {
             throw new IllegalArgumentException("You can't play against yourself! " + one.getName() + " " + two.getName());
 
@@ -35,7 +41,11 @@ public class Referee {
         this.one = one;
         this.two = two;
         this.standings = standings;
+        this.gui = gui;
+        this.logic = logic;
     }
+
+
 
     public Player getPlayerOne() {
         return one;
@@ -53,6 +63,12 @@ public class Referee {
         speak("src/music/Countdown5.wav");
 //        speak("src/music/endGame.wav");
         countdown(5);
+        ArrayList<Updatable> updatables = new ArrayList<>();
+        updatables.add(this.logic);
+        updatables.add(this.gui);
+         this.timer = new Timer(1000, new TimerListener(updatables));
+        timer.setInitialDelay(1000);
+        timer.start();
     }
 
     /**
@@ -68,7 +84,7 @@ public class Referee {
         int timeLeft = timeInSeconds;
         while (timeLeft > 0) {
             try {
-                System.out.println(timeLeft);
+//                System.out.println(timeLeft);
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Referee.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,4 +121,8 @@ public class Referee {
    public void speak(String filename) {
        SoundPlayer.playSound(filename);
    }
+
+    void stopTimer() {
+        this.timer.stop();
+    }
 }

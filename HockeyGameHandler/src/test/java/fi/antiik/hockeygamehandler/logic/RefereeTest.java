@@ -5,6 +5,7 @@
  */
 package fi.antiik.hockeygamehandler.logic;
 
+import fi.antiik.hockeygamehandler.gui.GUI;
 import java.io.FileNotFoundException;
 import javax.sound.sampled.LineUnavailableException;
 import org.junit.After;
@@ -24,6 +25,8 @@ public class RefereeTest {
     Player player2;
     Referee referee;
     Standings standing;
+    private GUI gui;
+    private Logic logic;
 
     public RefereeTest() {
     }
@@ -36,7 +39,7 @@ public class RefereeTest {
         player1 = standing.getPlayer("One");
         player2 = standing.getPlayer("Two");
 
-        referee = new Referee(player1, player2, standing);
+        referee = new Referee(player1, player2, standing, gui, logic);
     }
 
     @After
@@ -87,7 +90,7 @@ public class RefereeTest {
     public void playersCantPlayAgainstItself() {
         Throwable exception = null;
         try {
-            Referee testRef = new Referee(player1, player1, standing);
+            Referee testRef = new Referee(player1, player1, standing, gui, logic);
         } catch (Throwable ex) {
             exception = ex;
         }

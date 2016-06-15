@@ -15,14 +15,14 @@ import java.awt.event.ActionListener;
  */
 public class StartTimerListener implements ActionListener{
     Logic logic;
-
+    
     public StartTimerListener(Logic logic) {
         this.logic = logic;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.logic.startGame();
+        this.logic.startGame(10);
     }
     
 }
