@@ -32,7 +32,7 @@ public class Referee {
     private Logic logic;
     private Timer timer;
 
-    public Referee(Player one, Player two, Standings standings,GUI gui, Logic logic) {
+    public Referee(Player one, Player two, Standings standings, GUI gui, Logic logic) {
         if (one.equals(two)) {
             throw new IllegalArgumentException("You can't play against yourself! " + one.getName() + " " + two.getName());
 
@@ -44,8 +44,6 @@ public class Referee {
         this.gui = gui;
         this.logic = logic;
     }
-
-
 
     public Player getPlayerOne() {
         return one;
@@ -61,12 +59,12 @@ public class Referee {
      */
     public void startGame() {
         speak("src/music/Countdown5.wav");
-//        speak("src/music/endGame.wav");
+
         countdown(5);
         ArrayList<Updatable> updatables = new ArrayList<>();
-        updatables.add(this.logic);
         updatables.add(this.gui);
-         this.timer = new Timer(1000, new TimerListener(updatables));
+        updatables.add(this.logic);
+        this.timer = new Timer(1000, new TimerListener(updatables));
         timer.setInitialDelay(1000);
         timer.start();
     }
@@ -118,9 +116,9 @@ public class Referee {
      *
      * @param filename source where the filename is found
      */
-   public void speak(String filename) {
-       SoundPlayer.playSound(filename);
-   }
+    public void speak(String filename) {
+        SoundPlayer.playSound(filename);
+    }
 
     void stopTimer() {
         this.timer.stop();

@@ -38,10 +38,11 @@ public class Logic implements Updatable {
         this.referee = referee;
     }
 
-    public void startGame(int TimeInSeconds) {
-        this.timeInSeconds = TimeInSeconds;
-        this.referee.startGame();
-
+    public void startGame(int timeInSeconds) {
+        if (timeInSeconds > 0) {
+            this.timeInSeconds = timeInSeconds;
+            this.referee.startGame();
+        }
     }
 
     public int getTimeinSeconds() {
@@ -53,19 +54,22 @@ public class Logic implements Updatable {
     }
 
     public void setScores(int player1Scores, int player2Scores) {
-        this.referee.results(player1Scores, player2Scores);
+        if (player1Scores >= 0 && player2Scores >= 0) {
+            this.referee.results(player1Scores, player2Scores);
+        }
     }
 
     @Override
     public void update() {
-        this.timeInSeconds--;
+
         if (this.timeInSeconds == 0) {
             this.referee.speak("src/music/endGame.wav");
-            this.gui.setResults();
+            this.gui.setResults(this.referee.getPlayerOne().getName(), this.referee.getPlayerTwo().getName());
             this.referee.stopTimer();
         }
         if (this.timeInSeconds == 60) {
             this.referee.speak("src/music/Toy_Train_Whistle.wav");
         }
+        this.timeInSeconds--;
     }
 }

@@ -174,33 +174,38 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         if (this.currentStandings != null) {
             String player1 = (String) JOptionPane.showInputDialog("Player 1: ");
+            if (player1 == null) {
+                player1 = "Player " + this.currentStandings.getSize() + 1;
+            }
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
+            if (player2 == null) {
+                player2 = "Player " + this.currentStandings.getSize() + 2;
+            }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
             JFrame frame = new JFrame("New Game");
             frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             frame.setPreferredSize(new Dimension(800, 400));
-            
+
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new BorderLayout());
-            
-            
+
             this.timeField = new JLabel("                             GET READY");
-            this.timeField.setMinimumSize(new Dimension(100,100));
-            this.timeField.setPreferredSize(new Dimension(100,100));
+            this.timeField.setMinimumSize(new Dimension(100, 100));
+            this.timeField.setPreferredSize(new Dimension(100, 100));
             this.timeField.setForeground(Color.RED);
             this.timeField.setFont(new Font("Arial", 1, 35));
-            
-        //   panel.add(timeField);
-            
-            
+
+            //   panel.add(timeField);
             JLabel playerOne = new JLabel(player1);
+            playerOne.setFont(new Font("Arial", 1, 20));
             JLabel playerTwo = new JLabel(player2);
-            
+            playerTwo.setFont(new Font("Arial", 1, 20));
+
             JButton startButton = new JButton("Start");
-           
+
             startButton.addActionListener(new StartTimerListener(logic));
-          // frame.setContentPane(panel);
+            // frame.setContentPane(panel);
             frame.add(this.timeField, BorderLayout.NORTH);
             frame.add(startButton, BorderLayout.SOUTH);
             frame.add(playerOne, BorderLayout.WEST);
@@ -214,13 +219,22 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         }
     }//GEN-LAST:event_newGameButtonActionPerformed
 
-    public void setResults() {
-        String playerOneScoresQuery = (String) JOptionPane.showInputDialog("Scores for Player 1:");
-        int player1Scores = Integer.parseInt(playerOneScoresQuery);
-        String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for Player 2:");
-        int player2Scores = Integer.parseInt(playerTwoScoresQuery);
+    public void setResults(String player1, String player2) {
 
-        this.logic.setScores(player1Scores, player2Scores);
+        int player1Scores = -1;
+        int player2Scores = -1;
+        try {
+            String playerOneScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player1 + ": ");
+            player1Scores = Integer.parseInt(playerOneScoresQuery);
+            String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player2 +": ");
+            player2Scores = Integer.parseInt(playerTwoScoresQuery);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Only Integers allowed!");
+            setResults(player1,player2);
+        }
+        if (player1Scores > 0 && player2Scores > 0) {
+            this.logic.setScores(player1Scores, player2Scores);
+        }
     }
 
     public JLabel getTimeField() {
@@ -283,7 +297,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             String newPlayer = (String) JOptionPane.showInputDialog("Add a new player to standings: \n ");
             this.currentStandings.addPlayer(newPlayer);
 
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
@@ -291,7 +305,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     private void saveStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStandingsButtonActionPerformed
         if (this.currentStandings != null) {
             DataStorage.saveData(currentStandings);
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_saveStandingsButtonActionPerformed
@@ -337,7 +351,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
 
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_showStandingsButtonActionPerformed
@@ -390,6 +404,6 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
     @Override
     public void update() {
-        this.timeField.setText("                                    "+this.logic.getTimeinSeconds());
+        this.timeField.setText("                                    " + this.logic.getTimeinSeconds() / 60 + " : " + this.logic.getTimeinSeconds() % 60);
     }
 }
