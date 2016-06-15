@@ -209,6 +209,8 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
 
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_newGameButtonActionPerformed
 
@@ -281,12 +283,16 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             String newPlayer = (String) JOptionPane.showInputDialog("Add a new player to standings: \n ");
             this.currentStandings.addPlayer(newPlayer);
 
+        }else {
+            JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
 
     private void saveStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveStandingsButtonActionPerformed
         if (this.currentStandings != null) {
             DataStorage.saveData(currentStandings);
+        }else {
+            JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_saveStandingsButtonActionPerformed
     private int getStandingsSize() {
@@ -331,6 +337,8 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             frame.setLocationByPlatform(true);
             frame.setVisible(true);
 
+        }else {
+            JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_showStandingsButtonActionPerformed
 
