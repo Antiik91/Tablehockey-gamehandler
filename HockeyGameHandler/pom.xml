@@ -40,7 +40,11 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>fi.antiik.hockeygamehandler.logic.*</param>
+                        <param>fi.antiik.hockeygamehandler.logic.Logic</param>
+                         <param>fi.antiik.hockeygamehandler.logic.Player</param>
+                          <param>fi.antiik.hockeygamehandler.logic.Referee</param>
+                           <param>fi.antiik.hockeygamehandler.logic.Standings</param>
+                           
                         <param>fi.antiik.hockeygamehandler.filehandler.*</param>
 
                     </targetClasses>
