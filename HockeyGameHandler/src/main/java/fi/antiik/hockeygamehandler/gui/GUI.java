@@ -233,7 +233,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player2 +": ");
             player2Scores = Integer.parseInt(playerTwoScoresQuery);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Only Integers allowed!");
+            JOptionPane.showMessageDialog(null, "Only Integers are allowed!");
             setResults(player1,player2);
         }
         if (player1Scores > 0 && player2Scores > 0) {
