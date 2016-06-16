@@ -20,12 +20,10 @@ import javax.swing.Timer;
 public class Logic implements Updatable {
 
     private Referee referee;
-    private GUI gui;
     private int timeInSeconds;
 
     public Logic(String player1, String player2, Standings standings, GUI gui) {
-        this.gui = gui;
-        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, this.gui, this);
+        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings,gui, this);
 
     }
 
