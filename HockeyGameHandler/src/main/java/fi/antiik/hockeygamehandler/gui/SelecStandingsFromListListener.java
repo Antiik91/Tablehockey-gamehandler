@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JList;
 
 /**
+ * class is used to set current Standings from a list of previously created
+ * standings.
  *
  * @author janantik
  */
@@ -20,6 +22,13 @@ public class SelecStandingsFromListListener implements ActionListener {
     private StandingsList standingsList;
     private SelectStandings selectStandings;
 
+    /**
+     * Creates a new listener to listen which standings is selected.
+     *
+     * @param jlist List where standings are presented in String form.
+     * @param standingList Actual list of standing
+     * @param selectStandings JPanel to get needed information.
+     */
     public SelecStandingsFromListListener(JList jlist, StandingsList standingList, SelectStandings selectStandings) {
         this.jlist = jlist;
         this.standingsList = standingList;

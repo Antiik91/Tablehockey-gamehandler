@@ -1,4 +1,4 @@
-
+﻿
 # Tuntikirjanpito
 
 ## Deadline 1
@@ -28,5 +28,15 @@ Päivä | Tunnit | Kuvaus
 07.06.2016 | 4,5h | Graafisen käyttöliittymän kanssa tappelu.
 08.06.2016 | 4 h | Graafisen käyttöliittymän teon jatkaminen
 09.06.2016 | 1.5 h | Javadocia, testejä, virheidenkorjausta
+
+## Deadline 5
+Päivä | Tunnit | Kuvaus
+--------------- | ----- | ------
+12.6.2016| 1h | Graafista käyttöliittymää, scoreboardia. 
+13.6.2016| 2.5h | Graafista käyttöliittymää.
+14.6.2016| 2h | Scoreboardin ja swing timerin kanssa tappelua. 
+15.6.2016| 4.5h | Scoreboardin valmistelu, hienosäätö.
+16.6.2016| 7h | Testejä.. Javadoccia.. Sekvenssikaavioita ja luokkakaavion säätöä. 
+
 ... | ... | ...
 

@@ -12,6 +12,8 @@ import javax.sound.sampled.Clip;
 import javax.swing.Timer;
 
 /**
+ * Class handles the Countdown of gametime and playing sound effects needed in
+ * the game.
  *
  * @author janantik
  *
@@ -19,8 +21,7 @@ import javax.swing.Timer;
  *
  * @since 0.01
  *
- * Class handles the Countdown of gametime and playing sound effects needed in
- * the game
+ *
  */
 public class Referee {
 
@@ -32,6 +33,15 @@ public class Referee {
     private Logic logic;
     private Timer timer;
 
+    /**
+     * Checks that players can't play against itself.
+     *
+     * @param one Player one
+     * @param two Player two
+     * @param standings Standings Where Players are competing
+     * @param gui GUI to be sent in TimerListener
+     * @param logic to be sent int TimerListener
+     */
     public Referee(Player one, Player two, Standings standings, GUI gui, Logic logic) {
         if (one.equals(two)) {
             throw new IllegalArgumentException("You can't play against yourself! " + one.getName() + " " + two.getName());
@@ -45,18 +55,28 @@ public class Referee {
         this.logic = logic;
     }
 
+    /**
+     * Returns player One.
+     *
+     * @return Player one
+     */
     public Player getPlayerOne() {
         return one;
     }
 
+    /**
+     * Returns player Two.
+     *
+     * @return Player Two
+     */
     public Player getPlayerTwo() {
         return two;
     }
 
     /**
-     * Starts the game by playing countdown5.waw sound and then counting down
-     * first 5 seconds to begin the game and then Starts timer which starts the
-     * game.
+     * Starts the game by playing countdown5.waw sound. After that it counts
+     * down first 5 seconds to begin the game. and then Starts timer which
+     * starts the game.
      */
     public void startGame() {
         speak("src/music/Countdown5.wav");
@@ -71,7 +91,7 @@ public class Referee {
     }
 
     /**
-     * Method counts down time in second using Thread.sleep()
+     * Method counts down time in second using Thread.sleep().
      *
      * Used to synchronize Countdown5.wav with real time before game begins
      *
@@ -96,9 +116,10 @@ public class Referee {
     }
 
     /**
-     * After the countdown is complete results are to be handled. Method checks
-     * the scores of player one and two and gives them to Player addScores()
-     * method.
+     * After the countdown is complete results are to be handled.
+     *
+     * Method checks the scores of player one and two and gives them to Player
+     * addScores() method.
      *
      * @param playerOneScores scores for player one
      * @param playerTwoScores scores for player two
@@ -110,7 +131,7 @@ public class Referee {
     }
 
     /**
-     * Plays soundeffects given in param filename
+     * Plays soundeffects given in param filename.
      *
      * @param filename source where the filename is found
      */
@@ -119,7 +140,7 @@ public class Referee {
     }
 
     /**
-     * Stops the Timer when called
+     * Stops the Timer when called.
      */
     public void stopTimer() {
         this.timer.stop();

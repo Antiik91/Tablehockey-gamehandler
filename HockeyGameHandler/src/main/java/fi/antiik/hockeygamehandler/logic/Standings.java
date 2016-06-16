@@ -19,6 +19,13 @@ public class Standings implements Serializable {
     private ArrayList<Player> standings;
     private String name;
 
+    /**
+     * Creates a new Standings by given name.
+     *
+     * Standings stores Players in to ArrayList
+     *
+     * @param name name given the standings
+     */
     public Standings(String name) {
         this.name = name;
         this.standings = new ArrayList<Player>();
@@ -33,19 +40,19 @@ public class Standings implements Serializable {
     }
 
     /**
-     * Method checks if Arralist is not empty before sorting it in order
+     * Method checks if Arralist is not empty before sorting it.
      *
      * @return Arraylist of standings
      */
     public ArrayList<Player> getPlayers() {
- 
-            Collections.sort(standings);
-        
+
+        Collections.sort(standings);
+
         return this.standings;
     }
 
     /**
-     * Adds player to the standings if it's not already in there
+     * Adds player to the standings if it's not already in there.
      *
      * @param name name of the player to be added (user input)
      */
@@ -53,15 +60,18 @@ public class Standings implements Serializable {
         if (name != null) {
             if (!standingsContainsPlayer(name)) {
                 this.standings.add(new Player(name));
-          }  //else {
+            }  //else {
 //                System.out.println("Player is in the standings already!");
 //            }
         }
     }
 
     /**
-     * Checks if the player is in the standings and if it is, return Player by
-     * it's name
+     * Checks if the player is in the standings.
+     *
+     * If it is, return Player by it's name.
+     *
+     * else Add player to standings and check again.
      *
      * @param name name of the player to be searched (user input)
      *

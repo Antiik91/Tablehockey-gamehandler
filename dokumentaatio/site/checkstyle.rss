@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 13,
-             Errors: 0,
+      <title>File: 18,
+             Errors: 1,
              Warnings: 0,
              Infos: 0
       </title>
@@ -102,7 +102,49 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.TimerListener.java">fi/antiik/hockeygamehandler/gui/TimerListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Player.java">fi/antiik/hockeygamehandler/logic/Player.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.SoundPlayer.java">fi/antiik/hockeygamehandler/logic/SoundPlayer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Updatable.java">fi/antiik/hockeygamehandler/logic/Updatable.java</a>
                 </td>
                 <td>
                   0
@@ -131,6 +173,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.filehandler.StandingsList.java">fi/antiik/hockeygamehandler/filehandler/StandingsList.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.StartTimerListener.java">fi/antiik/hockeygamehandler/gui/StartTimerListener.java</a>
                 </td>
                 <td>
                   0
@@ -173,6 +229,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.gui.GUI_old.java">fi/antiik/hockeygamehandler/gui/GUI_old.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fi.antiik.hockeygamehandler.logic.Logic.java">fi/antiik/hockeygamehandler/logic/Logic.java</a>
                 </td>
                 <td>
                   0

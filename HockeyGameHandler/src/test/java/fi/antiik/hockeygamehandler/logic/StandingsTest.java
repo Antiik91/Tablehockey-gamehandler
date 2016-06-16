@@ -60,7 +60,7 @@ public class StandingsTest {
         Player test = new Player("jannE");
         assertEquals(true, standings.standingsContainsPlayer(test.getName()));
     }
-    
+
     @Test
     public void noPlayerIsFoundReturnsNull() {
         standings = new Standings("Test");
@@ -68,16 +68,16 @@ public class StandingsTest {
         standings.addPlayer("Ville");
         assertEquals(false, standings.standingsContainsPlayer("Jussi"));
     }
-    
+
     @Test
-    public void getPlayerReturnsCorrectPlayer(){
-        
+    public void getPlayerReturnsCorrectPlayer() {
+
         standings = new Standings("Test");
         standings.addPlayer("Tester");
         Player test = new Player("Tester");
         assertEquals(test, standings.getPlayer("Tester"));
     }
-    
+
     @Test
     public void getPlayerNotFoundCreatesPlayer() {
         standings = new Standings("TestStandings");

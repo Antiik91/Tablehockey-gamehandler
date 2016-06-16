@@ -90,7 +90,7 @@ public class RefereeTest {
         this.referee.results(2, zeroGoals);
         assertEquals(zeroGoals, this.referee.getPlayerTwo().getGoalsFor());
     }
-    
+
     @Test
     public void negativesP1() {
         this.referee.results(-2, 22);

@@ -11,28 +11,41 @@ import java.util.Date;
 import javax.swing.Timer;
 
 /**
+ * Class runs when new game is started. It handles time remaining and informs
+ * when referee gives voice signals.
  *
  * @author janantik
  *
- * Class runs when new game is started. It handles time remaining and informs
- * when referee gives voice signals
  */
 public class Logic implements Updatable {
 
     private Referee referee;
     private int timeInSeconds;
 
+    /**
+     * Creates a new Referee with given paramaters.
+     *
+     * @param player1 Player 1 searched from standings
+     * @param player2 Player 2 searched from standings
+     * @param standings Standings to get players from.
+     * @param gui GUI to send referee.
+     */
     public Logic(String player1, String player2, Standings standings, GUI gui) {
-        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings,gui, this);
+        this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, gui, this);
 
     }
 
+    /**
+     * Returns Referee when called.
+     *
+     * @return Referee currently used
+     */
     public Referee getReferee() {
         return this.referee;
     }
 
     /**
-     * Sets new referee if it's not null
+     * Sets new referee if it's not null.
      *
      * @param newReferee Referee to be set.
      */
@@ -41,42 +54,50 @@ public class Logic implements Updatable {
             this.referee = newReferee;
         }
     }
-/**
- * If timeInSeconds is positive method sets timeInSeconds to @param
- * Use Referee's startGame() method to start the game.
- * 
- * @param timeInSeconds time in second to be set
- */
+
+    /**
+     * If timeInSeconds is positive method sets timeInSeconds to timeInseconds.
+     * Uses Referee's startGame() method to start the game.
+     *
+     * @param timeInSeconds time in second to be set
+     */
     public void startGame(int timeInSeconds) {
         if (timeInSeconds > 0) {
             this.timeInSeconds = timeInSeconds;
             this.referee.startGame();
         }
     }
-/**
- * Sets new timeInSeconds if positive
- * @param timeInSeconds time in seconds to be set
- */
+
+    /**
+     * Sets new timeInSeconds if positive.
+     *
+     * @param timeInSeconds time in seconds to be set
+     */
     public void setTimeInSeconds(int timeInSeconds) {
         if (timeInSeconds > 0) {
             this.timeInSeconds = timeInSeconds;
         }
     }
 
+    /**
+     * returns time in seconds.
+     *
+     * @return timeInSeconds, integer
+     */
     public int getTimeinSeconds() {
         return this.timeInSeconds;
     }
 
 //    public void addScore(Player player) {
-//
+//      
 //    }
-    
     /**
-     * Method check the scores are positve or zero and calls Referee's Results(Player1Scores, Player2Scores) 
-     * to set results for the players statistics.
-     * 
+     * Method check the scores are positve or zero and calls Referee's
+     * Results(Player1Scores, Player2Scores) to set results for the players
+     * statistics.
+     *
      * @param player1Scores Scores for Player 1
-     * @param player2Scores Scores for Player 2 
+     * @param player2Scores Scores for Player 2
      */
     public void setScores(int player1Scores, int player2Scores) {
         if (player1Scores >= 0 && player2Scores >= 0) {

@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author janantik
  */
 public class SoundPlayerTest {
-    
+
     public SoundPlayerTest() {
     }
 

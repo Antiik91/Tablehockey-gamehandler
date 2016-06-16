@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
+ * Commandline user interface to test different elements of program.
  *
  * @author janantik
  */
@@ -24,6 +25,11 @@ public class TestUI {
     private StandingsList loadStandings;
     private ArrayList<Standings> listOfStandings;
 
+    /**
+     * Creates a new Test UI.
+     *
+     * @param scanner Scanner used in test ui
+     */
     public TestUI(Scanner scanner) {
         this.scanner = scanner;
         this.dataStorage = new DataStorage();
@@ -31,6 +37,9 @@ public class TestUI {
         listOfStandings = loadStandings.getStandings();
     }
 
+    /**
+     * Prints instructions and waits for the command to execute.
+     */
     public void menu() {
         while (true) {
             printInstructions();
@@ -131,9 +140,9 @@ public class TestUI {
         }
         two = standings.getPlayer(playerTwo);
 //        Referee game = new Referee(one, two, standings);
-     //   game.startGame();
+        //   game.startGame();
 
-     //   updateResults(game);
+        //   updateResults(game);
     }
 
     private void updateResults(Referee game) {

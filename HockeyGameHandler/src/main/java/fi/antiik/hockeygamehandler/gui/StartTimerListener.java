@@ -10,12 +10,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Class tells logic to start game when button is pressed.
  *
  * @author janantik
  */
-public class StartTimerListener implements ActionListener{
+public class StartTimerListener implements ActionListener {
+
     Logic logic;
-    
+
+    /**
+     * When button is pressed, logic starts the game created.
+     *
+     * @param logic logic to be started.
+     */
     public StartTimerListener(Logic logic) {
         this.logic = logic;
     }
@@ -24,5 +31,5 @@ public class StartTimerListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         this.logic.startGame(10);
     }
-    
+
 }

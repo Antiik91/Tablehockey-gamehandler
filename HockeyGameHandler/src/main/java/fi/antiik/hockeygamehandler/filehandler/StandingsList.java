@@ -13,22 +13,44 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
+ * Class lists all available Standings from a folder to arrayList.
+ *
+ * ArrayList is to be used in GUI.
+ *
+ *
  *
  * @author janantik
+ *
+ *
+ *
  */
 public class StandingsList {
 
     private ArrayList<Standings> listOfStandings;
 
+    /**
+     * Creates new list of standings.
+     */
     public StandingsList() {
         listOfStandings = new ArrayList<>();
     }
 
+    /**
+     * Method is used to return standings list.
+     *
+     * @return ArrayList of standings
+     */
     public ArrayList<Standings> getStandings() {
         addStandings();
         return this.listOfStandings;
     }
 
+    /**
+     * Searches standings and returns if found.
+     *
+     * @param name name of the standings to be searched
+     * @return Standings if found null else
+     */
     public Standings searchStandingsWithName(String name) {
         Standings found;
         for (Standings standings : listOfStandings) {
@@ -40,6 +62,11 @@ public class StandingsList {
         return null;
     }
 
+    /**
+     * Searches and returns all the files from folders where Standings are.
+     *
+     * @return ArrayList of Files
+     */
     public ArrayList<File> getFilesFromFolder() {
         File folder = new File("src/tmp");
         File[] filesList = folder.listFiles();
@@ -54,6 +81,11 @@ public class StandingsList {
         return files;
     }
 
+    /**
+     * gets the files from folder and changes them to Standings and adds them to
+     * arraylist. catch exceptions if file cannot be opened or class inside file
+     * is not Standings
+     */
     public void addStandings() {
         ArrayList<File> files = getFilesFromFolder();
 
@@ -69,7 +101,7 @@ public class StandingsList {
                 i.printStackTrace();
                 return;
             } catch (ClassNotFoundException c) {
-                System.out.println("Standings class not found");
+                //System.out.println("Standings class not found");
                 c.printStackTrace();
                 return;
             }

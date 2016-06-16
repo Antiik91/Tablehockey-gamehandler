@@ -51,14 +51,15 @@ public class LogicTest {
         this.logic.setTimeInSeconds(0);
         assertEquals(30, this.logic.getTimeinSeconds());
     }
-    
+
     @Test
     public void setRefereeDoesNotAcceptNull() {
         this.logic.setReferee(null);
         assertEquals(this.referee, this.logic.getReferee());
     }
+
     @Test
-    public void setRefereeChangesReferee(){
+    public void setRefereeChangesReferee() {
         Player new1 = new Player("NewP1");
         Player new2 = new Player("NewP2");
         Referee compareReferee = new Referee(new1, new2, standings, gui, logic);
@@ -80,14 +81,14 @@ public class LogicTest {
         this.logic.setScores(0, 2);
         assertEquals(0, this.referee.getPlayerOne().getGoalsFor());
     }
-    
+
     @Test
     public void startGameWithZeroTime() {
         this.logic.setTimeInSeconds(20);
         this.logic.startGame(0);
-        assertEquals(20, this.logic.getTimeinSeconds()); 
+        assertEquals(20, this.logic.getTimeinSeconds());
     }
-    
+
     @Test
     public void startgameWithNegativeTime() {
         this.logic.setTimeInSeconds(20);
@@ -106,19 +107,19 @@ public class LogicTest {
         this.logic.setScores(0, 5);
         assertEquals(5, this.referee.getPlayerTwo().getGoalsFor());
     }
-    
+
     @Test
     public void setPlayer2ScoreZero() {
         this.logic.setScores(0, 0);
         assertEquals(0, this.referee.getPlayerTwo().getGoalsFor());
     }
-    
+
     @Test
     public void setPlayer2SocreNegativeResultsZero() {
         this.logic.setScores(0, -223);
         assertEquals(0, this.referee.getPlayerTwo().getGoalsFor());
     }
-    
+
     @Test
     public void updateReducesTime() {
         this.logic.setTimeInSeconds(20);

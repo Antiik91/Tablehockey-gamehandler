@@ -33,7 +33,7 @@ public class SelectStandings extends javax.swing.JPanel {
     private JTextField textField;
     private GUI gui;
     private Frame frame;
-    
+
     public SelectStandings(Standings standings, JTextField textField, GUI gui, Frame frame) {
         this.standings = standings;
         standingsList = new StandingsList();
@@ -43,7 +43,7 @@ public class SelectStandings extends javax.swing.JPanel {
         initComponents();
         setVisible(true);
     }
-    
+
     private String[] updateList() {
         int listSize = this.standingsList.getStandings().size();
         String[] listData = new String[listSize];
@@ -139,14 +139,14 @@ public class SelectStandings extends javax.swing.JPanel {
 
     private void createStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStandingsButtonActionPerformed
         this.frame.setVisible(false);
-        
+
 
     }//GEN-LAST:event_createStandingsButtonActionPerformed
 
     private void selectStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStandingsButtonActionPerformed
         this.frame.setVisible(false);
     }//GEN-LAST:event_selectStandingsButtonActionPerformed
-    
+
     public Standings getStandings() {
         return standings;
     }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
+ * Class contains information about Player and his statistics.
  *
  * @author janantik
  *
@@ -11,7 +12,7 @@ import java.util.Objects;
  *
  * @since 0.01
  *
- * Class contains information about Player and his/ statistics
+ *
  */
 public class Player implements Comparable<Player>, Serializable {
 
@@ -25,80 +26,161 @@ public class Player implements Comparable<Player>, Serializable {
     private int goalsAgainst;
     private int winPrecentage;
 
+    /**
+     * Creates a new Player with given name.
+     *
+     * @param name name to be given player.
+     */
     public Player(String name) {
         this.name = name;
 
     }
 //  ******************************* Getters and Setters *****************************
 
+    /**
+     * Returns name of the player.
+     *
+     * @return name of the player
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns played games.
+     *
+     * @return games played
+     */
     public int getGamesPlayed() {
         return gamesPlayed;
     }
 
+    /**
+     * sets the games played with new games if the given parameter is greater
+     * than zero.
+     *
+     * @param gamesPlayed number of games played to be set
+     */
     public void setGamesPlayed(int gamesPlayed) {
         if (gamesPlayed >= 0) {
             this.gamesPlayed = gamesPlayed;
         }
     }
 
+    /**
+     * Returns Wins.
+     *
+     * @return Wins player has
+     */
     public int getWins() {
         return wins;
     }
 
+    /**
+     * Sets wins if not less than zero.
+     *
+     * @param wins wins to be set
+     */
     public void setWins(int wins) {
         if (wins >= 0) {
             this.wins = wins;
         }
     }
 
+    /**
+     * returns losses.
+     *
+     * @return losses player has
+     */
     public int getLosses() {
         return losses;
     }
 
+    /**
+     * Sets losses if they are more than zero.
+     *
+     * @param losses losses to be set
+     */
     public void setLosses(int losses) {
         if (losses >= 0) {
             this.losses = losses;
         }
     }
 
+    /**
+     * Get ties.
+     *
+     * @return Number of ties player has played
+     */
     public int getTies() {
         return ties;
     }
 
+    /**
+     * Sets ties if not negative.
+     *
+     * @param ties number of ties to be sete
+     */
     public void setTies(int ties) {
         if (ties >= 0) {
             this.ties = ties;
         }
     }
 
+    /**
+     * Points player has.
+     *
+     * @return number of points
+     */
     public int getPoints() {
         return points;
     }
 
+    /**
+     * Sets points if not negative.
+     *
+     * @param points points to be set
+     */
     public void setPoints(int points) {
         if (points >= 0) {
             this.points = points;
         }
     }
 
+    /**
+     * Number of goals Player has made.
+     *
+     * @return number of goals
+     */
     public int getGoalsFor() {
         return goalsFor;
     }
 
+    /**
+     * Set Goals made.
+     *
+     * @param goalsFor New number of goals if not negative
+     */
     public void setGoalsFor(int goalsFor) {
         if (goalsFor >= 0) {
             this.goalsFor = goalsFor;
         }
     }
 
+    /**
+     * Number of goals player has been scored against.
+     *
+     * @return Number of goals scored against
+     */
     public int getGoalsAgainst() {
         return goalsAgainst;
     }
 
+    /**
+     * Set Goals against if not negative.
+     *
+     * @param goalsAgainst goals to be set
+     */
     public void setGoalsAgainst(int goalsAgainst) {
         if (goalsAgainst >= 0) {
             this.goalsAgainst = goalsAgainst;
@@ -107,7 +189,7 @@ public class Player implements Comparable<Player>, Serializable {
 
     /**
      * Method counts win precentage of a player by dividing played games with
-     * wins
+     * wins.
      *
      * @return counted winprecentage
      */
@@ -121,14 +203,14 @@ public class Player implements Comparable<Player>, Serializable {
 
     // *************************************************************************************
     /**
-     * addScores adds player stats from a game, and handling the points. if the player
-     * scored more goals than his opponent it resulst a win, and it will add 3 points.
-     * if scored less then a loss count is increased
-     * and if the game is tie, one point is added
+     * addScores adds player stats from a game, and handling the points. if the
+     * player scored more goals than his opponent it resulst a win, and it will
+     * add 3 points. if scored less then a loss count is increased and if the
+     * game is tie, one point is added.
      *
-     * @param   goalsFor   goals that Player has scored
+     * @param goalsFor goals that Player has scored
      *
-     * @param   goalsAgainst goals that other player has scored against player
+     * @param goalsAgainst goals that other player has scored against player
      */
     public void addScores(int goalsFor, int goalsAgainst) {
         this.goalsFor += goalsFor;

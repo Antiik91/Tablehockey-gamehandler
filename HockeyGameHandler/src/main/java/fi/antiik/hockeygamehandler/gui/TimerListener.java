@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
+ * Listens actions fired from Swing Timer and use list of Updatable's to update
+ * them when Timer wants.
  *
  * @author User
  */
@@ -20,6 +22,12 @@ public class TimerListener implements ActionListener {
 
     private ArrayList<Updatable> updatables;
 
+    /**
+     * Listener get List of Updatable's and updates them every time action is
+     * performed.
+     *
+     * @param updatables ArrayList of updatables
+     */
     public TimerListener(ArrayList<Updatable> updatables) {
 
         this.updatables = updatables;
@@ -32,10 +40,7 @@ public class TimerListener implements ActionListener {
             for (Updatable updatableClass : this.updatables) {
                 updatableClass.update();
             }
-        }else {
-            System.out.println("NOWORKLOL");
         }
-        
 
     }
 

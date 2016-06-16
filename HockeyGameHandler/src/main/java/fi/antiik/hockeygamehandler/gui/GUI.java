@@ -181,7 +181,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             if (player2 == null) {
                 player2 = "Player " + this.currentStandings.getSize() + 2;
             }
-            if(player1.toLowerCase().trim().equals(player2.toLowerCase().trim())) {
+            if (player1.toLowerCase().trim().equals(player2.toLowerCase().trim())) {
                 JOptionPane.showMessageDialog(null, "Player can't play against itself!");
                 return;
             }
@@ -230,18 +230,16 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         try {
             String playerOneScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player1 + ": ");
             player1Scores = Integer.parseInt(playerOneScoresQuery);
-            String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player2 +": ");
+            String playerTwoScoresQuery = (String) JOptionPane.showInputDialog("Scores for " + player2 + ": ");
             player2Scores = Integer.parseInt(playerTwoScoresQuery);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Only Integers are allowed!");
-            setResults(player1,player2);
+            setResults(player1, player2);
         }
         if (player1Scores > 0 && player2Scores > 0) {
             this.logic.setScores(player1Scores, player2Scores);
         }
     }
-
-
 
     /**
      * Updates the current standings textfield to show current standings name
@@ -406,7 +404,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
     @Override
     public void update() {
-        if(this.logic.getTimeinSeconds() == 0) {
+        if (this.logic.getTimeinSeconds() == 0) {
             String player1 = this.logic.getReferee().getPlayerOne().getName();
             String player2 = this.logic.getReferee().getPlayerTwo().getName();
             setResults(player1, player2);

@@ -8,9 +8,20 @@ import java.io.Serializable;
 
 public class DataStorage implements Serializable {
 
+    /**
+     * Class is used to store Standings to be used in future.
+     *
+     * @author janantik
+     *
+     */
     public DataStorage() {
     }
 
+    /**
+     * Method stores Standings to preselected folder in .ser.
+     *
+     * @param standings Standings to be stored.
+     */
     public static void saveData(Standings standings) {
         if (standings == null) {
             throw new IllegalArgumentException("Standings can't be null!");
