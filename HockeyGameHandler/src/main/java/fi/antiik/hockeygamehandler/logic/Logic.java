@@ -91,7 +91,6 @@ public class Logic implements Updatable {
 
         if (this.timeInSeconds == 0) {
             this.referee.speak("src/music/endGame.wav");
-            this.gui.setResults(this.referee.getPlayerOne().getName(), this.referee.getPlayerTwo().getName());
             this.referee.stopTimer();
         }
         if (this.timeInSeconds == 60) {

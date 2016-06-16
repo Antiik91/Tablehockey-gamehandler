@@ -406,6 +406,11 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
     @Override
     public void update() {
+        if(this.logic.getTimeinSeconds() == 0) {
+            String player1 = this.logic.getReferee().getPlayerOne().getName();
+            String player2 = this.logic.getReferee().getPlayerTwo().getName();
+            setResults(player1, player2);
+        }
         this.timeField.setText("                                    " + this.logic.getTimeinSeconds() / 60 + " : " + this.logic.getTimeinSeconds() % 60);
     }
 }
