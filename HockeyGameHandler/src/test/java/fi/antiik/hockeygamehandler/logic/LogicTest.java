@@ -47,8 +47,9 @@ public class LogicTest {
 
     @Test
     public void setZeroTime() {
+        this.logic.setTimeInSeconds(30);
         this.logic.setTimeInSeconds(0);
-        assertEquals(0, this.logic.getTimeinSeconds());
+        assertEquals(30, this.logic.getTimeinSeconds());
     }
     
     @Test

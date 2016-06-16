@@ -54,7 +54,8 @@ public class RefereeTest {
 
     @Test
     public void playerTwoScoresNegative() {
-        referee.results(2, -2);
+        int negativeGoals = -2;
+        referee.results(2, negativeGoals);
         assertEquals(2, player2.getGoalsFor());
     }
 
@@ -70,9 +71,30 @@ public class RefereeTest {
         assertEquals(300, player1.getGoalsFor());
     }
 
+    @Test
     public void multipleGamesScoresCorrectPlayer2() {
         hundredGames();
         assertEquals(200, player2.getGoalsFor());
+    }
+
+    @Test
+    public void zeroScoresPlayer1() {
+        int zeroGoals = 0;
+        this.referee.results(zeroGoals, 2);
+        assertEquals(zeroGoals, this.referee.getPlayerOne().getGoalsFor());
+    }
+
+    @Test
+    public void zeroScoresPlayer2() {
+        int zeroGoals = 0;
+        this.referee.results(2, zeroGoals);
+        assertEquals(zeroGoals, this.referee.getPlayerTwo().getGoalsFor());
+    }
+    
+    @Test
+    public void negativesP1() {
+        this.referee.results(-2, 22);
+        assertTrue(this.referee.getPlayerOne().getGoalsFor() == -2 * -1);
     }
 
     @Test
@@ -82,6 +104,17 @@ public class RefereeTest {
             referee.countdown(-44);
         } catch (Throwable exception) {
             expectedException = exception;
+        }
+        assertTrue(expectedException instanceof IllegalArgumentException);
+    }
+
+    @Test
+    public void timeInSecondsCantBeZero() {
+        Throwable expectedException = null;
+        try {
+            this.referee.countdown(0);
+        } catch (Throwable e) {
+            expectedException = e;
         }
         assertTrue(expectedException instanceof IllegalArgumentException);
     }

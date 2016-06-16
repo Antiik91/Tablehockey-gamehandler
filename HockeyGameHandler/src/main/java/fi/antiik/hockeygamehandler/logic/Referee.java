@@ -120,7 +120,7 @@ public class Referee {
         SoundPlayer.playSound(filename);
     }
 
-    void stopTimer() {
+    public void stopTimer() {
         this.timer.stop();
     }
 }
