@@ -55,7 +55,7 @@ public class Referee {
 
     /**
      * Starts the game by playing countdown5.waw sound and then counting down
-     * first 5 seconds to begin the game and then Starts timer which starts the 
+     * first 5 seconds to begin the game and then Starts timer which starts the
      * game.
      */
     public void startGame() {
@@ -74,6 +74,7 @@ public class Referee {
      * Method counts down time in second using Thread.sleep()
      *
      * Used to synchronize Countdown5.wav with real time before game begins
+     *
      * @param timeInSeconds starting time in seconds.
      */
     public void countdown(int timeInSeconds) {
@@ -103,14 +104,9 @@ public class Referee {
      * @param playerTwoScores scores for player two
      */
     public void results(int playerOneScores, int playerTwoScores) {
-        if (playerOneScores < 0) {
-            playerOneScores *= -1;
-        }
-        if (playerTwoScores < 0) {
-            playerTwoScores *= -1;
-        }
-        standings.getPlayer(one.getName()).addScores(playerOneScores, playerTwoScores);
-        standings.getPlayer(two.getName()).addScores(playerTwoScores, playerOneScores);
+
+        standings.getPlayer(one.getName()).addScores(Math.abs(playerOneScores), Math.abs(playerTwoScores));
+        standings.getPlayer(two.getName()).addScores(Math.abs(playerTwoScores), Math.abs(playerOneScores));
     }
 
     /**
@@ -121,6 +117,7 @@ public class Referee {
     public void speak(String filename) {
         SoundPlayer.playSound(filename);
     }
+
     /**
      * Stops the Timer when called
      */
