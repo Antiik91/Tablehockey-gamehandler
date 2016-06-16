@@ -53,9 +53,9 @@ public class Standings implements Serializable {
         if (name != null) {
             if (!standingsContainsPlayer(name)) {
                 this.standings.add(new Player(name));
-            } else {
-                System.out.println("Player is in the standings already!");
-            }
+          }  //else {
+//                System.out.println("Player is in the standings already!");
+//            }
         }
     }
 

@@ -20,10 +20,6 @@ public class Logic implements Updatable {
     private GUI gui;
     private int timeInSeconds;
 
-    public Logic(Referee referee) {
-        this.referee = referee;
-    }
-
     public Logic(String player1, String player2, Standings standings, GUI gui) {
         this.gui = gui;
         this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, this.gui, this);
@@ -34,8 +30,10 @@ public class Logic implements Updatable {
         return this.referee;
     }
 
-    public void setReferee(Referee referee) {
-        this.referee = referee;
+    public void setReferee(Referee newReferee) {
+        if (newReferee != null) {
+            this.referee = newReferee;
+        }
     }
 
     public void startGame(int timeInSeconds) {
@@ -45,14 +43,19 @@ public class Logic implements Updatable {
         }
     }
 
+    public void setTimeInSeconds(int timeInSeconds) {
+        if (timeInSeconds > 0) {
+            this.timeInSeconds = timeInSeconds;
+        }
+    }
+
     public int getTimeinSeconds() {
         return this.timeInSeconds;
     }
 
-    public void addScore(Player player) {
-
-    }
-
+//    public void addScore(Player player) {
+//
+//    }
     public void setScores(int player1Scores, int player2Scores) {
         if (player1Scores >= 0 && player2Scores >= 0) {
             this.referee.results(player1Scores, player2Scores);
