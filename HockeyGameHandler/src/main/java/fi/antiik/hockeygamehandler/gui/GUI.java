@@ -241,9 +241,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         }
     }
 
-    public JLabel getTimeField() {
-        return this.timeField;
-    }
+
 
     /**
      * Updates the current standings textfield to show current standings name
