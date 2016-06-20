@@ -83,8 +83,9 @@ public class Referee {
 
         countdown(5);
         ArrayList<Updatable> updatables = new ArrayList<>();
-        updatables.add(this.gui);
         updatables.add(this.logic);
+        updatables.add(this.gui);
+
         this.timer = new Timer(1000, new TimerListener(updatables));
         timer.setInitialDelay(1000);
         timer.start();

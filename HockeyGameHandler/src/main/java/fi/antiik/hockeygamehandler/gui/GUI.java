@@ -236,7 +236,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             JOptionPane.showMessageDialog(null, "Only Integers are allowed!");
             setResults(player1, player2);
         }
-        if (player1Scores > 0 && player2Scores > 0) {
+        if (player1Scores >= 0 && player2Scores >= 0) {
             this.logic.setScores(player1Scores, player2Scores);
         }
     }

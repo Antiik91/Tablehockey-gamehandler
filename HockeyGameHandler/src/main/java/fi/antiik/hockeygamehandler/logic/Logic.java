@@ -107,9 +107,11 @@ public class Logic implements Updatable {
 
     @Override
     public void update() {
+        if (this.timeInSeconds == 1) {
+            this.referee.speak("src/music/endGame.wav");
+        }
 
         if (this.timeInSeconds == 0) {
-            this.referee.speak("src/music/endGame.wav");
             this.referee.stopTimer();
         }
         if (this.timeInSeconds == 60) {
