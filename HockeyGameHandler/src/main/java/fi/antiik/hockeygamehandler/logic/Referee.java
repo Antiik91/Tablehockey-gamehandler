@@ -146,4 +146,8 @@ public class Referee {
     public void stopTimer() {
         this.timer.stop();
     }
+
+    public Timer getTimer() {
+        return timer;
+    }
 }
