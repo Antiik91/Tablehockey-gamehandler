@@ -264,7 +264,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this, frame);
         frame.setContentPane(ss);
         frame.pack();
-        frame.setLocationByPlatform(true);
+//        frame.setLocationByPlatform(true);
         frame.setVisible(true);
 
 
