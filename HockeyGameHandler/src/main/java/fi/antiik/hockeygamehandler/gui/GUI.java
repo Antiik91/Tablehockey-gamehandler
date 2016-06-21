@@ -51,6 +51,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     private Standings currentStandings;
     private JLabel timeField;
     private Logic logic;
+    private JFrame scoreboardFrame;
 
     public void setCurrentStandings(Standings currentStandings) {
         this.currentStandings = currentStandings;
@@ -187,9 +188,9 @@ public class GUI extends javax.swing.JFrame implements Updatable {
                 return;
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
-            JFrame frame = new JFrame("New Game");
-            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-            frame.setPreferredSize(new Dimension(800, 400));
+             this.scoreboardFrame = new JFrame("New Game");
+            this.scoreboardFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+            this.scoreboardFrame.setPreferredSize(new Dimension(800, 400));
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -211,13 +212,13 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
             startButton.addActionListener(new StartTimerListener(logic));
             // frame.setContentPane(panel);
-            frame.add(this.timeField, BorderLayout.NORTH);
-            frame.add(startButton, BorderLayout.SOUTH);
-            frame.add(playerOne, BorderLayout.WEST);
-            frame.add(playerTwo, BorderLayout.EAST);
-            frame.pack();
-            frame.setLocationByPlatform(true);
-            frame.setVisible(true);
+            this.scoreboardFrame.add(this.timeField, BorderLayout.NORTH);
+            this.scoreboardFrame.add(startButton, BorderLayout.SOUTH);
+            this.scoreboardFrame.add(playerOne, BorderLayout.WEST);
+            this.scoreboardFrame.add(playerTwo, BorderLayout.EAST);
+            this.scoreboardFrame.pack();
+            this.scoreboardFrame.setLocationByPlatform(true);
+            this.scoreboardFrame.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
@@ -242,6 +243,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         }
         
         this.setVisible(true);
+        this.scoreboardFrame.setVisible(false);
     }
 
     /**
@@ -264,7 +266,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         SelectStandings ss = new SelectStandings(currentStandings, currentStandingTextField, this, frame);
         frame.setContentPane(ss);
         frame.pack();
-//        frame.setLocationByPlatform(true);
+        frame.setLocationByPlatform(true);
         frame.setVisible(true);
 
 
