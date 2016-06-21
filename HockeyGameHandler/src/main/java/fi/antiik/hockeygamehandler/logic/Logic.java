@@ -11,7 +11,7 @@ import java.util.Date;
 import javax.swing.Timer;
 
 /**
- * Class runs when new game is started. It handles time remaining and informs
+ * Class runs when a new game is started. It handles time remaining and informs
  * when referee gives voice signals.
  *
  * @author janantik

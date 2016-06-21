@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JList;
 
 /**
- * class is used to set current Standings from a list of previously created
+ * class is used to select current Standings from a list of previously created
  * standings.
  *
  * @author janantik

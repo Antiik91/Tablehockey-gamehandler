@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Class lists all available Standings from a folder to arrayList.
  *
- * ArrayList is to be used in GUI.
+ * 
  *
  *
  *

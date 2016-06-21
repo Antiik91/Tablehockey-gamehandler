@@ -32,7 +32,7 @@ public class CreateStandingListener implements ActionListener {
     private Standings standings;
 
     /**
-     * Creates a new Standings and sets it to GUIs standings.
+     * Creates a new Standings and sets it to current standings to be used.
      *
      * @param standing Guis standings
      * @param source JtextField to get name of the Standings

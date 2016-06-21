@@ -224,7 +224,12 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_newGameButtonActionPerformed
-
+/**
+ * Method gets players scores as a String and tries to parse it as integer.
+ * 
+ * @param player1 Name of player1
+ * @param player2 Name of player2
+ */
     public void setResults(String player1, String player2) {
 
         int player1Scores = -1;
