@@ -265,6 +265,10 @@ public class Player implements Comparable<Player>, Serializable {
                     return -1;
                 }
                 if (this.goalsFor == o.goalsFor) {
+                    if (this.gamesPlayed > o.gamesPlayed) {
+                        return -1;
+                    }
+
                     return 0;
                 }
             }

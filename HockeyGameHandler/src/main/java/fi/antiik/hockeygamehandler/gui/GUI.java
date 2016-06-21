@@ -173,6 +173,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
         if (this.currentStandings != null) {
+            this.setVisible(false);
             String player1 = (String) JOptionPane.showInputDialog("Player 1: ");
             if (player1 == null) {
                 player1 = "Player " + this.currentStandings.getSize() + 1;
@@ -194,7 +195,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new BorderLayout());
 
-            this.timeField = new JLabel("                             GET READY");
+            this.timeField = new JLabel("GET READY");
             this.timeField.setMinimumSize(new Dimension(100, 100));
             this.timeField.setPreferredSize(new Dimension(100, 100));
             this.timeField.setForeground(Color.RED);
@@ -239,6 +240,8 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         if (player1Scores >= 0 && player2Scores >= 0) {
             this.logic.setScores(player1Scores, player2Scores);
         }
+        
+        this.setVisible(true);
     }
 
     /**
