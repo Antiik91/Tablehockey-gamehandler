@@ -6,9 +6,6 @@
 package fi.antiik.hockeygamehandler.logic;
 
 import fi.antiik.hockeygamehandler.gui.GUI;
-import fi.antiik.hockeygamehandler.gui.TimerListener;
-import java.util.Date;
-import javax.swing.Timer;
 
 /**
  * Class runs when a new game is started. It handles time remaining and informs
@@ -88,11 +85,9 @@ public class Logic implements Updatable {
         return this.timeInSeconds;
     }
 
-//    public void addScore(Player player) {
-//      
-//    }
+
     /**
-     * Method check the scores are positve or zero and calls Referee's
+     * Method check the scores are positive or zero and calls Referee's
      * Results(Player1Scores, Player2Scores) to set results for the players
      * statistics.
      *
@@ -104,7 +99,10 @@ public class Logic implements Updatable {
             this.referee.results(player1Scores, player2Scores);
         }
     }
-
+/**
+ * 
+ * @return location of music files
+ */
     public String getMusicLocation() {
         String userDir = System.getProperties().getProperty("user.dir");
 

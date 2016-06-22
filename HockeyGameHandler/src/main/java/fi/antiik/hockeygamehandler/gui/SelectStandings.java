@@ -8,10 +8,6 @@ package fi.antiik.hockeygamehandler.gui;
 import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.Standings;
 import java.awt.Frame;
-import java.awt.TextField;
-import java.awt.event.ActionListener;
-import static java.lang.Math.E;
-import java.util.ArrayList;
 import javax.swing.JTextField;
 
 /**

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fi.antiik.hockeygamehandler.filehandler;
 
 import fi.antiik.hockeygamehandler.logic.Standings;
@@ -29,7 +25,7 @@ public class StandingsList {
     private ArrayList<Standings> listOfStandings;
 
     /**
-     * Creates new list of standings.
+     * Creates a new list of standings.
      */
     public StandingsList() {
         listOfStandings = new ArrayList<>();
@@ -46,7 +42,7 @@ public class StandingsList {
     }
 
     /**
-     * Searches standings and returns if found.
+     * Searches standings and returns it if found.
      *
      * @param name name of the standings to be searched
      * @return Standings if found null else
@@ -85,8 +81,8 @@ public class StandingsList {
 
     /**
      * gets the files from folder and changes them to Standings and adds them to
-     * arraylist. catch exceptions if file cannot be opened or class inside file
-     * is not Standings
+     * Arraylist. catch exceptions if file cannot be opened or class inside file
+     * is not Standings.
      */
     public void addStandings() {
         ArrayList<File> files = getFilesFromFolder();

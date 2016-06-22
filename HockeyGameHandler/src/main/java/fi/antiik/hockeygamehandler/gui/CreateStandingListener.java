@@ -34,9 +34,9 @@ public class CreateStandingListener implements ActionListener {
     /**
      * Creates a new Standings and sets it to current standings to be used.
      *
-     * @param standing Guis standings
+     * @param standing Gui's standings
      * @param source JtextField to get name of the Standings
-     * @param target GUIS Current standings textfield
+     * @param target Main menus Current standings text field
      * @param gui GUI currently used
      */
     public CreateStandingListener(Standings standing, JTextField source, JTextField target, GUI gui) {
@@ -48,12 +48,15 @@ public class CreateStandingListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.target.setText(this.source.getText());
-        if (this.source.getText().isEmpty() || this.source.getText() == null || this.source.getText() == "") {
+
+        if (this.source.getText().isEmpty() || this.source.getText().equals("")) {
             this.standings = new Standings("Unnamed Standings");
+            this.target.setText("Unnamed Standings");
         } else {
             this.standings = new Standings(this.source.getText());
+            this.target.setText(this.source.getText());
         }
+        
         this.gui.setCurrentStandings(this.standings);
     }
 

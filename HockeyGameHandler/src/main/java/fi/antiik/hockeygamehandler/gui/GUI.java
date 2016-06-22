@@ -6,10 +6,8 @@
 package fi.antiik.hockeygamehandler.gui;
 
 import fi.antiik.hockeygamehandler.filehandler.DataStorage;
-import fi.antiik.hockeygamehandler.filehandler.StandingsList;
 import fi.antiik.hockeygamehandler.logic.Logic;
 import fi.antiik.hockeygamehandler.logic.Player;
-import fi.antiik.hockeygamehandler.logic.Referee;
 import fi.antiik.hockeygamehandler.logic.Standings;
 import fi.antiik.hockeygamehandler.logic.Updatable;
 import java.awt.BorderLayout;
@@ -18,22 +16,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Time;
-import java.util.ArrayList;
-import javafx.scene.input.KeyCode;
-import javafx.scene.text.Text;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.Timer;
 
 /**
  *
@@ -44,7 +32,7 @@ import javax.swing.Timer;
  * @since 0.4
  *
  * Class is first presented when user starts the program. it shows graphical
- * user interface
+ * user interface ( main menu ).
  */
 public class GUI extends javax.swing.JFrame implements Updatable {
 
@@ -188,7 +176,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
                 return;
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
-             this.scoreboardFrame = new JFrame("New Game");
+            this.scoreboardFrame = new JFrame("New Game");
             this.scoreboardFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             this.scoreboardFrame.setPreferredSize(new Dimension(800, 400));
 
@@ -202,7 +190,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             this.timeField.setForeground(Color.RED);
             this.timeField.setFont(new Font("Arial", 1, 35));
 
-            //   panel.add(timeField);
+            panel.add(timeField, BorderLayout.CENTER);
             JLabel playerOne = new JLabel(player1);
             playerOne.setFont(new Font("Arial", 1, 20));
             JLabel playerTwo = new JLabel(player2);
@@ -212,7 +200,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
             startButton.addActionListener(new StartTimerListener(logic));
             // frame.setContentPane(panel);
-            this.scoreboardFrame.add(this.timeField, BorderLayout.NORTH);
+            this.scoreboardFrame.add(panel, BorderLayout.NORTH);
             this.scoreboardFrame.add(startButton, BorderLayout.SOUTH);
             this.scoreboardFrame.add(playerOne, BorderLayout.WEST);
             this.scoreboardFrame.add(playerTwo, BorderLayout.EAST);
@@ -224,12 +212,12 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_newGameButtonActionPerformed
-/**
- * Method gets players scores as a String and tries to parse it as integer.
- * 
- * @param player1 Name of player1
- * @param player2 Name of player2
- */
+    /**
+     * Method gets players scores as a String and tries to parse it as integer.
+     *
+     * @param player1 Name of player1
+     * @param player2 Name of player2
+     */
     public void setResults(String player1, String player2) {
 
         int player1Scores = -1;
@@ -246,7 +234,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         if (player1Scores >= 0 && player2Scores >= 0) {
             this.logic.setScores(player1Scores, player2Scores);
         }
-        
+
         this.setVisible(true);
         this.scoreboardFrame.setVisible(false);
     }
@@ -284,26 +272,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPlayerButtonActionPerformed
 
         if (this.currentStandings != null) {
-//            JFrame frame = new JFrame("Add Player to standings");
-//            frame.setDefaultCloseOperation(HIDE_ON_CLOSE);
-//
-//            JPanel content = new JPanel();
-//
-//            content.setBorder(
-//                    BorderFactory.createEmptyBorder(5, 5, 5, 5));
-//            content.setLayout(new BorderLayout());
-//
-//            JTextField newPlayer = new JTextField();
-//            content.add(newPlayer, BorderLayout.NORTH);
-//
-//            JButton newPlayerButton = new JButton("Create Player");
-//            newPlayerButton.addActionListener(new AddPlayerListener(newPlayer, currentStandings));
-//            content.add(newPlayerButton, BorderLayout.SOUTH);
-//
-//            frame.setContentPane(content);
-//            frame.pack();
-//            frame.setLocationByPlatform(true);
-//            frame.setVisible(true);
+
             String newPlayer = (String) JOptionPane.showInputDialog("Add a new player to standings: \n ");
             this.currentStandings.addPlayer(newPlayer);
 

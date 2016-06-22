@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Class contains information about Player and his statistics.
+ * Class contains information about Player and it's statistics.
  *
  * @author janantik
  *
@@ -204,8 +204,8 @@ public class Player implements Comparable<Player>, Serializable {
     // *************************************************************************************
     /**
      * addScores adds player stats from a game, and handling the points. if the
-     * player scored more goals than his opponent it resulst a win, and it will
-     * add 3 points. if scored less then a loss count is increased and if the
+     * player scored more goals than it's opponent result is a win, and it will
+     * add 3 points. if scored less than it's opponent then a loss count is increased and if the
      * game is tie, one point is added.
      *
      * @param goalsFor goals that Player has scored

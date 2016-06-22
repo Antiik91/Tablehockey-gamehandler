@@ -40,7 +40,7 @@ public class Standings implements Serializable {
     }
 
     /**
-     * Method checks if Arralist is not empty before sorting it.
+     * Method sorts the standings in correct order and returns standings.
      *
      * @return Arraylist of standings
      */
@@ -60,16 +60,14 @@ public class Standings implements Serializable {
         if (name != null) {
             if (!standingsContainsPlayer(name)) {
                 this.standings.add(new Player(name));
-            }  //else {
-//                System.out.println("Player is in the standings already!");
-//            }
+            }  
         }
     }
 
     /**
      * Checks if the player is in the standings.
      *
-     * If it is, return Player by it's name.
+     * If it is, return found Player.
      *
      * else Add player to standings and check again.
      *

@@ -5,12 +5,10 @@
  */
 package fi.antiik.hockeygamehandler.gui;
 
-import fi.antiik.hockeygamehandler.logic.Logic;
 import fi.antiik.hockeygamehandler.logic.Updatable;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.Timer;
 
 /**
  * Listens actions fired from Swing Timer and use list of Updatable's to update

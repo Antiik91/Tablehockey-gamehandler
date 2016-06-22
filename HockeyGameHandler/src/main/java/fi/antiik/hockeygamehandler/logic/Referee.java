@@ -1,14 +1,10 @@
 package fi.antiik.hockeygamehandler.logic;
 
-import fi.antiik.hockeygamehandler.filehandler.DataStorage;
 import fi.antiik.hockeygamehandler.gui.GUI;
 import fi.antiik.hockeygamehandler.gui.TimerListener;
-import java.io.File;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.Timer;
 
 /**
@@ -39,7 +35,7 @@ public class Referee {
      * @param two Player two
      * @param standings Standings Where Players are competing
      * @param gui GUI to be sent in TimerListener
-     * @param logic to be sent int TimerListener
+     * @param logic to be sent in TimerListener
      */
     public Referee(Player one, Player two, Standings standings, GUI gui, Logic logic) {
         if (one.equals(two)) {
@@ -73,8 +69,8 @@ public class Referee {
     }
 
     /**
-     * Starts the game by playing countdown5.waw sound. After that it counts
-     * down first 5 seconds to begin the game. and then Starts timer which
+     * Starts the game by playing countdown5.waw sound and counting
+     * down first 5 seconds to begin the game. After that then Starts timer which
      * starts the game.
      */
     public void startGame() {
@@ -96,7 +92,7 @@ public class Referee {
     /**
      * Method counts down time in second using Thread.sleep().
      *
-     * Used to synchronize Countdown5.wav with real time before game begins
+     * Used to sync Countdown5.wav with real time before game begins
      *
      * @param timeInSeconds starting time in seconds.
      */
@@ -119,7 +115,7 @@ public class Referee {
     }
 
     /**
-     * After the countdown is complete results are to be handled.
+     * After the game is complete results are to be handled.
      *
      * Method checks the scores of player one and two and gives them to Player
      * addScores() method.

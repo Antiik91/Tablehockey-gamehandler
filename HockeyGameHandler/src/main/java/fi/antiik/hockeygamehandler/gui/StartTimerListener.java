@@ -29,6 +29,7 @@ public class StartTimerListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //param tells how many seconds the game lasts
         this.logic.startGame(10);
     }
 
