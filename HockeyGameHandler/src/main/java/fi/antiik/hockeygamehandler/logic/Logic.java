@@ -105,17 +105,25 @@ public class Logic implements Updatable {
         }
     }
 
+    public String getMusicLocation() {
+        String userDir = System.getProperties().getProperty("user.dir");
+
+        String musicFileLocation = userDir + "/music/";
+        return musicFileLocation;
+    }
+
     @Override
     public void update() {
+        String music = getMusicLocation();
         if (this.timeInSeconds == 1) {
-            this.referee.speak("src/music/endGame.wav");
+            this.referee.speak(music +"endGame.wav");
         }
 
         if (this.timeInSeconds == 0) {
             this.referee.stopTimer();
         }
         if (this.timeInSeconds == 60) {
-            this.referee.speak("src/music/Toy_Train_Whistle.wav");
+            this.referee.speak(music+"Toy_Train_Whistle.wav");
         }
         this.timeInSeconds--;
     }

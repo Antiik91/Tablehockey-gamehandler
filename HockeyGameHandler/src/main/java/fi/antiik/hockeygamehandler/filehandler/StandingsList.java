@@ -71,7 +71,6 @@ public class StandingsList {
         String userDir = System.getProperties().getProperty("user.dir");
         
         String standingsName = userDir + "/saved_files/";
-        System.out.println(standingsName + " MOIII");
         File folder = new File(standingsName);
         File[] filesList = folder.listFiles();
         ArrayList<File> files = new ArrayList<>();

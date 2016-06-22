@@ -28,7 +28,6 @@ public class Referee {
     private Player one;
     private Player two;
     private Standings standings;
-    private DataStorage storage;
     private GUI gui;
     private Logic logic;
     private Timer timer;
@@ -79,7 +78,10 @@ public class Referee {
      * starts the game.
      */
     public void startGame() {
-        speak("src/music/Countdown5.wav");
+        String userDir = System.getProperties().getProperty("user.dir");
+
+        String musicFileLocation = userDir + "/music/";
+        speak(musicFileLocation+"Countdown5.wav");
 
         countdown(5);
         ArrayList<Updatable> updatables = new ArrayList<>();
