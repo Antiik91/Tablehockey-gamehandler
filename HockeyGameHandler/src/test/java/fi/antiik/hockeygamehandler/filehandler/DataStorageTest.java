@@ -28,7 +28,7 @@ public class DataStorageTest {
         dataStore = new DataStorage();
 
     }
-//
+
 //    @Test
 //    public void dataStoreActuallyStoresData() {
 //        standing = new Standings("TestStanding");
@@ -36,7 +36,9 @@ public class DataStorageTest {
 //            standing.addPlayer("Player " + i);
 //        }
 //        dataStore.saveData(standing);
-//        File folder = new File("src/tmp");
+//        String usDir = System.getProperties().getProperty("user.dir");
+//        String standingsName = usDir + "/saved_files/";
+//        File folder = new File(standingsName);
 //        File[] filesList = folder.listFiles();
 //        ArrayList<File> files = new ArrayList<>();
 //

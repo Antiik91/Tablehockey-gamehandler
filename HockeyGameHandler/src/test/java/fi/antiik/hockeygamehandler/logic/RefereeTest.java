@@ -46,106 +46,106 @@ public class RefereeTest {
     public void tearDown() {
     }
 
-//    @Test
-//    public void playerOneScoresNegative() {
-//        referee.results(-2, 2);
-//        assertEquals(2, player1.getGoalsFor());
-//    }
-//
-//    @Test
-//    public void playerTwoScoresNegative() {
-//        int negativeGoals = -2;
-//        referee.results(2, negativeGoals);
-//        assertEquals(2, player2.getGoalsFor());
-//    }
-//
-//    public void hundredGames() {
-//        for (int i = 0; i < 100; i++) {
-//            referee.results(3, 2);
-//        }
-//    }
-//    
-//    @Test
-//    public void timerIsRunning(){
-//        this.referee.startGame();
-//        assertTrue(this.referee.getTimer().isRunning());
-//    }
-//
-//    @Test
-//    public void multipleGamesScoresCorrectPlayer1() {
-//        hundredGames();
-//        assertEquals(300, player1.getGoalsFor());
-//    }
-//
-//    @Test
-//    public void multipleGamesScoresCorrectPlayer2() {
-//        hundredGames();
-//        assertEquals(200, player2.getGoalsFor());
-//    }
-//
-//    @Test
-//    public void zeroScoresPlayer1() {
-//        int zeroGoals = 0;
-//        this.referee.results(zeroGoals, 2);
-//        assertEquals(zeroGoals, this.referee.getPlayerOne().getGoalsFor());
-//    }
-//
-//    @Test
-//    public void zeroScoresPlayer2() {
-//        int zeroGoals = 0;
-//        this.referee.results(2, zeroGoals);
-//        assertEquals(zeroGoals, this.referee.getPlayerTwo().getGoalsFor());
-//    }
-//
-//    @Test
-//    public void negativesP1() {
-//        this.referee.results(-2, 22);
-//        assertTrue(this.referee.getPlayerOne().getGoalsFor() == -2 * -1);
-//    }
-//
-//    @Test
-//    public void timeInSecondsCantBeNegative() {
-//        Throwable expectedException = null;
-//        try {
-//            referee.countdown(-44);
-//        } catch (Throwable exception) {
-//            expectedException = exception;
-//        }
-//        assertTrue(expectedException instanceof IllegalArgumentException);
-//    }
-//
-//    @Test
-//    public void timeInSecondsCantBeZero() {
-//        Throwable expectedException = null;
-//        try {
-//            this.referee.countdown(0);
-//        } catch (Throwable e) {
-//            expectedException = e;
-//        }
-//        assertTrue(expectedException instanceof IllegalArgumentException);
-//    }
-//
-//    @Test
-//    public void playersCantPlayAgainstItself() {
-//        Throwable exception = null;
-//        try {
-//            Referee testRef = new Referee(player1, player1, standing, gui, logic);
-//        } catch (Throwable ex) {
-//            exception = ex;
-//        }
-//        assertTrue(exception instanceof IllegalArgumentException);
-//    }
-//
-//    @Test
-//    public void correctPlayerOne() {
-//        String equals = "One 0 0 0 0 0 0 0 0";
-//        assertEquals(equals, referee.getPlayerOne().toString());
-//    }
-//
-//    @Test
-//    public void correctPlayerTwo() {
-//        String equals = "Two 0 0 0 0 0 0 0 0";
-//        assertEquals(equals, referee.getPlayerTwo().toString());
-//    }
-//
+    @Test
+    public void playerOneScoresNegative() {
+        referee.results(-2, 2);
+        assertEquals(2, player1.getGoalsFor());
+    }
+
+    @Test
+    public void playerTwoScoresNegative() {
+        int negativeGoals = -2;
+        referee.results(2, negativeGoals);
+        assertEquals(2, player2.getGoalsFor());
+    }
+
+    public void hundredGames() {
+        for (int i = 0; i < 100; i++) {
+            referee.results(3, 2);
+        }
+    }
+    
+    @Test
+    public void timerIsRunning(){
+        this.referee.startGame();
+        assertTrue(this.referee.getTimer().isRunning());
+    }
+
+    @Test
+    public void multipleGamesScoresCorrectPlayer1() {
+        hundredGames();
+        assertEquals(300, player1.getGoalsFor());
+    }
+
+    @Test
+    public void multipleGamesScoresCorrectPlayer2() {
+        hundredGames();
+        assertEquals(200, player2.getGoalsFor());
+    }
+
+    @Test
+    public void zeroScoresPlayer1() {
+        int zeroGoals = 0;
+        this.referee.results(zeroGoals, 2);
+        assertEquals(zeroGoals, this.referee.getPlayerOne().getGoalsFor());
+    }
+
+    @Test
+    public void zeroScoresPlayer2() {
+        int zeroGoals = 0;
+        this.referee.results(2, zeroGoals);
+        assertEquals(zeroGoals, this.referee.getPlayerTwo().getGoalsFor());
+    }
+
+    @Test
+    public void negativesP1() {
+        this.referee.results(-2, 22);
+        assertTrue(this.referee.getPlayerOne().getGoalsFor() == -2 * -1);
+    }
+
+    @Test
+    public void timeInSecondsCantBeNegative() {
+        Throwable expectedException = null;
+        try {
+            referee.countdown(-44);
+        } catch (Throwable exception) {
+            expectedException = exception;
+        }
+        assertTrue(expectedException instanceof IllegalArgumentException);
+    }
+
+    @Test
+    public void timeInSecondsCantBeZero() {
+        Throwable expectedException = null;
+        try {
+            this.referee.countdown(0);
+        } catch (Throwable e) {
+            expectedException = e;
+        }
+        assertTrue(expectedException instanceof IllegalArgumentException);
+    }
+
+    @Test
+    public void playersCantPlayAgainstItself() {
+        Throwable exception = null;
+        try {
+            Referee testRef = new Referee(player1, player1, standing, gui, logic);
+        } catch (Throwable ex) {
+            exception = ex;
+        }
+        assertTrue(exception instanceof IllegalArgumentException);
+    }
+
+    @Test
+    public void correctPlayerOne() {
+        String equals = "One 0 0 0 0 0 0 0 0";
+        assertEquals(equals, referee.getPlayerOne().toString());
+    }
+
+    @Test
+    public void correctPlayerTwo() {
+        String equals = "Two 0 0 0 0 0 0 0 0";
+        assertEquals(equals, referee.getPlayerTwo().toString());
+    }
+
 }

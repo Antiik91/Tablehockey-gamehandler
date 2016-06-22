@@ -68,9 +68,8 @@ public class StandingsList {
      * @return ArrayList of Files
      */
     public ArrayList<File> getFilesFromFolder() {
-        String userDir = System.getProperties().getProperty("user.dir");
-        
-        String standingsName = userDir + "/saved_files/";
+        String usDir = System.getProperties().getProperty("user.dir");
+        String standingsName = usDir + "/saved_files/";
         File folder = new File(standingsName);
         File[] filesList = folder.listFiles();
         ArrayList<File> files = new ArrayList<>();

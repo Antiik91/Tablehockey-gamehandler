@@ -49,7 +49,7 @@ public class Main {
 //        ui.menu();
 URL location = Main.class.getProtectionDomain().getCodeSource().getLocation();
         System.out.println(location.getFile());
-        String path = System.getProperties().getProperty("user.dir");
+        String path = System.getProperties().getProperty("java.class.path");
         File lol = new File(path + "/saved_files");
         for (String arg : lol.list()) {
             System.out.println(arg);
