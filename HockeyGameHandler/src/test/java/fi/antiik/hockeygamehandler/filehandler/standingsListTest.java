@@ -43,60 +43,60 @@ public class standingsListTest {
         }
         return testFiles;
     }
+//
+//    @Test
+//    public void listOfFilesWorks() {
+//        ArrayList<File> testFiles = getFiles("src/tmp");
+//        assertEquals(testFiles, list.getFilesFromFolder());
+//
+//    }
+//
+//    @Test
+//    public void searchStandingsWithNameReturnCorrectStandings() {
+//
+//        list.addStandings();
+//        Standings newStandings = list.searchStandingsWithName("Uusi");
+//        boolean isNull = false;
+//        if (newStandings == null) {
+//            isNull = true;
+//        }
+//
+//        assertFalse(isNull);
+//    }
+//
+//    @Test
+//    public void searchStandingWithNameReturnsNullWhenNotFound() {
+//        list.addStandings();
+//        Standings newStandings = list.searchStandingsWithName("THISXCANTBEEEHEEEREE");
+//        boolean isNull = false;
+//        if (newStandings == null) {
+//            isNull = true;
+//        }
+//        assertTrue(isNull);
+//    }
 
-    @Test
-    public void listOfFilesWorks() {
-        ArrayList<File> testFiles = getFiles("src/tmp");
-        assertEquals(testFiles, list.getFilesFromFolder());
-
-    }
-
-    @Test
-    public void searchStandingsWithNameReturnCorrectStandings() {
-
-        list.addStandings();
-        Standings newStandings = list.searchStandingsWithName("Uusi");
-        boolean isNull = false;
-        if (newStandings == null) {
-            isNull = true;
-        }
-
-        assertFalse(isNull);
-    }
-
-    @Test
-    public void searchStandingWithNameReturnsNullWhenNotFound() {
-        list.addStandings();
-        Standings newStandings = list.searchStandingsWithName("THISXCANTBEEEHEEEREE");
-        boolean isNull = false;
-        if (newStandings == null) {
-            isNull = true;
-        }
-        assertTrue(isNull);
-    }
-
-    @Test
-    public void standingsAreCorrect() {
-        ArrayList<File> files = getFiles("src/tmp");
-        ArrayList<Standings> compareList = new ArrayList<>();
-        for (File file : files) {
-            try {
-                FileInputStream fileIn = new FileInputStream(file);
-                ObjectInputStream in = new ObjectInputStream(fileIn);
-                Standings standings = (Standings) in.readObject();
-                compareList.add(standings);
-                in.close();
-                fileIn.close();
-            } catch (IOException i) {
-                i.printStackTrace();
-                return;
-            } catch (ClassNotFoundException c) {
-                System.out.println("Standings class not found");
-                c.printStackTrace();
-                return;
-            }
-        }
-        assertEquals(compareList.contains("TestStanding"), list.getStandings().contains("TestStanding"));
-    }
+//    @Test
+//    public void standingsAreCorrect() {
+//        ArrayList<File> files = getFiles("src/tmp");
+//        ArrayList<Standings> compareList = new ArrayList<>();
+//        for (File file : files) {
+//            try {
+//                FileInputStream fileIn = new FileInputStream(file);
+//                ObjectInputStream in = new ObjectInputStream(fileIn);
+//                Standings standings = (Standings) in.readObject();
+//                compareList.add(standings);
+//                in.close();
+//                fileIn.close();
+//            } catch (IOException i) {
+//                i.printStackTrace();
+//                return;
+//            } catch (ClassNotFoundException c) {
+//                System.out.println("Standings class not found");
+//                c.printStackTrace();
+//                return;
+//            }
+//        }
+//        assertEquals(compareList.contains("TestStanding"), list.getStandings().contains("TestStanding"));
+//    }
 
 }

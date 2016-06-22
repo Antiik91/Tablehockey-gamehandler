@@ -26,7 +26,8 @@ public class DataStorage implements Serializable {
         if (standings == null) {
             throw new IllegalArgumentException("Standings can't be null!");
         } else {
-            String standingsName = "./src/tmp/" + standings.getName() + ".ser";
+            String lol = System.getProperties().getProperty("user.dir");
+            String standingsName = lol + "/saved_files/" + standings.getName() + ".ser";
             try {
                 FileOutputStream standingsOut = new FileOutputStream(standingsName);
                 ObjectOutputStream out = new ObjectOutputStream(standingsOut);

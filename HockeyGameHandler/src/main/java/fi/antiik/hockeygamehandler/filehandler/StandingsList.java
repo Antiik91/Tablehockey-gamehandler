@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Class lists all available Standings from a folder to arrayList.
  *
- * 
+ *
  *
  *
  *
@@ -68,7 +68,11 @@ public class StandingsList {
      * @return ArrayList of Files
      */
     public ArrayList<File> getFilesFromFolder() {
-        File folder = new File("src/tmp");
+        String userDir = System.getProperties().getProperty("user.dir");
+        
+        String standingsName = userDir + "/saved_files/";
+        System.out.println(standingsName + " MOIII");
+        File folder = new File(standingsName);
         File[] filesList = folder.listFiles();
         ArrayList<File> files = new ArrayList<>();
 
