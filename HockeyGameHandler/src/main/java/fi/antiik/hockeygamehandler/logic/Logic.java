@@ -28,6 +28,12 @@ public class Logic implements Updatable {
      * @param gui GUI to send referee.
      */
     public Logic(String player1, String player2, Standings standings, GUI gui) {
+        if (player1 == null || player1.isEmpty()) {
+            player1 = "Player " + standings.getSize() + 1;
+        }
+        if (player2 == null || player2.isEmpty()) {
+            player2 = "Player " + standings.getSize() + 2;
+        }
         this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, gui, this);
 
     }
@@ -85,7 +91,6 @@ public class Logic implements Updatable {
         return this.timeInSeconds;
     }
 
-
     /**
      * Method check the scores are positive or zero and calls Referee's
      * Results(Player1Scores, Player2Scores) to set results for the players
@@ -99,10 +104,11 @@ public class Logic implements Updatable {
             this.referee.results(player1Scores, player2Scores);
         }
     }
-/**
- * 
- * @return location of music files
- */
+
+    /**
+     *
+     * @return location of music files
+     */
     public String getMusicLocation() {
         String userDir = System.getProperties().getProperty("user.dir");
 
@@ -114,14 +120,14 @@ public class Logic implements Updatable {
     public void update() {
         String music = getMusicLocation();
         if (this.timeInSeconds == 1) {
-            this.referee.speak(music +"endGame.wav");
+            this.referee.speak(music + "endGame.wav");
         }
 
         if (this.timeInSeconds == 0) {
             this.referee.stopTimer();
         }
         if (this.timeInSeconds == 60) {
-            this.referee.speak(music+"Toy_Train_Whistle.wav");
+            this.referee.speak(music + "Toy_Train_Whistle.wav");
         }
         this.timeInSeconds--;
     }

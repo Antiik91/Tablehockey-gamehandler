@@ -164,15 +164,16 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         if (this.currentStandings != null) {
             this.setVisible(false);
             String player1 = (String) JOptionPane.showInputDialog("Player 1: ");
-            if (player1 == null) {
-                player1 = "Player " + this.currentStandings.getSize() + 1;
-            }
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            if (player2 == null) {
-                player2 = "Player " + this.currentStandings.getSize() + 2;
+            
+            if(player1 == null || player2 == null) {
+                JOptionPane.showMessageDialog(null, "Aborting game...");
+                this.setVisible(true);
+                return;
             }
             if (player1.toLowerCase().trim().equals(player2.toLowerCase().trim())) {
                 JOptionPane.showMessageDialog(null, "Player can't play against itself!");
+                this.setVisible(true);
                 return;
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
