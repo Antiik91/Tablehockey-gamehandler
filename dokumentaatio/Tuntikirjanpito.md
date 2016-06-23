@@ -38,5 +38,14 @@ Päivä | Tunnit | Kuvaus
 15.6.2016| 4.5h | Scoreboardin valmistelu, hienosäätö.
 16.6.2016| 7h | Testejä.. Javadoccia.. Sekvenssikaavioita ja luokkakaavion säätöä. 
 
-... | ... | ...
+## Deadline 6
+Päivä | Tunnit | Kuvaus
+--------------- | ----- | ------
+17.6.2016 | 1h | Pientä hienosäätöä GUIhin
+20.6.2016 | 1h | Virheenkorjauksia ja bugienhallintaa
+21.6.2016 |3.5h | Jarin kanssa tappelua.
+22.6.2016 | 5h | Jarin kanssa tappelua, yleistä korjailua
+23.6.2016 | 6h | Virheidenkorjauksia ja hienosäätöä. Dokumentointia. Loppulliseen palautukseen valmistautumista
+
+
 
