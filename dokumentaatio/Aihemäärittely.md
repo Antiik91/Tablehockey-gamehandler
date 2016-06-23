@@ -23,7 +23,7 @@ sarjataulukoihin, joista pelaajien välisiä turnauksia on helppo seurata ja yll
 
 
 ###Luokkakaavio
-![Määrittelyvaiheenluokkakaavio](	http://yuml.me/de14deda)
+![Määrittelyvaiheenluokkakaavio](http://yuml.me/6caf1ddd)
 
 
 ###Sekvenssikaaviot
