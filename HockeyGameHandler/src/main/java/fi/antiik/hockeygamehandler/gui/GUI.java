@@ -207,11 +207,14 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             this.scoreboardFrame.pack();
             this.scoreboardFrame.setLocationByPlatform(true);
             this.scoreboardFrame.setVisible(true);
+            
 
         } else {
             JOptionPane.showMessageDialog(null, "Please select a standings first");
         }
     }//GEN-LAST:event_newGameButtonActionPerformed
+   
+    
     /**
      * Method gets players scores as a String and tries to parse it as integer.
      *
