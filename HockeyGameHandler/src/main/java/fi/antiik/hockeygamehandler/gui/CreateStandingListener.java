@@ -49,7 +49,7 @@ public class CreateStandingListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (this.source.getText().isEmpty() || this.source.getText().equals("")) {
+        if (this.source.getText().trim().length() == 0 || this.source.getText().equals("")) {
             this.standings = new Standings("Unnamed Standings");
             this.target.setText("Unnamed Standings");
         } else {

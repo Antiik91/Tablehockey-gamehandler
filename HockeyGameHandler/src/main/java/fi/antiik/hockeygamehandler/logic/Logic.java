@@ -28,10 +28,10 @@ public class Logic implements Updatable {
      * @param gui GUI to send referee.
      */
     public Logic(String player1, String player2, Standings standings, GUI gui) {
-        if (player1 == null || player1.isEmpty()) {
+        if (player1 == null || player1.trim().length() == 0) {
             player1 = "Player " + standings.getSize() + 1;
         }
-        if (player2 == null || player2.isEmpty()) {
+        if (player2 == null || player2.trim().length() == 0) {
             player2 = "Player " + standings.getSize() + 2;
         }
         this.referee = new Referee(standings.getPlayer(player1), standings.getPlayer(player2), standings, gui, this);

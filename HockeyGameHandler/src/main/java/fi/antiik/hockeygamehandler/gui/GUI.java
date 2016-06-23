@@ -165,8 +165,8 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             this.setVisible(false);
             String player1 = (String) JOptionPane.showInputDialog("Player 1: ");
             String player2 = (String) JOptionPane.showInputDialog("Player 2: ");
-            
-            if(player1 == null || player2 == null) {
+
+            if (player1 == null || player2 == null) {
                 JOptionPane.showMessageDialog(null, "Aborting game...");
                 this.setVisible(true);
                 return;
@@ -200,7 +200,6 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             JButton startButton = new JButton("Start");
 
             startButton.addActionListener(new StartTimerListener(logic));
-            // frame.setContentPane(panel);
             this.scoreboardFrame.add(panel, BorderLayout.NORTH);
             this.scoreboardFrame.add(startButton, BorderLayout.SOUTH);
             this.scoreboardFrame.add(playerOne, BorderLayout.WEST);
