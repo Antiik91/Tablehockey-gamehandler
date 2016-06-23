@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="selecStandingsButton" max="32767" attributes="0"/>
+                  <Component id="selectStandingsButton" max="32767" attributes="0"/>
                   <Component id="addPlayerButton" alignment="1" max="32767" attributes="0"/>
                   <Component id="newGameButton" alignment="1" max="32767" attributes="0"/>
                   <Component id="saveStandingsButton" alignment="1" max="32767" attributes="0"/>
@@ -47,7 +47,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="currentStandingTextField" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="21" max="32767" attributes="0"/>
-              <Component id="selecStandingsButton" min="-2" max="-2" attributes="0"/>
+              <Component id="selectStandingsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="addPlayerButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -64,12 +64,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="selecStandingsButton">
+    <Component class="javax.swing.JButton" name="selectStandingsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Select Standings"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecStandingsButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectStandingsButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addPlayerButton">

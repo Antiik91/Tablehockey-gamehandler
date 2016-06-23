@@ -58,7 +58,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        selecStandingsButton = new javax.swing.JButton();
+        selectStandingsButton = new javax.swing.JButton();
         addPlayerButton = new javax.swing.JButton();
         newGameButton = new javax.swing.JButton();
         saveStandingsButton = new javax.swing.JButton();
@@ -69,10 +69,10 @@ public class GUI extends javax.swing.JFrame implements Updatable {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        selecStandingsButton.setText("Select Standings");
-        selecStandingsButton.addActionListener(new java.awt.event.ActionListener() {
+        selectStandingsButton.setText("Select Standings");
+        selectStandingsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selecStandingsButtonActionPerformed(evt);
+                selectStandingsButtonActionPerformed(evt);
             }
         });
 
@@ -125,7 +125,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(selecStandingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(selectStandingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addPlayerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(newGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(saveStandingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -143,7 +143,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(currentStandingTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(selecStandingsButton)
+                .addComponent(selectStandingsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addPlayerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,7 +177,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
                 return;
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
-            this.scoreboardFrame = new JFrame("New Game");
+            this.scoreboardFrame = new JFrame("                           New Game");
             this.scoreboardFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
             this.scoreboardFrame.setPreferredSize(new Dimension(800, 400));
 
@@ -248,7 +248,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     public void updateCurrentStandings() {
         currentStandingTextField.setText(this.currentStandings.getName());
     }
-    private void selecStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecStandingsButtonActionPerformed
+    private void selectStandingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStandingsButtonActionPerformed
 
         JFrame frame = new JFrame("Select standings");
 
@@ -266,7 +266,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
         frame.setVisible(true);
 
 
-    };//GEN-LAST:event_selecStandingsButtonActionPerformed
+    };//GEN-LAST:event_selectStandingsButtonActionPerformed
 
     private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         System.exit(0);
@@ -380,7 +380,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     private javax.swing.JButton newGameButton;
     private javax.swing.JButton quitButton;
     private javax.swing.JButton saveStandingsButton;
-    private javax.swing.JButton selecStandingsButton;
+    private javax.swing.JButton selectStandingsButton;
     private javax.swing.JButton showStandingsButton;
     // End of variables declaration//GEN-END:variables
 
@@ -393,7 +393,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             String player2 = this.logic.getReferee().getPlayerTwo().getName();
             setResults(player1, player2);
         } else {
-            this.timeField.setText("                                    " + this.logic.getTimeinSeconds() / 60 + " : " + this.logic.getTimeinSeconds() % 60);
+            this.timeField.setText("                           " + this.logic.getTimeinSeconds() / 60 + " : " + this.logic.getTimeinSeconds() % 60);
         }
     }
 }
