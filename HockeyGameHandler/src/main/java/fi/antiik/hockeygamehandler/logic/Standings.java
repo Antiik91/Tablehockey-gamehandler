@@ -57,7 +57,7 @@ public class Standings implements Serializable {
      * @param name name of the player to be added (user input)
      */
     public void addPlayer(String name) {
-        if (name != null) {
+        if (name != null&& name.trim().length() > 0) {
             if (!standingsContainsPlayer(name)) {
                 this.standings.add(new Player(name));
             }  
