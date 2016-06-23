@@ -50,7 +50,6 @@ public class DataStorageTest {
 //        File testFile = new File("src\\tmp\\" + standing.getName() + ".ser");
 //        assertTrue(files.contains(testFile));
 //    }
-
     @Test
     public void nullTest() {
         Standings nullS = new Standings(null);

@@ -37,7 +37,7 @@ public class TimerListener implements ActionListener {
         if (!this.updatables.isEmpty()) {
             for (Updatable updatableClass : this.updatables) {
                 updatableClass.update();
-                
+
             }
         }
 

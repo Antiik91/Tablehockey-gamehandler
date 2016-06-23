@@ -1,6 +1,4 @@
-
 package fi.antiik.hockeygamehandler.main;
-
 
 /**
  *

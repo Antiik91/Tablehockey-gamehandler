@@ -56,7 +56,7 @@ public class CreateStandingListener implements ActionListener {
             this.standings = new Standings(this.source.getText());
             this.target.setText(this.source.getText());
         }
-        
+
         this.gui.setCurrentStandings(this.standings);
     }
 

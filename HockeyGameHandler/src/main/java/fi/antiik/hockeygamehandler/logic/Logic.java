@@ -108,7 +108,8 @@ public class Logic implements Updatable {
     }
 
     /**
-     *
+     * returns location of the music files.
+     * 
      * @return location of music files
      */
     public String getMusicLocation() {

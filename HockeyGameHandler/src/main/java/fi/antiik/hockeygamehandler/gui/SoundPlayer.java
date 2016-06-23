@@ -1,4 +1,3 @@
-
 package fi.antiik.hockeygamehandler.gui;
 
 import java.io.File;

@@ -1,4 +1,3 @@
-
 package fi.antiik.hockeygamehandler.filehandler;
 
 import fi.antiik.hockeygamehandler.logic.Standings;

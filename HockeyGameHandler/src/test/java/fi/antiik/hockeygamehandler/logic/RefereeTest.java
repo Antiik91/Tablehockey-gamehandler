@@ -64,9 +64,9 @@ public class RefereeTest {
             referee.results(3, 2);
         }
     }
-    
+
     @Test
-    public void timerIsRunning(){
+    public void timerIsRunning() {
         this.referee.startGame();
         assertTrue(this.referee.getTimer().isRunning());
     }
