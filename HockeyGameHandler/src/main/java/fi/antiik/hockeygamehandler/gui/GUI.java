@@ -178,7 +178,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
             this.scoreboardFrame = new JFrame("                           New Game");
-            this.scoreboardFrame.setDefaultCloseOperation(HIDE_ON_CLOSE);
+            this.scoreboardFrame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.scoreboardFrame.setPreferredSize(new Dimension(800, 400));
 
             JPanel panel = new JPanel();
