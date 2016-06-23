@@ -5,7 +5,7 @@ games and handles the functions that any succesfull tablehockey game needs: the 
 ## Dokumentaatio
 Documentation in Finnish.
 
-[aiheen kuvaus](dokumentaatio/Aihemäärittely.md)
+[aiheen kuvaus ja rakenne](https://github.com/Antiik91/Tablehockey-gamehandler/blob/master/dokumentaatio/Ohjelman%20rakenne%20ja%20Aihem%C3%A4%C3%A4rittely.md)
 
 [tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
 
