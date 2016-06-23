@@ -65,9 +65,11 @@ public class Logic implements Updatable {
      * @param timeInSeconds time in second to be set
      */
     public void startGame(int timeInSeconds) {
-        if (timeInSeconds > 0) {
-            this.timeInSeconds = timeInSeconds;
-            this.referee.startGame();
+        if (this.referee.getTimer().isRunning() == false) {
+            if (timeInSeconds > 0) {
+                this.timeInSeconds = timeInSeconds;
+                this.referee.startGame();
+            }
         }
     }
 

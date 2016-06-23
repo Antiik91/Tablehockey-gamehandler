@@ -177,7 +177,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
                 return;
             }
             this.logic = new Logic(player1, player2, this.currentStandings, this);
-            this.scoreboardFrame = new JFrame("                           New Game");
+            this.scoreboardFrame = new JFrame("New Game");
             this.scoreboardFrame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.scoreboardFrame.setPreferredSize(new Dimension(800, 400));
 
@@ -185,7 +185,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
             panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             panel.setLayout(new BorderLayout());
 
-            this.timeField = new JLabel("GET READY");
+            this.timeField = new JLabel("                           GET READY");
             this.timeField.setMinimumSize(new Dimension(100, 100));
             this.timeField.setPreferredSize(new Dimension(100, 100));
             this.timeField.setForeground(Color.RED);
@@ -388,7 +388,7 @@ public class GUI extends javax.swing.JFrame implements Updatable {
     public void update() {
 
         if (this.logic.getTimeinSeconds() == 0) {
-            this.timeField.setText("                                     0:0");
+            this.timeField.setText("                           0:0");
             String player1 = this.logic.getReferee().getPlayerOne().getName();
             String player2 = this.logic.getReferee().getPlayerTwo().getName();
             setResults(player1, player2);

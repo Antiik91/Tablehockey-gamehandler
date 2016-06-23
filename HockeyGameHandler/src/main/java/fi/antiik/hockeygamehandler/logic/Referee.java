@@ -1,5 +1,6 @@
 package fi.antiik.hockeygamehandler.logic;
 
+import fi.antiik.hockeygamehandler.gui.SoundPlayer;
 import fi.antiik.hockeygamehandler.gui.GUI;
 import fi.antiik.hockeygamehandler.gui.TimerListener;
 import java.util.*;
@@ -8,8 +9,8 @@ import java.util.logging.Logger;
 import javax.swing.Timer;
 
 /**
- * Class handles the Countdown of gametime and playing sound effects needed in
- * the game.
+ * Class handles the Countdown before the game starts and playing sound effects
+ * needed in the game.
  *
  * @author janantik
  *
@@ -42,12 +43,18 @@ public class Referee {
             throw new IllegalArgumentException("You can't play against yourself! " + one.getName() + " " + two.getName());
 
         }
-
         this.one = one;
         this.two = two;
         this.standings = standings;
         this.gui = gui;
         this.logic = logic;
+        ArrayList<Updatable> updatables = new ArrayList<>();
+        updatables.add(this.logic);
+        updatables.add(this.gui);
+
+        this.timer = new Timer(1000, new TimerListener(updatables));
+        timer.setInitialDelay(1000);
+
     }
 
     /**
@@ -69,23 +76,18 @@ public class Referee {
     }
 
     /**
-     * Starts the game by playing countdown5.waw sound and counting
-     * down first 5 seconds to begin the game. After that then Starts timer which
-     * starts the game.
+     * Starts the game by playing countdown5.waw sound and counting down first 5
+     * seconds to begin the game. After that then Starts timer which starts the
+     * game.
      */
     public void startGame() {
         String userDir = System.getProperties().getProperty("user.dir");
 
         String musicFileLocation = userDir + "/music/";
-        speak(musicFileLocation+"Countdown5.wav");
+        speak(musicFileLocation + "Countdown5.wav");
 
         countdown(5);
-        ArrayList<Updatable> updatables = new ArrayList<>();
-        updatables.add(this.logic);
-        updatables.add(this.gui);
 
-        this.timer = new Timer(1000, new TimerListener(updatables));
-        timer.setInitialDelay(1000);
         timer.start();
     }
 

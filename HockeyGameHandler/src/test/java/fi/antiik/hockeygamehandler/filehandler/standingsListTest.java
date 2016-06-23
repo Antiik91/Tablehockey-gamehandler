@@ -57,7 +57,7 @@ public class standingsListTest {
     public void searchStandingsWithNameReturnCorrectStandings() {
 
         list.addStandings();
-        Standings newStandings = list.searchStandingsWithName("Uusi");
+        Standings newStandings = list.searchStandingsWithName("TestStanding");
         boolean isNull = false;
         if (newStandings == null) {
             isNull = true;

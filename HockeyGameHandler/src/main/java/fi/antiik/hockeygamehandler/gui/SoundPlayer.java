@@ -1,5 +1,5 @@
 
-package fi.antiik.hockeygamehandler.logic;
+package fi.antiik.hockeygamehandler.gui;
 
 import java.io.File;
 import javax.sound.sampled.AudioSystem;
